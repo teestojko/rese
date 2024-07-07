@@ -14,11 +14,9 @@ class FavoriteController extends Controller
     public function toggleFavorite(Shop $shop)
     {
         $user = auth()->user();
-
         if (!$user) {
             return redirect()->back()->with('error', 'You must be logged in to add to favorites.');
         }
-
         if ($user->favoriteShops->contains($shop)) {
             $user->favoriteShops()->detach($shop);
             return redirect()->back()->with('success', 'Shop removed from favorites.');
@@ -27,18 +25,4 @@ class FavoriteController extends Controller
             return redirect()->back()->with('success', 'Shop added to favorites.');
         }
     }
-
-    // public function store(Request $request)
-    // {
-    //     $shop = Shop::find($request->shop_id);
-    //     $user = auth()->user();
-
-    //     if ($shop && $user) {
-    //         $user->favoriteShops()->syncWithoutDetaching([$shop->id]);
-
-    //         return redirect()->back()->with('success', 'Shop added to favorites!');
-    //     }
-
-    //     return redirect()->back()->with('error', 'Failed to add shop to favorites.');
-    // }
 }

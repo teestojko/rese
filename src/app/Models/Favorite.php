@@ -10,8 +10,16 @@ class Favorite extends Model
     use HasFactory;
 
     protected $guarded = [
-        'id', 'user_id',
+        'id',
     ];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function shop()
+    {
+        return $this->belongsTo(Shop::class);
+    }
 }

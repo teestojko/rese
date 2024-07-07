@@ -22,13 +22,6 @@
                                 {{ $shop->genre }}
                             </p>
                             <p>
-                                {{-- <i class="fas fa-heart" style="color: red;"></i> --}}
-
-                                {{-- < action="{{ route('favorites.store') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="shop_id" value="{{ $shop->id }}">
-                                <input type="submit" value="❤" class="fas fa-heart" style="color: red; background: none; border: none; font-size: 24px;"> --}}
-
                                 <form action="{{ route('favorites.toggle', ['shop' => $shop->id]) }}" method="POST">
                                 @csrf
                                     @if ($shop->isFavorited())

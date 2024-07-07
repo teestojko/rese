@@ -17,10 +17,6 @@ use App\Http\Controllers\FavoriteController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/', [AuthController::class, 'index']);
 Route::middleware('auth')->group(function () {
     Route::get('/email/verify', function () {
         return view('auth.verify-email');
@@ -44,6 +40,4 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle');
 
-
-    // Route::post('/favorites', [FavoriteController::class, 'store'])->name('favorites.store');
 });
