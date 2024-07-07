@@ -22,7 +22,7 @@ use App\Http\Controllers\FavoriteController;
 // });
 // Route::get('/', [AuthController::class, 'index']);
 Route::middleware('auth')->group(function () {
-        Route::get('/email/verify', function () {
+    Route::get('/email/verify', function () {
         return view('auth.verify-email');
     })->middleware('auth')->name('verification.notice');
 
@@ -38,7 +38,12 @@ Route::middleware('auth')->group(function () {
         return back()->with('message', 'Verification link sent!');
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-        Route::get('/', [AuthController::class, 'index'])->middleware('verified');
+    Route::get('/', [AuthController::class, 'index'])->middleware('verified');
 
-        Route::post('/favorites', [FavoriteController::class, 'store'])->name('favorites.store');
+    Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle');
+
+    Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle');
+
+
+    // Route::post('/favorites', [FavoriteController::class, 'store'])->name('favorites.store');
 });

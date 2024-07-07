@@ -28,3 +28,14 @@ img{
 .shop_content{
     display: flex;
 }
+
+.submit{
+    color: red;
+    background: none;
+    border: none;
+}
+
+.submit2{
+    background: none;
+    border: none;
+}

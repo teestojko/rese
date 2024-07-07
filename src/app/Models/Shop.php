@@ -18,9 +18,14 @@ class Shop extends Model
     //     return $this->belongsTo(User::class);
     // }
 
-    public function favoriteByUsers()
+    public function favoritedByUsers()
     {
         return $this->belongsToMany(User::class, 'favorites', 'shop_id', 'user_id')
                     ->withTimestamps();
+    }
+
+    public function isFavorited()
+    {
+        return $this->favoritedByUsers()->where('user_id', auth()->id())->exists();
     }
 }
