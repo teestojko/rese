@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Providers\RouteServiceProvider;
+use App\Http\Controllers\FavoriteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,4 +39,6 @@ Route::middleware('auth')->group(function () {
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
         Route::get('/', [AuthController::class, 'index'])->middleware('verified');
+
+        Route::post('/favorites', [FavoriteController::class, 'store'])->name('favorites.store');
 });
