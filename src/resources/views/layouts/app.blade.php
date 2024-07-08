@@ -15,9 +15,9 @@
     <header class="header">
     <div class="header__inner">
         <div class="header-utilities">
-            <a class="header__logo" href="/">
+            <div class="header__logo" href="/">
                 Rese
-            </a>
+            </div>
             <form class="form" action="/logout" method="post">
             @csrf
                 <button class="header-nav__button">
