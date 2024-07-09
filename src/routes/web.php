@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ShopController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,8 +37,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [AuthController::class, 'index'])->middleware('verified');
 
-    Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle');
+    Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
 
-    Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle');
+    Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
 
+    Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 });
