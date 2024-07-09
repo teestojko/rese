@@ -13,5 +13,8 @@
             <p><span>#</span> {{ $shop->genre }}</p>
             <p> {{ $shop->detail }}</p>
         </div>
+        <p class="shop_purchase">
+            <a href="{{ route('payment.show') }}" class="btn btn-success">カード決済</a>
+        </p>
     </div>
 @endsection
