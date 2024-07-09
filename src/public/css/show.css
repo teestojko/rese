@@ -1,17 +1,91 @@
 .shop_all{
     display: flex;
+    position: relative;
 }
 
 .shop_detail_page{
     width: 40%;
-    margin: 5%;
+    height: 80vh;
+    margin: 2% 5%;
 }
 
 img{
-    width: 100git%;
+    width: 100%;
+    height: 58%;
 }
 
+.show_prefecture_genre{
+    display: flex;
+    margin-top: 3%;
+}
+
+.show_prefecture{
+    display: flex;
+}
+
+.show_genre{
+    display: flex;
+    padding-left: 2%;
+}
+
+
+/* 予約画面移動 */
 .reservation_form{
+    background-color: rgb(26, 82, 250);
+    position: absolute;
+    border-radius: 5px;
 
+    width: 40%;
+    height: 98%;
+    top: -5%;
+    right: 8%;
 }
+
+h3{
+    line-height: 0.8;
+    margin-left: 4%;
+    color: aliceblue;
+    font-size: 1.4rem;
+}
+
+.form-group{
+    padding-bottom: 1.5%;
+}
+
+.form-group2{
+    padding-bottom: 1.5%;
+    width: 100%;
+}
+
+.reservation_time{
+    width: 100%;
+}
+
+.input_form{
+    margin-left: 4%;
+}
+
+.input{
+    height: 27px;
+    border: none;
+    border-radius: 5px;
+}
+
+.input2{
+    width: 90%;
+    height: 27px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-primary{
+    position: absolute;
+    color: aliceblue;
+    bottom: 0;
+    width: 100%;
+    line-height: 4;
+    background-color: rgb(28, 47, 255);
+    border: none;
+}
+
 

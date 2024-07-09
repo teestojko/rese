@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ReservationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,4 +47,5 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 
+    Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 });
