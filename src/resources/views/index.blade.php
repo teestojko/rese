@@ -45,8 +45,11 @@
                                     <button type="submit" class="submit2">
                                         <i class="far fa-heart" style="color: #c7c7c7;; background: none; border: none; font-size: 24px;"></i>
                                     </button>
-                                    @endif
-                                </form>
+                                @endif
+                            </form>
+                           <p class="shop_purchase">
+                            <a href="{{ route('payment.show') }}" class="btn btn-success">購入する</a>
+                            </p>
                         </div>
                 </div>
             </div>

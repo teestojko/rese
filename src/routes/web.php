@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,9 +38,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [AuthController::class, 'index'])->middleware('verified');
 
+    Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
+
     Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
 
     Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
 
     Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
+
 });
