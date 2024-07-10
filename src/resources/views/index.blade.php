@@ -11,7 +11,7 @@
     <div class="shop_list">
         @foreach($shops as $shop)
             <div class="shop_item">
-                <img src="{{ asset($shop->image_path) }}" alt="{{ $shop->name }}">
+                <img class="shop_img" src="{{ asset($shop->image_path) }}" alt="{{ $shop->name }}">
                 <div class="shop_detail">
                     <div class="shop_name">
                         {{ $shop->name }}
@@ -32,9 +32,9 @@
                         </div>
                         <div class="shop_primary_favorite">
                             <p class="shop_primary">
-                                <a href="{{ route('shops.show', ['shop' => $shop->id]) }}" class="btn btn-primary">詳しく見る</a>
+                                <a href="{{ route('shops.show', ['shop' => $shop->id]) }}" class="btn-primary">詳しく見る</a>
                             </p>
-                            <form action="{{ $shop->isFavorited() ? route('favorites.toggle.remove', ['shop' => $shop->id]) : route('favorites.toggle.add', ['shop' => $shop->id]) }}" method="POST">
+                            <form class="shop_form" action="{{ $shop->isFavorited() ? route('favorites.toggle.remove', ['shop' => $shop->id]) : route('favorites.toggle.add', ['shop' => $shop->id]) }}" method="POST">
                             @csrf
                                 @if ($shop->isFavorited())
                                     @method('DELETE')

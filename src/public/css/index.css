@@ -2,20 +2,39 @@
     display: flex;
     flex-wrap: wrap;
     padding: 2% 5%;
+    width: 100vw;
 }
 
 .shop_item{
     box-sizing: border-box;
     border: 1px solid #ddd;
     height: 25%;
-    width: 23%;
+    width: 22%;
     margin: 10px 10px;
     border-radius: 5px;
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
     padding-bottom: 1%;
 }
 
-img{
+@media screen and (max-width: 1024px) {
+    .shop_item {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .shop_item {
+        width: 44%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .shop_item {
+        width: 93%;
+    }
+}
+
+.shop_img{
     height: 20vh;
     width: 100%;
     border-radius: 5px 5px 0 0;
@@ -55,7 +74,7 @@ img{
     flex: 1;
 }
 
-a{
+.btn-primary{
     padding: 4% 7%;
     color: #ffffff;
     background-color: #0158f7;
@@ -63,7 +82,7 @@ a{
     border-radius: 8px;
 
 }
-form{
+.shop_form{
     display: flex;
 }
 
