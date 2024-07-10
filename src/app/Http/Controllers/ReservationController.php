@@ -17,7 +17,7 @@ class ReservationController extends Controller
         ]);
 
         Reservation::create($request->all());
-
-        return redirect()->back()->with('success', '予約が完了しました。');
+        
+        return view('payment.payment');
     }
 }
