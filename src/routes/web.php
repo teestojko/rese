@@ -19,6 +19,7 @@ use App\Http\Controllers\ReservationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [AuthController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/email/verify', function () {
@@ -36,8 +37,6 @@ Route::middleware('auth')->group(function () {
 
         return back()->with('message', 'Verification link sent!');
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-
-    Route::get('/', [AuthController::class, 'index'])->middleware('verified');
 
     Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
 
