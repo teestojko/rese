@@ -20,6 +20,7 @@ use App\Http\Controllers\ReservationController;
 |
 */
 Route::get('/', [AuthController::class, 'index']);
+Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/email/verify', function () {
@@ -45,8 +46,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
 
     Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
-
-    Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 
     Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 });

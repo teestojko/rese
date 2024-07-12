@@ -15,6 +15,14 @@
     <header class="header">
     <div class="header__inner">
         <div class="header-utilities">
+            <div class="hamburger">
+                <div class="hamburger-menu">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+            {{-- <i class="fa-solid fa-square-poll-vertical fa-rotate-90" style="color: blue; font-size:50px; "></i> --}}
             <div class="header__logo" href="/">
                 Rese
             </div>
