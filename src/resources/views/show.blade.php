@@ -1,3 +1,6 @@
+@php
+    $today = now()->format('Y-m-d');
+@endphp
 @extends('layouts.app')
 
 @section('css')
@@ -30,9 +33,6 @@
                         {{ $shop->detail }}
                     </p>
             </div>
-            <p class="shop_purchase">
-                <a href="{{ route('payment.show') }}" class="btn btn-success">カード決済</a>
-            </p>
         </div>
         <div class="reservation_form">
             <h3>
@@ -45,17 +45,33 @@
                     <div class="form-group">
                         <label for="reservation_date">
                         </label>
-                        <input class="input" type="date" id="reservation_date" name="reservation_date" class="form-control" required>
+                        <input class="input" type="date" id="reservation_date" name="reservation_date" class="form-control" required min="{{ $today }}">
                     </div>
                     <div class="form-group">
                         <label for="reservation_time">
                         </label>
-                        <input class="input2" type="time" id="reservation_time" name="reservation_time" class="form-control" required>
+                        <input class="input2" type="time" id="reservation_time" name="reservation_time" class="form-control" list="12time" required>
+                        <datalist id="12time">
+                        <option value="17:00"></option>
+                        <option value="17:30"></option>
+                        <option value="18:00"></option>
+                        <option value="18:30"></option>
+                        <option value="19:00"></option>
+                        <option value="19:30"></option>
+                        <option value="20:00"></option>
+                        <option value="20:30"></option>
+                        <option value="21:00"></option>
+                        <option value="21:30"></option>
+                        <option value="22:00"></option>
+                        <option value="22:30"></option>
+                        <option value="23:00"></option>
+                        <option value="23:30"></option>
+                        </datalist>
                     </div>
                     <div class="form-group">
                         <label for="number_of_people">
                         </label>
-                        <input class="input2" type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" required>
+                        <input class="input3" type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" required>
                     </div>
                 </div>
                 <button type="submit" class="btn-primary">

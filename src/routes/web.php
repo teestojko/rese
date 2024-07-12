@@ -41,6 +41,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
 
+    Route::post('/payment', [PaymentController::class, 'payment'])->name('payment.process');
+
     Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
 
     Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');

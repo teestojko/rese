@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\PaymentIntent;
+use Stripe\Customer;
+use Stripe\Charge;
 use App\Models\Shop;
 
 class PaymentController extends Controller
@@ -39,7 +41,7 @@ class PaymentController extends Controller
             dump($charge->source->last4);
             dump($charge->source->exp_month);
             dump($charge->source->exp_year);
-            
+
             return "COMPLETE";
         }catch(Exception $e){
             return $e->getMessage();
