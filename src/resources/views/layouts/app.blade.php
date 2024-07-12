@@ -22,7 +22,6 @@
                     <div class="line3"></div>
                 </div>
             </div>
-            {{-- <i class="fa-solid fa-square-poll-vertical fa-rotate-90" style="color: blue; font-size:50px; "></i> --}}
             <div class="header__logo" href="/">
                 Rese
             </div>
