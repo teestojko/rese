@@ -21,13 +21,13 @@
                             <span>
                                 #
                             </span>
-                                {{ $shop->prefecture }}
+                                {{ $shop->prefecture->name }}
                             </p >
                             <p class="shop_genre">
                             <span>
                                 #
                             </span>
-                                {{ $shop->genre }}
+                                {{ $shop->genre->name }}
                             </p>
                         </div>
                         <div class="shop_primary_favorite">

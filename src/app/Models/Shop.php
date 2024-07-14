@@ -22,4 +22,14 @@ class Shop extends Model
     {
         return $this->favoritedByUsers()->where('user_id', auth()->id())->exists();
     }
+
+    public function prefecture()
+    {
+        return $this->belongsTo(Prefecture::class);
+    }
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
 }
