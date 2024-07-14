@@ -23,9 +23,20 @@ Route::get('/', [AuthController::class, 'index']);
 Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/email/verify', function () {
+    // Route::get('/email/verify', function () {
+    //     return view('auth.verify-email');
+    // })->name('verification.notice');
+
+    Route::get('/mypage', function () {
+        return view('mypage');
+    })->name('mypage');
+
+    Route::get('/email/verify', function (Request $request) {
+        if ($request->user()->hasVerifiedEmail()) {
+            return redirect()->route('mypage');
+        }
         return view('auth.verify-email');
-    })->middleware('auth')->name('verification.notice');
+    })->name('verification.notice');
 
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();

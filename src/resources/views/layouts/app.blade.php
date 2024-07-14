@@ -32,11 +32,37 @@
                 </button>
             </form>
         </div>
+        <nav class="nav" id="nav">
+            <ul class="nav_ul">
+                @if(Auth::check())
+                    <li class="nav_list"><a href="/">Home</a></li>
+                    <li class="nav_list">
+                <form class="form" action="/logout" method="post">
+                @csrf
+                    <button type="submit" class="nav_button">
+                        Logout
+                    </button>
+                </form>
+                    <li class="nav_list"><a href="/mypage">Mypage</a></li>
+                @else
+                    <li class="nav_list"><a href="/">Home</a></li>
+                    <li class="nav_list"><a href="/register">Registration</a></li>
+                    <li class="nav_list"><a href="/login">Login</a></li>
+                @endif
+            </ul>
+        </nav>
     </div>
     </header>
-    <main>
+    <main class="main">
         @yield('content')
     </main>
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function () {
+            var nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+            document.querySelector('main').classList.toggle('dimmed');
+            });
+    </script>
 </body>
 
 </html>
