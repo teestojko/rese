@@ -1,0 +1,144 @@
+
+
+.mypage_top{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2% 5%;
+    width: 100vw;
+    height: 89vh;
+    background: rgb(248, 248, 248);
+}
+
+.user_name{
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    font-family: system-ui;
+    font-weight: bold;
+    font-size: 25px;
+
+}
+
+.user_mypage_ul{
+    display: flex;
+    padding-left: 0;
+}
+
+.user_mypage_item{
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    height: 25%;
+    width: 22%;
+    margin: 10px 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+    padding-bottom: 1%;
+}
+
+@media screen and (max-width: 1024px) {
+    .user_mypage_item {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .user_mypage_item {
+        width: 44%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .user_mypage_item {
+        width: 93%;
+    }
+}
+
+.user_mypage_contents{
+    display: flex;
+    width: 100%;
+    height: 74vh;
+    margin-top: 5vh;
+}
+
+.user_mypage_main{
+    font-family: system-ui;
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 3%;
+}
+
+.user_reservation{
+    width: 43%;
+}
+
+.user_mypage{
+    width: 57%;
+}
+
+.user_mypage_item{
+    width: 40%;
+    margin: 0 45px 0 0;
+}
+
+.user_mypage_img{
+    height: 20vh;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.user_mypage_detail{
+    padding-left: 5%;
+}
+
+.user_mypage_name{
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding-top: 4%;
+}
+
+.user_mypage_prefecture_genre{
+    display: flex;
+    line-height: 0%;
+}
+
+.user_mypage_prefecture{
+    display: flex;
+}
+
+.user_mypage_genre{
+    display: flex;
+    padding-left: 2%;
+}
+
+.user_mypage_primary_favorite{
+    display: flex;
+    align-items: stretch;
+    width: 95%;
+}
+
+.user_mypage_primary,.user_mypage_favorite{
+    flex: 1;
+}
+
+.btn-primary{
+    padding: 4% 7%;
+    color: #ffffff;
+    background-color: #0158f7;
+    text-decoration: none;
+    border-radius: 8px;
+
+}
+.user_mypage_form{
+    display: flex;
+}
+
+.submit{
+    color: red;
+    background: none;
+    border: none;
+}
+
+.submit2{
+    background: none;
+    border: none;
+}
