@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -16,8 +17,14 @@ class ReservationController extends Controller
             'number_of_people' => 'required|integer|min:1',
         ]);
 
-        Reservation::create($request->all());
-        
+        $user_id = Auth::id(); // ログインユーザーの id を取得
+
+        // リクエストデータに user_id を追加
+        $data = $request->all();
+        $data['user_id'] = $user_id;
+
+        Reservation::create($data);
+
         return view('payment.payment');
     }
 }

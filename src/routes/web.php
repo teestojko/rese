@@ -9,6 +9,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\MyPageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,9 +28,9 @@ Route::middleware('auth')->group(function () {
     //     return view('auth.verify-email');
     // })->name('verification.notice');
 
-    Route::get('/mypage', function () {
-        return view('mypage');
-    })->name('mypage');
+    // Route::get('/mypage', function () {
+    //     return view('mypage');
+    // })->name('mypage');
 
     Route::get('/email/verify', function (Request $request) {
         if ($request->user()->hasVerifiedEmail()) {
@@ -49,6 +50,8 @@ Route::middleware('auth')->group(function () {
 
         return back()->with('message', 'Verification link sent!');
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+    Route::get('/mypage', [MyPageController::class, 'userMyPage'])->name('mypage');
 
     Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
 
