@@ -35,7 +35,7 @@
         <nav class="nav" id="nav">
             <ul class="nav_ul">
                 @if(Auth::check())
-                    <li class="nav_list"><a href="/">Home</a></li>
+                    <li class="nav_list"><a class="nav_a" href="/">Home</a></li>
                     <li class="nav_list">
                 <form class="form" action="/logout" method="post">
                 @csrf
@@ -43,11 +43,11 @@
                         Logout
                     </button>
                 </form>
-                    <li class="nav_list"><a href="/mypage">Mypage</a></li>
+                    <li class="nav_list"><a class="nav_a" href="/mypage">Mypage</a></li>
                 @else
-                    <li class="nav_list"><a href="/">Home</a></li>
-                    <li class="nav_list"><a href="/register">Registration</a></li>
-                    <li class="nav_list"><a href="/login">Login</a></li>
+                    <li class="nav_list"><a class="nav_a" href="/">Home</a></li>
+                    <li class="nav_list"><a class="nav_a" href="/register">Registration</a></li>
+                    <li class="nav_list"><a class="nav_a" href="/login">Login</a></li>
                 @endif
             </ul>
         </nav>

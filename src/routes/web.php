@@ -24,13 +24,6 @@ Route::get('/', [AuthController::class, 'index']);
 Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 
 Route::middleware('auth')->group(function () {
-    // Route::get('/email/verify', function () {
-    //     return view('auth.verify-email');
-    // })->name('verification.notice');
-
-    // Route::get('/mypage', function () {
-    //     return view('mypage');
-    // })->name('mypage');
 
     Route::get('/email/verify', function (Request $request) {
         if ($request->user()->hasVerifiedEmail()) {
