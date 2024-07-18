@@ -16,8 +16,8 @@ class UpdateShopsTable extends Migration
         Schema::table('shops', function (Blueprint $table) {
             $table->dropColumn('prefecture');
             $table->dropColumn('genre');
-            $table->foreignId('prefecture_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('genre_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('prefecture_id')->nullable();
+            $table->foreignId('genre_id')->nullable();
         });
     }
 
