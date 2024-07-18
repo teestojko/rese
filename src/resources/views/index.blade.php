@@ -8,6 +8,29 @@
 @endsection
 
 @section('content')
+    <form action="{{ route('shops.filter') }}" method="GET">
+        <div>
+            <label for="prefecture_id">都道府県:</label>
+            <select name="prefecture_id" id="prefecture_id">
+                <option value="">選択してください</option>
+                @foreach($prefectures as $prefecture)
+                    <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
+                @endforeach
+            </select>
+            <button type="submit">検索</button>
+        </div>
+        <div>
+        <label for="genre_id">ジャンル:</label>
+        <select name="genre_id" id="genre_id">
+            <option value="">選択してください</option>
+            @foreach($genres as $genre)
+                <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+            @endforeach
+        </select>
+    </div>
+    <button type="submit">検索</button>
+    </form>
+
     <div class="shop_list">
         @foreach($shops as $shop)
             <div class="shop_item">

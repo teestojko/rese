@@ -1,5 +1,6 @@
 @php
     $today = now()->format('Y-m-d');
+    $currentTime = now()->format('H:i');
 @endphp
 @extends('layouts.app')
 
@@ -80,4 +81,27 @@
             </form>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var reservationDate = document.getElementById('reservation_date');
+            var reservationTime = document.getElementById('reservation_time');
+
+            reservationDate.addEventListener('change', function() {
+                var selectedDate = new Date(reservationDate.value);
+                var today = new Date('{{ $today }}');
+                var currentTime = '{{ $currentTime }}';
+
+                if (selectedDate.toDateString() === today.toDateString()) {
+                    reservationTime.min = currentTime;
+                } else {
+                    reservationTime.min = "00:00";
+                }
+            });
+
+            // Initialize the min value if the selected date is today
+            if (reservationDate.value === '{{ $today }}') {
+                reservationTime.min = '{{ $currentTime }}';
+            }
+        });
+    </script>
 @endsection

@@ -10,6 +10,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MyPageController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,8 @@ use App\Http\Controllers\MyPageController;
 |
 */
 Route::get('/', [AuthController::class, 'index']);
+Route::get('/filter', [SearchController::class, 'filter'])->name('shops.filter');
+
 Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 
 Route::middleware('auth')->group(function () {
