@@ -13,7 +13,7 @@ class ReservationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,8 @@ class ReservationRequest extends FormRequest
     {
         return [
             'shop_id' => 'required|exists:shops,id',
-            'reservation_date' => 'required|date',
-            'reservation_time' => 'required',
+            'reservation_date' => ['required', 'date', new AfterNow],
+            'reservation_time' => ['required', 'date_format:H:i', new AfterNow],
             'number_of_people' => 'required|integer|min:1',
         ];
     }
