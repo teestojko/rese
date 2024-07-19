@@ -16,10 +16,20 @@ class MyPageController extends Controller
 {
     public function userMyPage()
     {
+        $username = null;
+        if (auth()->check()) {
+            $username = auth()->user()->name;
+        }
         $user = Auth::user();
-        $favorites = $user->favoriteShops()->with('genre', 'prefecture')->get();
-        $reservations = $user->reservations()->get();
-        return view('mypage',compact('user','favorites','reservations',)
-        );
+        $shops = Shop::all();
+        $prefectures = Prefecture::all();
+        $genres = Genre::all();
+
+        return view('index', compact('username','user','shops','prefectures','genres'));
+        // $user = Auth::user();
+        // $favorites = $user->favoriteShops()->with('genre', 'prefecture')->get();
+        // $reservations = $user->reservations()->get();
+        // return view('mypage',compact('user','favorites','reservations',)
+        // );
     }
 }
