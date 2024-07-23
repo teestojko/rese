@@ -53,31 +53,140 @@
     }
 }
 
-.user_mypage_contents{
+.user_mypage{
     display: flex;
     width: 100%;
     height: 74vh;
     margin-top: 5vh;
+    text-align: center;
 }
 
 .user_mypage_main{
     font-family: system-ui;
     font-weight: bold;
     font-size: 20px;
-    padding-left: 3%;
+    padding-left: 5%;
+    text-align: left;
+    height: 7%;
+}
+
+.user_mypage_main2{
+    font-family: system-ui;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 2%;
+    height: 6%;
 }
 
 .user_reservation{
-    width: 43%;
+    height: 65%;
+    width: 37%;
+    margin-right: 5%;
 }
 
-.user_mypage{
-    width: 57%;
+.reservation_list{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #0158f7;
+    color: #ffffff;
+    align-items: center;
+    width: 85%;
+}
+
+/* .reservation_id_table{
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+} */
+
+.reservation_id_table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3%;
+}
+
+.table_main{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5%;
+    margin: 6%;
+    background-color: #0158f7;
+    color: #ffffff;
+    height: 70%;
+}
+
+.reserve_name{
+    width: 100%;
+}
+
+/* .reserve_table{
+    display: flex;
+    width: 100%;
+    height: 80%;
+    align-content: space-between;
+} */
+
+.reserve_table {
+    display: table;
+    width: 100%;
+    border-collapse: separate; /* 既定値: 隙間ができる */
+    border-spacing: 0; /* テーブルセル間の隙間をリセット */
+}
+
+.reserve_tr {
+    padding: 10px 0; /* 各行の上下パディングを追加 */
+    margin: 10px 0; /* 各行の上下マージンを追加 */
+}
+
+.reserve_label, .reserve_value {
+    padding: 1%; /* セル内のパディングを調整 */
+}
+
+.reservation_id{
+    padding-left: 20px;
+}
+
+.reserve_label {
+    text-align: left; /* 左寄せに調整 */
+}
+
+.reserve_value {
+    text-align: left;
+}
+
+.p_button{
+    padding-left: 250px;
+}
+
+.delete-btn {
+    background-color: #0158f7;
+    border-color: #ffffff;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0  3px;
+}
+
+.delete-btn i {
+    pointer-events: none;
+}
+
+
+.reserve_id{
+    width: 80%;
+}
+
+.user_favorite{
+    width: 50%;
 }
 
 .user_mypage_item{
     width: 40%;
     margin: 0 45px 0 0;
+    margin-left: 2%;
 }
 
 .user_mypage_img{
@@ -94,6 +203,7 @@
     font-weight: bold;
     font-size: 1.1rem;
     padding-top: 4%;
+    text-align: left;
 }
 
 .user_mypage_prefecture_genre{
@@ -118,6 +228,7 @@
 
 .user_mypage_primary,.user_mypage_favorite{
     flex: 1;
+    text-align: left;
 }
 
 .btn-primary{

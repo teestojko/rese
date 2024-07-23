@@ -26,10 +26,26 @@ class MyPageController extends Controller
         $genres = Genre::all();
 
         return view('index', compact('username','user','shops','prefectures','genres'));
-        // $user = Auth::user();
-        // $favorites = $user->favoriteShops()->with('genre', 'prefecture')->get();
-        // $reservations = $user->reservations()->get();
-        // return view('mypage',compact('user','favorites','reservations',)
-        // );
     }
+
+    public function showMyPage()
+    {
+        $user = Auth::user();
+        $favorites = $user->favoriteShops()->with('genre', 'prefecture')->get();
+        $reservations = $user->reservations()->get();
+        return view('mypage',compact('user','favorites','reservations',)
+        );
+    }
+
+    public function destroyReservation($id)
+{
+    $reservation = Reservation::find($id);
+    if ($reservation && $reservation->user_id == Auth::id()) {
+        $reservation->delete();
+        return redirect()->route('mypage')->with('success', '予約が削除されました。');
+    }
+
+    return redirect()->route('mypage')->with('error', '予約の削除に失敗しました。');
+}
+
 }

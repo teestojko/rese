@@ -63,6 +63,7 @@
             document.querySelector('main').classList.toggle('dimmed');
             });
     </script>
+    @yield('scripts')
 </body>
 
 </html>

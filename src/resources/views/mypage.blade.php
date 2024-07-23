@@ -16,29 +16,56 @@
         </p>
         @endif
         </div>
-        <div class="user_mypage_contents">
-            <div class="user_reservation">
-                <div class="user_mypage_main">予約状況</div>
 
-            @if ($reservations->isEmpty())
-                <p>予約情報はありません。</p>
-            @else
-                <ul>
-                    @foreach ($reservations as $reservation)
-                        <li>
-                            <img src="{{ Storage::url('clock.jpeg') }}" alt="Clock Image">
-                            <p>予約{{ $reservation->id }}</p>
-                            <p>Shop {{ $reservation->shop->name }}</p>
-                            <p>Date {{ $reservation->reservation_date }}</p>
-                            <p>Time {{ $reservation->reservation_time }}</p>
-                            <p>Number {{ $reservation->number_of_people }}人</p>
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
+        <div class="user_mypage">
+            <div class="user_reservation">
+                <div class="user_mypage_main">
+                    予約状況
+                </div>
+
+                @if ($reservations->isEmpty())
+                    <p>予約情報はありません。</p>
+                @else
+                <div class="table_main">
+
+                    <table class="reserve_table">
+                        @foreach ($reservations as $reservation)
+                        <div class="reservation_id_table">
+                        <i class="fa-regular fa-clock"></i>
+                            <div class="reservation_id">予約{{$reservation->id}}</div>
+                                <p class="p_button">
+                                <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="delete-btn">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </form>
+                                </p>
+                        </div>
+                            <tr class="reserve_tr">
+                                <td class="reserve_label">Shop</td>
+                                <td class="reserve_value">{{ $reservation->shop->name }}</td>
+                            </tr>
+                            <tr class="reserve_tr">
+                                <td class="reserve_label">Date</td>
+                                <td class="reserve_value">{{ $reservation->reservation_date }}</td>
+                            </tr>
+                            <tr class="reserve_tr">
+                                <td class="reserve_label">Time</td>
+                                <td class="reserve_value">{{ $reservation->reservation_time }}</td>
+                            </tr>
+                            <tr class="reserve_tr">
+                                <td class="reserve_label">Number</td>
+                                <td class="reserve_value">{{ $reservation->number_of_people }}人</td>
+                            </tr>
+                        @endforeach
+                    </table>
+                @endif
+                </div>
             </div>
-            <div class="user_mypage">
-                <div class="user_mypage_main">お気に入り店舗</div>
+            <div class="user_favorite">
+                <div class="user_mypage_main2">お気に入り店舗</div>
                 @if ($favorites->count() > 0)
                     <ul class="user_mypage_ul">
                         @foreach ($favorites as $favorite)

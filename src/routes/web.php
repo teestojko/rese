@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
         return back()->with('message', 'Verification link sent!');
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-    Route::get('/mypage', [MyPageController::class, 'userMyPage'])->name('mypage');
+    Route::get('/', [MyPageController::class, 'userMyPage']);
 
     Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
 
@@ -58,4 +58,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
 
     Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+
+    Route::get('/mypage', [MyPageController::class, 'showMyPage'])->name('mypage');
+
+    Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
+
 });

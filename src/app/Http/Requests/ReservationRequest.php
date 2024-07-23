@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\AfterNow;
 
 class ReservationRequest extends FormRequest
 {

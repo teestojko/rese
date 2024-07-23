@@ -24,6 +24,9 @@ class SearchController extends Controller
         if ($request->filled('genre_id')) {
             $query->where('genre_id', $request->genre_id);
         }
+        if ($request->filled('shop_name')) {
+        $query->where('name', 'like', $request->shop_name . '%');
+    }
         $shops = $query->get();
 
         return view('index', compact('username', 'user', 'shops', 'prefectures', 'genres'));
