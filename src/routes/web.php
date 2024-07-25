@@ -29,11 +29,8 @@ Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show'
 Route::middleware('auth')->group(function () {
 
     Route::get('/email/verify', function (Request $request) {
-        if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->route('mypage');
-        }
-        return view('auth.verify-email');
-    })->name('verification.notice');
+        return view('thanks');
+    })->middleware(['auth'])->name('verification.notice');
 
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
@@ -47,20 +44,20 @@ Route::middleware('auth')->group(function () {
         return back()->with('message', 'Verification link sent!');
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-    Route::get('/', [MyPageController::class, 'userMyPage']);
+    Route::get('/', [MyPageController::class, 'userMyPage'])->middleware(['verified'])->name('userMyPage');
 
-    Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
+    Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->middleware(['verified'])->name('payment.show');
 
-    Route::post('/payment', [PaymentController::class, 'payment'])->name('payment.process');
+    Route::post('/payment', [PaymentController::class, 'payment'])->middleware(['verified'])->name('payment.process');
 
-    Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
+    Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->middleware(['verified'])->name('favorites.toggle.add');
 
-    Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
+    Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->middleware(['verified'])->name('favorites.toggle.remove');
 
-    Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+    Route::post('/reservations', [ReservationController::class, 'store'])->middleware(['verified'])->name('reservations.store');
 
-    Route::get('/mypage', [MyPageController::class, 'showMyPage'])->name('mypage');
+    Route::get('/myPage', [MyPageController::class, 'showMyPage'])->middleware(['verified'])->name('myPage');
 
-    Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
+    Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->middleware(['verified'])->name('reservations.destroy');
 
 });

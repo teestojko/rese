@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
+// use Illuminate\Support\Facades\Redirect;
+// use Illuminate\Auth\Events\Registered;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -30,13 +32,17 @@ class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::createUsersUsing(CreateNewUser::class);
 
+        Fortify::registerView(function () {
+            return view('auth.register');
+        });
+
         Fortify::verifyEmailView(function(){
             return view('auth.verify-email');
         });
 
-        Fortify::registerView(function () {
-            return view('auth.register');
-        });
+        // \Event::listen(Registered::class, function ($event) {
+        //     return Redirect::route('verification.notice');
+        // });
 
         Fortify::loginView(function () {
             return view('auth.login');

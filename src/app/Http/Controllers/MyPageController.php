@@ -33,7 +33,7 @@ class MyPageController extends Controller
         $user = Auth::user();
         $favorites = $user->favoriteShops()->with('genre', 'prefecture')->get();
         $reservations = $user->reservations()->get();
-        return view('mypage',compact('user','favorites','reservations',)
+        return view('myPage',compact('user','favorites','reservations',)
         );
     }
 
@@ -42,10 +42,10 @@ class MyPageController extends Controller
     $reservation = Reservation::find($id);
     if ($reservation && $reservation->user_id == Auth::id()) {
         $reservation->delete();
-        return redirect()->route('mypage')->with('success', '予約が削除されました。');
+        return redirect()->route('myPage')->with('success', '予約が削除されました。');
     }
 
-    return redirect()->route('mypage')->with('error', '予約の削除に失敗しました。');
+    return redirect()->route('myPage')->with('error', '予約の削除に失敗しました。');
 }
 
 }
