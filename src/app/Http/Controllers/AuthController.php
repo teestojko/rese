@@ -13,15 +13,16 @@ class AuthController extends Controller
 {
     public function index()
     {
-        $username = null;
-        if (auth()->check()) {
-            $username = auth()->user()->name;
-        }
-        $user = Auth::user();
+        // $username = null;
+        // $user = null;
+        // if (auth()->check()) {
+        //     $username = auth()->user()->name;
+        //     $user = auth()->user();
+        // }
         $shops = Shop::all();
         $prefectures = Prefecture::all();
         $genres = Genre::all();
 
-        return view('index', compact('username','user','shops','prefectures','genres'));
+        return view('index', compact('shops','prefectures','genres'));
     }
 }

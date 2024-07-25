@@ -45,7 +45,7 @@
                 </form>
                     <li class="nav_list"><a class="nav_a" href="/mypage">Mypage</a></li>
                 @else
-                    <li class="nav_list"><a class="nav_a" href="/">Home</a></li>
+                    <li class="nav_list"><a class="nav_a" href="/home">Home</a></li>
                     <li class="nav_list"><a class="nav_a" href="/register">Registration</a></li>
                     <li class="nav_list"><a class="nav_a" href="/login">Login</a></li>
                 @endif

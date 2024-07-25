@@ -21,7 +21,7 @@ use App\Http\Controllers\SearchController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [AuthController::class, 'index']);
+Route::get('/home', [AuthController::class, 'index'])->name('home');
 Route::get('/filter', [SearchController::class, 'filter'])->name('shops.filter');
 
 Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
