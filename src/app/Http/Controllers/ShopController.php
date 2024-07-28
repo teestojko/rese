@@ -10,7 +10,10 @@ class ShopController extends Controller
 {
     public function show($id)
     {
-        $shop = Shop::findOrFail($id);
+        $shop = Shop::with('reservations')->findOrFail($id);
+        // dd($shop->reservations);
         return view('show', compact('shop'));
     }
+
+
 }

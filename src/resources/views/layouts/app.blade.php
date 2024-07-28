@@ -8,6 +8,7 @@
     <title>Rese</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     @yield('css')
 </head>
 
@@ -25,12 +26,6 @@
             <div class="header__logo" href="/">
                 Rese
             </div>
-            <form class="form" action="/logout" method="post">
-            @csrf
-                <button class="header-nav__button">
-                    ログアウト
-                </button>
-            </form>
         </div>
         <nav class="nav" id="nav">
             <ul class="nav_ul">
@@ -57,12 +52,17 @@
         @yield('content')
     </main>
     <script>
-        document.querySelector('.hamburger').addEventListener('click', function () {
-            var nav = document.getElementById('nav');
-            nav.classList.toggle('active');
-            document.querySelector('main').classList.toggle('dimmed');
-            });
-    </script>
+    document.querySelector('.hamburger').addEventListener('click', function () {
+        var nav = document.getElementById('nav');
+        var logo = document.querySelector('.header__logo');
+        var hamburgerMenu = document.querySelector('.hamburger-menu');
+
+        nav.classList.toggle('active');
+        document.querySelector('main').classList.toggle('dimmed');
+        logo.classList.toggle('hidden'); // Reseの表示を切り替える
+        hamburgerMenu.classList.toggle('open'); // ハンバーガーメニューの表示を切り替える
+    });
+</script>
     @yield('scripts')
 </body>
 

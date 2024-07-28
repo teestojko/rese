@@ -11,9 +11,12 @@
 @section('content')
     <div class="shop_all">
         <div class="shop_detail_page">
-            <h2>
-                {{ $shop->name }}
-            </h2>
+            <div class="shop_name_top">
+                <a href="{{ route('userMyPage') }}" class="btn-secondary">&lt;</a>
+                <div class="shop_name">
+                    {{ $shop->name }}
+                </div>
+            </div>
             <img src="{{ asset($shop->image_path) }}" alt="{{ $shop->name }}">
             <div class="shop_detail">
                 <div class="show_prefecture_genre">
@@ -36,9 +39,9 @@
             </div>
         </div>
         <div class="reservation_form">
-            <h3>
+            <div class="reservation_content">
                 予約
-            </h3>
+            </div>
             <form action="{{ route('reservations.store') }}" method="POST">
             @csrf
                 <div class="input_form">
@@ -71,23 +74,7 @@
                             <option value="23:00">23:00</option>
                             <option value="23:30">23:30</option>
                         </select>
-                        {{-- <input class="input2" type="time" id="reservation_time" name="reservation_time" class="form-control" list="12time" required>
-                        <datalist id="12time">
-                        <option value="17:00"></option>
-                        <option value="17:30"></option>
-                        <option value="18:00"></option>
-                        <option value="18:30"></option>
-                        <option value="19:00"></option>
-                        <option value="19:30"></option>
-                        <option value="20:00"></option>
-                        <option value="20:30"></option>
-                        <option value="21:00"></option>
-                        <option value="21:30"></option>
-                        <option value="22:00"></option>
-                        <option value="22:30"></option>
-                        <option value="23:00"></option>
-                        <option value="23:30"></option>
-                        </datalist> --}}
+
                         @error('reservation_time')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -100,6 +87,30 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    @if($shop->reservations && $shop->reservations->isNotEmpty())
+            <div class="reservation_table_main">
+                <table class="reservation_table">
+                        @foreach($shop->reservations as $reservation)
+                            <tr class="reservation_tr">
+                                <td class="reservation_label">Shop</td>
+                                <td class="reservation_value">{{ $shop->name }}</td>
+                            </tr>
+                            <tr class="reservation_tr">
+                                <td class="reservation_label">Date</td>
+                                <td class="reservation_value">{{ $reservation->reservation_date }}</td>
+                            </tr>
+                            <tr class="reservation_tr">
+                                <td class="reservation_label">Time</td>
+                                <td class="reservation_value">{{ $reservation->reservation_time }}</td>
+                            </tr>
+                            <tr class="reservation_tr">
+                                <td class="reservation_label">Number</td>
+                                <td class="reservation_value">{{ $reservation->number_of_people }}人</td>
+                            </tr>
+                        @endforeach
+                </table>
+            </div>
+        @endif
                 </div>
                 <button type="submit" class="btn-primary">
                     予約する
@@ -107,27 +118,4 @@
             </form>
         </div>
     </div>
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var reservationDate = document.getElementById('reservation_date');
-            var reservationTime = document.getElementById('reservation_time');
-
-            reservationDate.addEventListener('change', function() {
-                var selectedDate = new Date(reservationDate.value);
-                var today = new Date('{{ $today }}');
-                var currentTime = '{{ $currentTime }}';
-
-                if (selectedDate.toDateString() === today.toDateString()) {
-                    reservationTime.min = currentTime;
-                } else {
-                    reservationTime.min = "00:00";
-                }
-            });
-
-            // Initialize the min value if the selected date is today
-            if (reservationDate.value === '{{ $today }}') {
-                reservationTime.min = '{{ $currentTime }}';
-            }
-        });
-    </script> --}}
 @endsection

@@ -47,4 +47,9 @@ class PaymentController extends Controller
             return $e->getMessage();
         }
     }
+
+    public function redirectToPayment()
+    {
+        return redirect()->route('payment.show');
+    }
 }

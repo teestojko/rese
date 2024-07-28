@@ -29,7 +29,7 @@ Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show'
 Route::middleware('auth')->group(function () {
 
     Route::get('/email/verify', function (Request $request) {
-        return view('thanks');
+        return view('auth.verify-email');
     })->middleware(['auth'])->name('verification.notice');
 
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
@@ -60,4 +60,7 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->middleware(['verified'])->name('reservations.destroy');
 
+    Route::get('/payment/thanks', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
+
+    Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
 });

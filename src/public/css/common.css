@@ -135,3 +135,21 @@ main.dimmed {
     font-size: 30px;
     color: blue;
 }
+
+.header__logo.hidden {
+    display: none;
+}
+
+.hamburger-menu.open .line1 {
+    width: 100%;
+    transform: rotate(45deg) translate(7px, 6px);
+}
+
+.hamburger-menu.open .line2 {
+    opacity: 0;
+}
+
+.hamburger-menu.open .line3 {
+    width: 100%;
+    transform: rotate(-45deg) translate(5px, -5px);
+}

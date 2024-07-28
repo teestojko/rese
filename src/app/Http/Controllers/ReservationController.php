@@ -11,12 +11,12 @@ class ReservationController extends Controller
 {
     public function store(ReservationRequest $request)
     {
-        $request->validate([
-            'shop_id' => 'required|exists:shops,id',
-            'reservation_date' => 'required|date',
-            'reservation_time' => 'required',
-            'number_of_people' => 'required|integer|min:1',
-        ]);
+        // $request->validate([
+        //     'shop_id' => 'required|exists:shops,id',
+        //     'reservation_date' => 'required|date',
+        //     'reservation_time' => 'required',
+        //     'number_of_people' => 'required|integer|min:1',
+        // ]);
 
         $user_id = Auth::id(); // ログインユーザーの id を取得
 
@@ -26,6 +26,11 @@ class ReservationController extends Controller
 
         Reservation::create($data);
 
-        return view('payment.payment');
+        return redirect()->route('payment.thanks');
+    }
+
+    public function showThanksPage()
+    {
+        return view('payment.payment-thanks');
     }
 }

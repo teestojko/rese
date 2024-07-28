@@ -23,6 +23,11 @@ class Shop extends Model
         return $this->favoritedByUsers()->where('user_id', auth()->id())->exists();
     }
 
+     public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
     public function prefecture()
     {
         return $this->belongsTo(Prefecture::class);
