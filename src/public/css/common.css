@@ -21,7 +21,7 @@
     align-items: center;
     height: 40px;
     width: 40px;
-    background-color: blue;
+    background-color: rgb(33, 89, 255);
     border-radius: 5px;
     box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5);
 }
@@ -55,7 +55,7 @@
 }
 
 .header__logo {
-    color: rgb(26, 82, 250);
+    color: rgb(33, 89, 255);
     text-decoration: none;
     font-weight: bolder;
     font-size: 33px;
@@ -121,7 +121,7 @@
     color: #000;
     text-decoration: none;
     font-size: 33px;
-    color: blue;
+    color: rgb(33, 89, 255);
 }
 
 main.dimmed {
@@ -133,7 +133,7 @@ main.dimmed {
     border: none;
     background-color: unset;
     font-size: 30px;
-    color: blue;
+    color: rgb(33, 89, 255);
 }
 
 .header__logo.hidden {

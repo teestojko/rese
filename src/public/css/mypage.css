@@ -88,7 +88,7 @@
 .reservation_list{
     display: flex;
     flex-wrap: wrap;
-    background-color: #0158f7;
+    background-color: rgb(33, 89, 255);
     color: #ffffff;
     align-items: center;
     width: 85%;
@@ -112,7 +112,7 @@
     flex-wrap: wrap;
     padding: 5%;
     margin: 6%;
-    background-color: #0158f7;
+    background-color: rgb(33, 89, 255);
     color: #ffffff;
     height: 70%;
 }
@@ -161,7 +161,7 @@
 }
 
 .delete-btn {
-    background-color: #0158f7;
+    background-color: rgb(33, 89, 255);
     border-color: #ffffff;
     color: #ffffff;
     border-radius: 50%;
@@ -234,7 +234,7 @@
 .btn-primary{
     padding: 4% 7%;
     color: #ffffff;
-    background-color: #0158f7;
+    background-color: rgb(33, 89, 255);
     text-decoration: none;
     border-radius: 8px;
 
