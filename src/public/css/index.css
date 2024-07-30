@@ -1,4 +1,5 @@
 .search_container {
+    position: relative;
     display: flex;
     align-items: center;
     background: #fff;
@@ -6,7 +7,7 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     position: absolute;
-    right: 3%;
+    right: 10%;
     top: 3%;
 }
 
@@ -15,28 +16,46 @@
         width: 150px; /* 必要に応じて調整 */
     }
 
-.search_select, .search_input {
+.search_input {
+    border: none;
+    background: none;
+    font-size: 14px;
+    padding: 5px 50px 5px 0;
+    color: #333;
+    appearance: none;
+}
+
+.search_select{
     border: none;
     background: none;
     font-size: 14px;
     padding: 5px 10px;
-    margin-right: 10px;
-    color: #333;
+    color: #666666;
+    appearance: none;
 }
 
 .search_select2{
     border: none;
     background: none;
     font-size: 14px;
-    padding: 5px 10px;
-    margin-right: 10px;
-    color: #333;
+    padding-left: 15px;
+    color: #666666;
     border-left: 1px solid #ccc;
+    appearance: none;
+}
+
+.search1{
+    margin-right: 15px;
+}
+
+.search2{
+    margin-right: 15px;
 }
 
 .search3{
     border-left: 1px solid #ccc;
     padding-left: 10px;
+    padding-right: 100px;
 }
 
 .search_select:focus, .search_input:focus {
@@ -44,11 +63,11 @@
 }
 
 .placeholder {
-    color: #a9a9a9;
+    color: #666666;
 }
 
 .search_input::placeholder {
-    color: #a9a9a9;
+    color: #666666;
 }
 
 .search_input {
@@ -156,32 +175,8 @@
     border: none;
 }
 
-/* .heart{
-    width: 100%;
-    height: 100%;
-    position: relative;
+.submit3{
+    background: none;
+    border: none;
+    color: #a9a9a9;
 }
-
-.heart::before,
-.heart::after {
-    content: "";
-    width: 70%;
-    height: 27%;
-    background: #a3a3a3;
-    border-radius: 25px 25px 0 0;
-    display: block;
-    position: absolute;
-}
-
-.heart::before{
-    transform: rotate(-45deg);
-    left: -3%;
-}
-
-.heart::after{
-    transform: rotate(45deg);
-    right: -2%;
-} */
-
-
-

@@ -10,7 +10,11 @@ use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
 {
-    use PasswordValidationRules;
+    // use PasswordValidationRules;
+    protected function passwordRules()
+    {
+        return ['required', 'string', 'min:8']; // ここで 'confirmed' を削除
+    }
 
     /**
      * Validate and create a newly registered user.

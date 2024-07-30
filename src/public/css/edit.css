@@ -1,0 +1,61 @@
+.container{
+    width: 100vw;
+    height: 89vh;
+    position: absolute;
+    top: 11vh;
+}
+
+.reserve_main{
+    text-align: center;
+    height: 10%;
+    align-content: center;
+    font-size: 1.5rem;
+    font-family: system-ui;
+    font-weight: bold;
+}
+
+.reserve_form{
+    height: 90%;
+    line-height: 5;
+    margin-top: 5%;
+    margin-left: 30%;
+}
+
+.input{
+    width: 60%;
+    padding: 1%;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: aliceblue;
+}
+
+.form_control2{
+    padding: 1%;
+    width: 60%;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: aliceblue;
+}
+
+.input3{
+    width: 60%;
+    padding: 1%;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: aliceblue;
+}
+
+.btn-primary{
+    width: 12%;
+    padding: 1%;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: aliceblue;
+    margin: 5% 23%;
+}
+
+

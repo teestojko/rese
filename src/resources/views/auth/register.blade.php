@@ -18,7 +18,7 @@
                 <div class="form_group_content">
                     <div class="form_input_text">
                         <i class="fas fa-user fa-xl"></i>
-                        <input class="email_input" type="text" name="text" value="{{ old('user') }}" placeholder="Username"/>
+                        <input class="email_input" type="text" name="name" value="{{ old('name') }}" placeholder="Username"/>
                     </div>
 
                     <div class="form_input_text">

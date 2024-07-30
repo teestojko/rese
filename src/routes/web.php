@@ -63,4 +63,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/payment/thanks', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
 
     Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
+
+    Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->middleware(['verified'])->name('reservations.edit');
+
+    Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->middleware(['verified'])->name('reservations.update');
 });

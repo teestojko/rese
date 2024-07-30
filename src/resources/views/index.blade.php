@@ -8,31 +8,6 @@
 @endsection
 
 @section('content')
-    {{-- <form class="search_form" id="filterForm" action="{{ route('shops.filter') }}" method="GET">
-        <div class="search1">
-            <label class="search_lavel" for="prefecture_id"></label>
-            <select class="search_select1" name="prefecture_id" id="prefecture_id">
-                <option class="search_text" value="">All area</option>
-                @foreach($prefectures as $prefecture)
-                    <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="search2">
-        <label class="search_lavel" for="genre_id"></label>
-        <select class="search_select2" name="genre_id" id="genre_id">
-            <option class="search_text" value="">All genre</option>
-            @foreach($genres as $genre)
-                <option  value="{{ $genre->id }}">{{ $genre->name }}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="search3">
-        <label class="search_label" for="shop_name"></label>
-        <input type="text" name="shop_name" id="shop_name" placeholder="ショップ名を入力">
-    </div>
-    </form> --}}
-
     <form class="search_form" id="filterForm" action="{{ route('shops.filter') }}" method="GET">
     <div class="search_container">
         <div class="search1">
@@ -43,6 +18,7 @@
                     <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
                 @endforeach
             </select>
+            <i class="fas fa-caret-down" style="color: #c7c7c7; position: absolute; top: 35%; left: 14%;"></i>
         </div>
         <div class="search2">
             <label class="search_label" for="genre_id"></label>
@@ -52,10 +28,13 @@
                     <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                 @endforeach
             </select>
+            <i class="fas fa-caret-down " style="color: #c7c7c7; position: absolute; top: 35%; left: 31%;" ></i>
         </div>
         <div class="search3">
             <label class="search_label" for="shop_name"></label>
-            <i class="fas fa-search search_icon" style="color: #a9a9a9;"></i>
+            <button type="submit" class="submit3">
+                <i class="fas fa-search search_icon"></i>
+            </button>
             <input type="text" name="shop_name" id="shop_name" class="search_input" placeholder="Search ...">
         </div>
     </div>
@@ -106,7 +85,7 @@
             </div>
         @endforeach
     </div>
-    @section('scripts')
+    {{-- @section('scripts')
         <script>
         document.addEventListener('DOMContentLoaded', function () {
             const filterForm = document.getElementById('filterForm');
@@ -118,20 +97,6 @@
             });
         });
         </script>
-        {{-- <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const filterForm = document.getElementById('filterForm');
-            const selects = filterForm.querySelectorAll('select');
-
-            selects.forEach(select => {
-                select.addEventListener('change', function () {
-                    select.classList.toggle('placeholder', !select.value);
-                    filterForm.submit();
-                });
-
-                select.classList.toggle('placeholder', !select.value);
-            });
-        }); --}}
-    @endsection
+    @endsection --}}
 @endsection
 

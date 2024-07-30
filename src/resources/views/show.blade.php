@@ -58,7 +58,7 @@
                         <label for="reservation_time">
                         </label>
                         <select id="reservation_time" name="reservation_time" class="form-control" required>
-                            <option value="">--時間を選択--</option>
+                            <option value="">時間を選択</option>
                             <option value="17:00">17:00</option>
                             <option value="17:30">17:30</option>
                             <option value="18:00">18:00</option>
@@ -82,7 +82,7 @@
                     <div class="form-group">
                         <label for="number_of_people">
                         </label>
-                        <input class="input3" type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" required>
+                        <input class="input3" type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" required placeholder="人数を選択">
                         @error('number_of_people')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -108,10 +108,16 @@
                                 <td class="reservation_value">{{ $reservation->number_of_people }}人</td>
                             </tr>
                         @endforeach
-                </table>
-            </div>
-        @endif
+                    </table>
                 </div>
+            @endif
+                </div>
+                    <div class="reservation-item">
+                        <a href="{{ route('reservations.edit', $reservation->id) }}">
+                            <i class="fas fa-edit">予約変更</i>
+                        </a>
+                    </div>
+
                 <button type="submit" class="btn-primary">
                     予約する
                 </button>

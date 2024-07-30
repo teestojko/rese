@@ -93,6 +93,7 @@ img{
     height: 27px;
     border: none;
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .form-control{
@@ -101,6 +102,7 @@ img{
     border: none;
     border-radius: 5px;
     cursor: s-resize;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .input3{
@@ -109,6 +111,7 @@ img{
     border: none;
     border-radius: 5px;
     cursor: s-resize;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .btn-primary{
@@ -152,4 +155,13 @@ img{
     padding: 1%;
     width: 70%;
     color: white;
+}
+
+.reservation-item{
+    background-color: antiquewhite;
+    width: 16%;
+    margin-left: 40%;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }

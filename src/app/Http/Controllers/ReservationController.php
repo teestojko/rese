@@ -11,16 +11,7 @@ class ReservationController extends Controller
 {
     public function store(ReservationRequest $request)
     {
-        // $request->validate([
-        //     'shop_id' => 'required|exists:shops,id',
-        //     'reservation_date' => 'required|date',
-        //     'reservation_time' => 'required',
-        //     'number_of_people' => 'required|integer|min:1',
-        // ]);
-
-        $user_id = Auth::id(); // ログインユーザーの id を取得
-
-        // リクエストデータに user_id を追加
+        $user_id = Auth::id();
         $data = $request->all();
         $data['user_id'] = $user_id;
 
@@ -33,4 +24,19 @@ class ReservationController extends Controller
     {
         return view('payment.payment-thanks');
     }
+
+    public function edit($id)
+{
+    $reservation = Reservation::findOrFail($id);
+    return view('edit', compact('reservation'));
+}
+
+public function update(Request $request, $id)
+{
+    $reservation = Reservation::findOrFail($id);
+    $reservation->update($request->all());
+    return redirect()->route('shops.show', $reservation->shop_id)->with('success', 'Reservation updated successfully.');
+}
+
+
 }
