@@ -11,6 +11,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ReviewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,4 +68,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->middleware(['verified'])->name('reservations.edit');
 
     Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->middleware(['verified'])->name('reservations.update');
+
+    Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
+    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 });
