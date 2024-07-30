@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Admin;
+
 // use Illuminate\Support\Facades\Redirect;
 // use Illuminate\Auth\Events\Registered;
 
@@ -47,6 +50,14 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::loginView(function () {
             return view('auth.login');
         });
+
+        Fortify::authenticateUsing(function (Request $request) {
+            $admin = Admin::where('email', $request->email)->first();
+
+            if ($admin && Hash::check($request->password, $admin->password)) {
+                return $admin;
+            }
+    });
 
         RateLimiter::for('login', function (Request $request) {
             $email = (string) $request->email;
