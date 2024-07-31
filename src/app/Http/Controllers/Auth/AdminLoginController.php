@@ -33,7 +33,6 @@ $admin = Admin::where('email', $credentials['email'])->first();
     }
 
             if (Auth::guard('admin')->attempt($credentials)) {
-                // return view('auth.admin');
                 return redirect()->route('admin.dashboard');
             }
 

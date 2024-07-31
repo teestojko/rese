@@ -31,7 +31,7 @@ Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show'
 
 Route::get('/admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminLoginController::class, 'login']);
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('auth:admin');
 
 Route::middleware('auth')->group(function () {
 
