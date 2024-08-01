@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+        'shop_representative' => [
+            'driver' => 'session',
+            'provider' => 'shop_representatives',
+        ],
     ],
 
     /*
@@ -71,6 +75,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+
+        'shop_representatives' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\ShopRepresentative::class,
         ],
         // 'users' => [
         //     'driver' => 'database',

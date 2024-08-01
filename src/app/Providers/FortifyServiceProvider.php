@@ -14,6 +14,8 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
+use App\Models\ShopRepresentative;
+
 
 // use Illuminate\Support\Facades\Redirect;
 // use Illuminate\Auth\Events\Registered;
@@ -57,7 +59,15 @@ class FortifyServiceProvider extends ServiceProvider
             if ($admin && Hash::check($request->password, $admin->password)) {
                 return $admin;
             }
-    });
+        });
+
+        Fortify::authenticateUsing(function (Request $request) {
+            $shopRepresentative = ShopRepresentative::where('email', $request->email)->first();
+
+            if ($shopRepresentative && Hash::check($request->password, $shopRepresentative->password)) {
+                return $shopRepresentative;
+            }
+        });
 
         RateLimiter::for('login', function (Request $request) {
             $email = (string) $request->email;

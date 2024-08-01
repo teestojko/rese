@@ -42,4 +42,9 @@ class Shop extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+        public function shopRepresentative()
+    {
+        return $this->hasOne(ShopRepresentative::class);
+    }
 }

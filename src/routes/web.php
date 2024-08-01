@@ -14,6 +14,8 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Auth\AdminController;
+use App\Http\Controllers\Auth\ShopRepresentativeLoginController;
+use App\Http\Controllers\Auth\ShopRepresentativeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +34,15 @@ Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show'
 Route::get('/admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminLoginController::class, 'login']);
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('auth:admin');
+
+Route::get('/shop-representative/login', [ShopRepresentativeLoginController::class, 'showLoginForm'])->name('shop-representative.login');
+Route::post('/shop-representative/login', [ShopRepresentativeLoginController::class, 'login']);
+Route::get('/shop-representative/dashboard', [ShopRepresentativeController::class, 'dashboard'])->name('shop-representative.dashboard')->middleware('auth:shop_representative');
+
+Route::get('/shop-edit', [ShopRepresentativeController::class, 'create'])->name('shop.edit.create');
+Route::post('/shop-representative/store', [ShopRepresentativeController::class, 'store'])->name('shop-representative.store');
+
+
 
 Route::middleware('auth')->group(function () {
 
