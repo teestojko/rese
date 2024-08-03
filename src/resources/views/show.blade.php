@@ -154,7 +154,7 @@
                 </form>
             </div>
             <!-- レビュー一覧 -->
-            <div class="reviews">
+            {{-- <div class="reviews">
                 <h2>レビュー一覧</h2>
                 @foreach($shop->reviews as $review)
                     <div class="review">
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

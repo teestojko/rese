@@ -57,47 +57,47 @@ Route::prefix('shop-representative')->name('shop-representative.')->group(functi
         Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations.list');
     });
 });
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/thanks', function (Request $request) {
         return view('auth.verify-email');
-    })->middleware(['auth'])->name('verification.notice');
+    })->name('verification.notice');
 
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
 
         return redirect()->intended(RouteServiceProvider::HOME);
-    })->middleware(['auth', 'signed'])->name('verification.verify');
+    })->middleware('signed')->name('verification.verify');
 
     Route::post('/email/verification-notification', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();
 
         return back()->with('message', 'Verification link sent!');
-    })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+    })->middleware('throttle:6,1')->name('verification.send');
 
-    Route::get('/', [MyPageController::class, 'userMyPage'])->middleware(['verified'])->name('userMyPage');
+    Route::get('/', [MyPageController::class, 'userMyPage'])->name('userMyPage');
 
-    Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->middleware(['verified'])->name('payment.show');
-    Route::post('/payment', [PaymentController::class, 'payment'])->middleware(['verified'])->name('payment.process');
+    Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
+    Route::post('/payment', [PaymentController::class, 'payment'])->name('payment.process');
 
-    Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->middleware(['verified'])->name('favorites.toggle.add');
-    Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->middleware(['verified'])->name('favorites.toggle.remove');
+    Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
+    Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
 
-    Route::post('/reservations', [ReservationController::class, 'store'])->middleware(['verified'])->name('reservations.store');
+    Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 
-    Route::get('/myPage', [MyPageController::class, 'showMyPage'])->middleware(['verified'])->name('myPage');
+    Route::get('/myPage', [MyPageController::class, 'showMyPage'])->name('myPage');
 
-    Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->middleware(['verified'])->name('reservations.destroy');
+    Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
 
     Route::get('/done', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
 
     Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
 
-    Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->middleware(['verified'])->name('reservations.edit');
+    Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
 
-    Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->middleware(['verified'])->name('reservations.update');
+    Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
 
-    Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store')->middleware(['verified']);
+    Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
-    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy')->middleware(['verified']);
+    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 });
