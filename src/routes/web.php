@@ -31,34 +31,32 @@ use App\Http\Controllers\AdminEmailController;
 */
 Route::get('/home', [AuthController::class, 'index'])->name('home');
 Route::get('/filter', [SearchController::class, 'filter'])->name('shops.filter');
-
 Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 
-Route::get('/admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
-Route::post('/admin/login', [AdminLoginController::class, 'login']);
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('auth:admin');
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AdminLoginController::class, 'login']);
 
-Route::get('/shop-representative/login', [ShopRepresentativeLoginController::class, 'showLoginForm'])->name('shop-representative.login');
-Route::post('/shop-representative/login', [ShopRepresentativeLoginController::class, 'login']);
-Route::get('/shop-representative/dashboard', [ShopRepresentativeController::class, 'dashboard'])->name('shop-representative.dashboard')->middleware('auth:shop_representative');
+    Route::middleware('auth:admin')->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('/send-email', [AdminEmailController::class, 'showForm'])->name('send-email-form');
+        Route::post('/send-email', [AdminEmailController::class, 'sendEmail'])->name('send-email');
+    });
+});
 
-Route::get('/shop-edit', [ShopRepresentativeController::class, 'create'])->name('shop.edit.create');
-Route::post('/shop-representative/store', [ShopRepresentativeController::class, 'store'])->name('shop-representative.store');
+Route::prefix('shop-representative')->name('shop-representative.')->group(function () {
+    Route::get('/login', [ShopRepresentativeLoginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [ShopRepresentativeLoginController::class, 'login']);
 
-Route::get('/shop/create', [ShopCreateEditController::class, 'create'])->name('shop.create')->middleware('auth:shop_representative');
-
-Route::get('/shop/{id}/edit', [ShopCreateEditController::class, 'edit'])->name('shop.edit')->middleware('auth:shop_representative');
-
-Route::post('/shop/store', [ShopCreateEditController::class, 'store'])->name('shop.store')->middleware('auth:shop_representative');
-
-Route::post('/shop/{id}/update', [ShopCreateEditController::class, 'update'])->name('shop.update')->middleware('auth:shop_representative');
-
-Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations.list');
-
-Route::get('/admin/send-email', [AdminEmailController::class, 'showForm'])->name('admin.send-email-form');
-
-Route::post('/admin/send-email', [AdminEmailController::class, 'sendEmail'])->name('admin.send-email');
-
+    Route::middleware('auth:shop_representative')->group(function () {
+        Route::get('/dashboard', [ShopRepresentativeController::class, 'dashboard'])->name('dashboard');
+        Route::get('/edit', [ShopRepresentativeController::class, 'create'])->name('edit.create');
+        Route::post('/store', [ShopRepresentativeController::class, 'store'])->name('store');
+        Route::get('/{id}/edit', [ShopCreateEditController::class, 'edit'])->name('edit');
+        Route::post('/{id}/update', [ShopCreateEditController::class, 'update'])->name('update');
+        Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations.list');
+    });
+});
 Route::middleware('auth')->group(function () {
 
     Route::get('/thanks', function (Request $request) {

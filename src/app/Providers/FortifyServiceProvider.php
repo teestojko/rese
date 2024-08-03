@@ -15,6 +15,7 @@ use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\ShopRepresentative;
+use App\Models\User;
 
 
 // use Illuminate\Support\Facades\Redirect;
@@ -45,28 +46,30 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth.verify-email');
         });
 
-        // \Event::listen(Registered::class, function ($event) {
-        //     return Redirect::route('verification.notice');
-        // });
-
         Fortify::loginView(function () {
             return view('auth.login');
         });
 
         Fortify::authenticateUsing(function (Request $request) {
-            $admin = Admin::where('email', $request->email)->first();
+            // ユーザーの認証
+            $user = User::where('email', $request->email)->first();
+            if ($user && Hash::check($request->password, $user->password)) {
+                return $user;
+            }
 
+            // 管理者の認証
+            $admin = Admin::where('email', $request->email)->first();
             if ($admin && Hash::check($request->password, $admin->password)) {
                 return $admin;
             }
-        });
 
-        Fortify::authenticateUsing(function (Request $request) {
+            // 店舗代表者の認証
             $shopRepresentative = ShopRepresentative::where('email', $request->email)->first();
-
             if ($shopRepresentative && Hash::check($request->password, $shopRepresentative->password)) {
                 return $shopRepresentative;
             }
+
+            return null;
         });
 
         RateLimiter::for('login', function (Request $request) {
@@ -74,5 +77,41 @@ class FortifyServiceProvider extends ServiceProvider
 
             return Limit::perMinute(10)->by($email . $request->ip());
         });
+
+        // Fortify::createUsersUsing(CreateNewUser::class);
+
+        // Fortify::registerView(function () {
+        //     return view('auth.register');
+        // });
+
+        // Fortify::verifyEmailView(function(){
+        //     return view('auth.verify-email');
+        // });
+
+        // Fortify::loginView(function () {
+        //     return view('auth.login');
+        // });
+
+        // Fortify::authenticateUsing(function (Request $request) {
+        //     $admin = Admin::where('email', $request->email)->first();
+
+        //     if ($admin && Hash::check($request->password, $admin->password)) {
+        //         return $admin;
+        //     }
+        // });
+
+        // Fortify::authenticateUsing(function (Request $request) {
+        //     $shopRepresentative = ShopRepresentative::where('email', $request->email)->first();
+
+        //     if ($shopRepresentative && Hash::check($request->password, $shopRepresentative->password)) {
+        //         return $shopRepresentative;
+        //     }
+        // });
+
+        // RateLimiter::for('login', function (Request $request) {
+        //     $email = (string) $request->email;
+
+        //     return Limit::perMinute(10)->by($email . $request->ip());
+        // });
     }
 }

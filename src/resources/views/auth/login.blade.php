@@ -13,7 +13,7 @@
                 <div class="login_title">Login</div>
             </div>
 
-        <form class="form" action="/login" method="post">
+        <form class="form" action="{{ route('login') }}" method="post">
             @csrf
                 <div class="form_group_content">
                     <div class="form_input_text">

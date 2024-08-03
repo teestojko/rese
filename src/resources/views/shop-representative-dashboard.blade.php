@@ -16,11 +16,11 @@
     @if ($shop)
         <div>
             <h2>{{ $shop->name }}</h2>
-            <a href="{{ route('shop.edit', $shop->id) }}">Edit Shop</a>
+            <a href="{{ route('shop-representative.edit', $shop->id) }}">Edit Shop</a>
         </div>
     @else
         <p>No shop information available.</p>
     @endif
 
-    <a href="{{ route('reservations.list') }}">View Reservations</a>
+    <a href="{{ route('shop-representative.reservations.list') }}">View Reservations</a>
 @endsection
