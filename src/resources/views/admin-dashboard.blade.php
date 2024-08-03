@@ -11,4 +11,5 @@
     <div class="admin-dashboard-title">Admin Dashboard</div>
 
     <a href="{{ route('shop.edit.create') }}">Create Shop Representative</a>
+    <a href="{{ route('admin.send-email') }}">Send Email to User</a>
 @endsection

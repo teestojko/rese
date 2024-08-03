@@ -31,7 +31,7 @@ class ShopRepresentativeController extends Controller
 
     public function dashboard()
         {
-        //必要な記述を...
-            return view('shop-representative-dashboard');
+            $shop = Shop::where('id', auth('shop_representative')->user()->shop_id)->first();
+            return view('shop-representative-dashboard', compact('shop'));
         }
 }

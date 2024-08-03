@@ -16,6 +16,9 @@ use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\Auth\ShopRepresentativeLoginController;
 use App\Http\Controllers\Auth\ShopRepresentativeController;
+use App\Http\Controllers\ShopCreateEditController;
+use App\Http\Controllers\ReservationListController;
+use App\Http\Controllers\AdminEmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,11 +45,23 @@ Route::get('/shop-representative/dashboard', [ShopRepresentativeController::clas
 Route::get('/shop-edit', [ShopRepresentativeController::class, 'create'])->name('shop.edit.create');
 Route::post('/shop-representative/store', [ShopRepresentativeController::class, 'store'])->name('shop-representative.store');
 
+Route::get('/shop/create', [ShopCreateEditController::class, 'create'])->name('shop.create')->middleware('auth:shop_representative');
 
+Route::get('/shop/{id}/edit', [ShopCreateEditController::class, 'edit'])->name('shop.edit')->middleware('auth:shop_representative');
+
+Route::post('/shop/store', [ShopCreateEditController::class, 'store'])->name('shop.store')->middleware('auth:shop_representative');
+
+Route::post('/shop/{id}/update', [ShopCreateEditController::class, 'update'])->name('shop.update')->middleware('auth:shop_representative');
+
+Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations.list');
+
+Route::get('/admin/send-email', [AdminEmailController::class, 'showForm'])->name('admin.send-email-form');
+
+Route::post('/admin/send-email', [AdminEmailController::class, 'sendEmail'])->name('admin.send-email');
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/email/verify', function (Request $request) {
+    Route::get('/thanks', function (Request $request) {
         return view('auth.verify-email');
     })->middleware(['auth'])->name('verification.notice');
 
@@ -78,7 +93,7 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->middleware(['verified'])->name('reservations.destroy');
 
-    Route::get('/payment/thanks', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
+    Route::get('/done', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
 
     Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
 
