@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserNotification;
 use App\Models\User;
 use Illuminate\Http\AdminEmailRequest;
+use App\Http\Controllers\Controller;
 
 class AdminEmailController extends Controller
 {

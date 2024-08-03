@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ShopRepresentative;
 
 use Illuminate\Http\Request;
 use App\Models\Shop;
 use Illuminate\Http\ShopCreateEditRequest;
+use App\Http\Controllers\Controller;
 
 class ShopCreateEditController extends Controller
 {
@@ -12,7 +13,7 @@ class ShopCreateEditController extends Controller
     public function edit($id)
     {
         $shop = Shop::findOrFail($id);
-        return view('shop-update', compact('shop'));
+        return view('representative/shop-update', compact('shop'));
     }
 
     public function update(ShopCreateEditRequest $request, $id)

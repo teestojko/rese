@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\ShopRepresentative;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class ShopRepresentativeController extends Controller
     public function create()
     {
         $shops = Shop::all();
-        return view('shop-edit', compact('shops'));
+        return view('admin/shop-edit', compact('shops'));
     }
 
     public function store(StoreShopRepresentativeRequest $request)
@@ -32,6 +32,6 @@ class ShopRepresentativeController extends Controller
     public function dashboard()
         {
             $shop = Shop::where('id', auth('shop_representative')->user()->shop_id)->first();
-            return view('shop-representative-dashboard', compact('shop'));
+            return view('representative/shop-representative-dashboard', compact('shop'));
         }
 }

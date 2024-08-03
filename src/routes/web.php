@@ -7,18 +7,18 @@ use App\Http\Controllers\AuthController;
 use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\payment\PaymentController;
 use App\Http\Controllers\Auth\AdminLoginController;
-use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\Auth\ShopRepresentativeLoginController;
-use App\Http\Controllers\Auth\ShopRepresentativeController;
-use App\Http\Controllers\ShopCreateEditController;
-use App\Http\Controllers\ReservationListController;
-use App\Http\Controllers\AdminEmailController;
+use App\Http\Controllers\ShopRepresentative\ShopRepresentativeController;
+use App\Http\Controllers\ShopRepresentative\ShopCreateEditController;
+use App\Http\Controllers\ShopRepresentative\ReservationListController;
+use App\Http\Controllers\Admin\AdminEmailController;
+use App\Http\Controllers\Admin\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -78,11 +78,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [MyPageController::class, 'userMyPage'])->middleware(['verified'])->name('userMyPage');
 
     Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->middleware(['verified'])->name('payment.show');
-
     Route::post('/payment', [PaymentController::class, 'payment'])->middleware(['verified'])->name('payment.process');
 
     Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->middleware(['verified'])->name('favorites.toggle.add');
-
     Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->middleware(['verified'])->name('favorites.toggle.remove');
 
     Route::post('/reservations', [ReservationController::class, 'store'])->middleware(['verified'])->name('reservations.store');
@@ -99,7 +97,7 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->middleware(['verified'])->name('reservations.update');
 
-    Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store')->middleware(['verified']);
 
-    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy')->middleware(['verified']);
 });

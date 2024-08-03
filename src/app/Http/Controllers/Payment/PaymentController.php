@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\payment;
 
 use Illuminate\Http\Request;
 use Stripe\Stripe;
@@ -8,6 +8,7 @@ use Stripe\PaymentIntent;
 use Stripe\Customer;
 use Stripe\Charge;
 use App\Models\Shop;
+use App\Http\Controllers\Controller;
 
 class PaymentController extends Controller
 {
