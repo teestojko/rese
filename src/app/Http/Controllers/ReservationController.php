@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Http\Requests\ReservationRequest;
 use Illuminate\Support\Facades\Auth;
-use Stripe\Stripe;
 
 class ReservationController extends Controller
 {
