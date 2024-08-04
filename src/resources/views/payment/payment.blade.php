@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>決済ページ</h1>
-    <form action="{{ asset('payment') }}" method="POST">
+    <form action="{{ route('payment.process') }}" method="POST">
         @csrf
         <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"

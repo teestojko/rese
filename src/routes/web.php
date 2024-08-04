@@ -11,7 +11,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\payment\PaymentController;
+use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Auth\ShopRepresentativeLoginController;
 use App\Http\Controllers\ShopRepresentative\ShopRepresentativeController;
@@ -58,7 +58,6 @@ Route::prefix('shop-representative')->name('shop-representative.')->group(functi
     });
 });
 Route::middleware(['auth', 'verified'])->group(function () {
-
     Route::get('/thanks', function (Request $request) {
         return view('auth.verify-email');
     })->name('verification.notice');
@@ -78,7 +77,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [MyPageController::class, 'userMyPage'])->name('userMyPage');
 
     Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
-    Route::post('/payment', [PaymentController::class, 'payment'])->name('payment.process');
+    Route::post('/payment/success', [PaymentController::class, 'payment'])->name('payment.process');
+    Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
 
     Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
     Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
@@ -90,8 +90,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
 
     Route::get('/done', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
-
-    Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
 
     Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
 

@@ -2,6 +2,9 @@
 
 require __DIR__ . '/lib/Util/ApiVersion.php';
 
+require_once('/path/to/stripe-php/init.php');
+// File generated from our OpenAPI spec
+
 // Stripe singleton
 require __DIR__ . '/lib/Stripe.php';
 
@@ -92,6 +95,8 @@ require __DIR__ . '/lib/Apps/Secret.php';
 require __DIR__ . '/lib/Balance.php';
 require __DIR__ . '/lib/BalanceTransaction.php';
 require __DIR__ . '/lib/BankAccount.php';
+require __DIR__ . '/lib/Billing/Alert.php';
+require __DIR__ . '/lib/Billing/AlertTriggered.php';
 require __DIR__ . '/lib/Billing/Meter.php';
 require __DIR__ . '/lib/Billing/MeterEvent.php';
 require __DIR__ . '/lib/Billing/MeterEventAdjustment.php';

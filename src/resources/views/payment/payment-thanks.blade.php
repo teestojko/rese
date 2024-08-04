@@ -18,9 +18,9 @@
                     戻る
                 </button>
             </div>
-            <button class="reserve_nav" href="{{ route('redirect.to.payment') }}">
+            <a class="reserve_nav" href="{{ route('redirect.to.payment') }}">
                 支払いに進む
-            </button>
+            </a>
         </div>
     </div>
 @endsection

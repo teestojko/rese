@@ -17,6 +17,6 @@ class ReservationListController extends Controller
 
         $reservations = Reservation::where('shop_id', $shopId)->with('user')->get();
 
-        return view('reservation-list', compact('reservations'));
+        return view('representative.reservation-list', compact('reservations'));
     }
 }

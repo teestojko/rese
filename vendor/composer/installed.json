@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "stripe/stripe-php",
-            "version": "v15.1.0",
-            "version_normalized": "15.1.0.0",
+            "version": "v15.5.0",
+            "version_normalized": "15.5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "ce69d019941cf528c036ae0d1a3a9580c7389460"
+                "reference": "d20fbbf2557773106c0ec2198b1b16b40f5081bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/ce69d019941cf528c036ae0d1a3a9580c7389460",
-                "reference": "ce69d019941cf528c036ae0d1a3a9580c7389460",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/d20fbbf2557773106c0ec2198b1b16b40f5081bc",
+                "reference": "d20fbbf2557773106c0ec2198b1b16b40f5081bc",
                 "shasum": ""
             },
             "require": {
@@ -26,7 +26,7 @@
                 "phpstan/phpstan": "^1.2",
                 "phpunit/phpunit": "^5.7 || ^9.0"
             },
-            "time": "2024-07-05T18:52:07+00:00",
+            "time": "2024-08-01T21:25:52+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -56,10 +56,6 @@
                 "payment processing",
                 "stripe"
             ],
-            "support": {
-                "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v15.1.0"
-            },
             "install-path": "../stripe/stripe-php"
         }
     ],

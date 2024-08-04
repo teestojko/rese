@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "48b95ee621ed466e01fe2cbf97531e94",
+    "content-hash": "2a8064c57a2a269fa3cf6325ea6bfe26",
     "packages": [
         {
             "name": "stripe/stripe-php",
-            "version": "v15.1.0",
+            "version": "v15.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "ce69d019941cf528c036ae0d1a3a9580c7389460"
+                "reference": "d20fbbf2557773106c0ec2198b1b16b40f5081bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/ce69d019941cf528c036ae0d1a3a9580c7389460",
-                "reference": "ce69d019941cf528c036ae0d1a3a9580c7389460",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/d20fbbf2557773106c0ec2198b1b16b40f5081bc",
+                "reference": "d20fbbf2557773106c0ec2198b1b16b40f5081bc",
                 "shasum": ""
             },
             "require": {
@@ -59,11 +59,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "support": {
-                "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v15.1.0"
-            },
-            "time": "2024-07-05T18:52:07+00:00"
+            "time": "2024-08-01T21:25:52+00:00"
         }
     ],
     "packages-dev": [],

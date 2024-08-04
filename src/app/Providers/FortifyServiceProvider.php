@@ -77,41 +77,5 @@ class FortifyServiceProvider extends ServiceProvider
 
             return Limit::perMinute(10)->by($email . $request->ip());
         });
-
-        // Fortify::createUsersUsing(CreateNewUser::class);
-
-        // Fortify::registerView(function () {
-        //     return view('auth.register');
-        // });
-
-        // Fortify::verifyEmailView(function(){
-        //     return view('auth.verify-email');
-        // });
-
-        // Fortify::loginView(function () {
-        //     return view('auth.login');
-        // });
-
-        // Fortify::authenticateUsing(function (Request $request) {
-        //     $admin = Admin::where('email', $request->email)->first();
-
-        //     if ($admin && Hash::check($request->password, $admin->password)) {
-        //         return $admin;
-        //     }
-        // });
-
-        // Fortify::authenticateUsing(function (Request $request) {
-        //     $shopRepresentative = ShopRepresentative::where('email', $request->email)->first();
-
-        //     if ($shopRepresentative && Hash::check($request->password, $shopRepresentative->password)) {
-        //         return $shopRepresentative;
-        //     }
-        // });
-
-        // RateLimiter::for('login', function (Request $request) {
-        //     $email = (string) $request->email;
-
-        //     return Limit::perMinute(10)->by($email . $request->ip());
-        // });
     }
 }
