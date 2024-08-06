@@ -11,7 +11,13 @@ class ReviewController extends Controller
 {
     public function store(Request $request, Shop $shop)
     {
-
+        $existingReview = Review::where('user_id', Auth::id())
+            ->where('shop_id', $shop->id)
+            ->first();
+            if ($existingReview) {
+                return redirect()->route('shops.show', $shop)->with('error', '既にこの店舗にレビューを投稿しています。');
+            }
+            
         $review = new Review();
         $review->user_id = Auth::id();
         $review->shop_id = $shop->id;

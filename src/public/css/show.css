@@ -176,10 +176,29 @@ img{
 }
 
 .review_form{
+    height: 35vh;
     width: 80%;
     margin-left: 10%;
+    padding: 3%;
     background-color: aliceblue;
+    line-height: 2;
     border: 1px solid;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.alert-success{
+    position: absolute;
+    bottom: -40px;
+    margin-left: 10%;
+}
+
+.alert-danger{
+    position: absolute;
+    bottom: -40px;
+    margin-left: 10%;
+}
+
+#comment{
+    height: 12vh;
 }

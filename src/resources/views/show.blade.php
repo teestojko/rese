@@ -153,6 +153,17 @@
                     <button type="submit" class="submit">投稿する</button>
                 </form>
             </div>
+            @if(session('success'))
+                <div class="alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             <!-- レビュー一覧 -->
             {{-- <div class="reviews">
                 <h2>レビュー一覧</h2>
