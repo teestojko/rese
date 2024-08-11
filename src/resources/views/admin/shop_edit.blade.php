@@ -2,7 +2,7 @@
 
 @section('css')
 
-<link rel="stylesheet" href="{{ asset('css/shop-representative.css') }}">
+<link rel="stylesheet" href="{{ asset('css/shop_representative.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 @endsection
@@ -12,7 +12,7 @@
 @if (session('success'))
     <p>{{ session('success') }}</p>
 @endif
-    <form method="POST" action="{{ route('shop-representative.store') }}">
+    <form method="POST" action="{{ route('shop_representative.store') }}">
         @csrf
         <div>
             <label for="name">Name</label>

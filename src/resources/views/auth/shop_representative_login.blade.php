@@ -10,10 +10,10 @@
     <div class="login_detail">
         <div class="login_form">
             <div class="login_form_heading">
-                <div class="login_title">Shop-Representative.Login</div>
+                <div class="login_title">shop_owner.Login</div>
             </div>
 
-        <form class="form" method="POST" action="{{ route('shop-representative.login') }}">
+        <form class="form" method="POST" action="{{ route('shop_representative.login') }}">
             @csrf
                 <div class="form_group_content">
                     <div class="form_input_text">

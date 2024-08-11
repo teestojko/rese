@@ -28,6 +28,6 @@ class ShopCreateEditController extends Controller
             'detail' => $request->detail,
         ]);
 
-        return redirect()->route('shop-representative.dashboard')->with('success', 'Shop updated successfully.');
+        return redirect()->route('shop_representative.dashboard')->with('success', 'Shop updated successfully.');
     }
 }

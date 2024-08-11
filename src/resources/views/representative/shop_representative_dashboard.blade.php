@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <h1>shop-representative Dashboard</h1>
+    <h1>shop_owner Dashboard</h1>
     @if (session('success'))
         <p>{{ session('success') }}</p>
     @endif
@@ -16,11 +16,11 @@
     @if ($shop)
         <div>
             <h2>{{ $shop->name }}</h2>
-            <a href="{{ route('shop-representative.edit', $shop->id) }}">Edit Shop</a>
+            <a href="{{ route('shop_representative.edit', $shop->id) }}">Edit Shop</a>
         </div>
     @else
         <p>No shop information available.</p>
     @endif
 
-    <a href="{{ route('shop-representative.reservations.list') }}">View Reservations</a>
+    <a href="{{ route('shop_representative.reservations.list') }}">View Reservations</a>
 @endsection

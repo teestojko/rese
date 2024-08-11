@@ -8,7 +8,7 @@
                 Rese
             </title>
         <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/verify-email.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/verify_email.css') }}">
     </head>
     <body>
         <div class="verify_content">

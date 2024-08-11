@@ -5,22 +5,22 @@
 @endsection
 
 @section('content')
-    <h1>Send Email to User</h1>
+    <h1>全てのユーザーにメール送信</h1>
 
     @if (session('success'))
         <p>{{ session('success') }}</p>
     @endif
 
-    <form action="{{ route('admin.send-email') }}" method="POST">
+    <form action="{{ route('admin.send_email') }}" method="POST">
         @csrf
-        <div>
+        {{-- <div>
             <label for="user_id">Select User:</label>
-            <select name="user_id" id="user_id" required>
+            <ul>
                 @foreach ($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->email }})</option>
+                    <li>{{ $user->name }} ({{ $user->email }})</li>
                 @endforeach
-            </select>
-        </div>
+            </ul>
+        </div> --}}
         <div>
             <label for="subject">Subject:</label>
             <input type="text" name="subject" id="subject" required>

@@ -32,6 +32,7 @@ class MyPageController extends Controller
     {
         $user = Auth::user();
         $favorites = $user->favoriteShops()->with('genre', 'prefecture')->get();
+        // dd($favorites);
         $reservations = $user->reservations()->get();
         return view('myPage',compact('user','favorites','reservations',)
         );

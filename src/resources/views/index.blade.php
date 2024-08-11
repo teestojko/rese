@@ -15,7 +15,7 @@
             <select class="search_select" name="prefecture_id" id="prefecture_id">
                 <option value="" class="placeholder">All area</option>
                 @foreach($prefectures as $prefecture)
-                    <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
+                    <option value="{{ $prefecture->id }}"{{ request('prefecture_id') == $prefecture->id ? 'selected' : '' }}>{{ $prefecture->name }}</option>
                 @endforeach
             </select>
             <i class="fas fa-caret-down" style="color: #c7c7c7; position: absolute; top: 35%; left: 14%;"></i>
@@ -25,16 +25,16 @@
             <select class="search_select2" name="genre_id" id="genre_id">
                 <option value="" class="placeholder">All genre</option>
                 @foreach($genres as $genre)
-                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                    <option value="{{ $genre->id }}" {{ request('genre_id') == $genre->id ? 'selected' : '' }}>{{ $genre->name }}</option>
                 @endforeach
             </select>
             <i class="fas fa-caret-down " style="color: #c7c7c7; position: absolute; top: 35%; left: 31%;" ></i>
         </div>
         <div class="search3">
             <label class="search_label" for="shop_name"></label>
-            <button type="submit" class="submit3">
-                <i class="fas fa-search search_icon"></i>
-            </button>
+                <span class="submit3">
+                    <i class="fas fa-search search_icon"></i>
+                </span>
             <input type="text" name="shop_name" id="shop_name" class="search_input" placeholder="Search ...">
         </div>
     </div>
@@ -85,7 +85,7 @@
             </div>
         @endforeach
     </div>
-    {{-- @section('scripts')
+    @section('scripts')
         <script>
         document.addEventListener('DOMContentLoaded', function () {
             const filterForm = document.getElementById('filterForm');
@@ -97,6 +97,6 @@
             });
         });
         </script>
-    @endsection --}}
+    @endsection
 @endsection
 

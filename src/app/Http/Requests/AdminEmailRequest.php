@@ -24,7 +24,7 @@ class AdminEmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required|exists:users,id',
+            // 'user_id' => 'required|exists:users,id',
             'subject' => 'required|string|max:255',
             'message' => 'required|string',
         ];

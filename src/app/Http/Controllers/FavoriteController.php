@@ -13,7 +13,7 @@ class FavoriteController extends Controller
 
     public function toggleFavorite(Shop $shop)
     {
-        $user = auth()->user();
+        $user = Auth::user();
         if (!$user) {
             return redirect()->back()->with('error', 'You must be logged in to add to favorites.');
         }

@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserNotification;
 use App\Models\User;
-use Illuminate\Http\AdminEmailRequest;
+use App\Http\Requests\AdminEmailRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AdminEmailController extends Controller
 {
@@ -15,16 +16,19 @@ class AdminEmailController extends Controller
     {
         $users = User::all();
 
-        return view('admin.send-email', compact('users'));
+        return view('admin.send_email', compact('users'));
     }
 
     public function sendEmail(AdminEmailRequest $request)
     {
 
-        $user = User::findOrFail($request->user_id);
+        // $user = User::findOrFail($request->user_id);
+        // $user = Auth::user();
+        $users = User::all();
 
-        Mail::to($user->email)->send(new UserNotification($request->subject, $request->message));
-
+        foreach ($users as $user) {
+            Mail::to($user->email)->send(new UserNotification($request->subject, $request->message));
+        }
         return redirect()->back()->with('success', 'メールが送信されました');
     }
 }

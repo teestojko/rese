@@ -12,7 +12,7 @@
     @if (session('success'))
         <p>{{ session('success') }}</p>
     @endif
-    <form method="POST" action="{{ route('shop-representative.update', $shop->id) }}">
+    <form method="POST" action="{{ route('shop_representative.update', $shop->id) }}">
         @csrf
         <div>
             <label for="name">Name</label>

@@ -39,12 +39,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-        Route::get('/send-email', [AdminEmailController::class, 'showForm'])->name('send-email-form');
-        Route::post('/send-email', [AdminEmailController::class, 'sendEmail'])->name('send-email');
+        Route::get('/send_email', [AdminEmailController::class, 'showForm'])->name('send_email-form');
+        Route::post('/send_email', [AdminEmailController::class, 'sendEmail'])->name('send_email');
     });
 });
 
-Route::prefix('shop-representative')->name('shop-representative.')->group(function () {
+Route::prefix('shop_representative')->name('shop_representative.')->group(function () {
     Route::get('/login', [ShopRepresentativeLoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [ShopRepresentativeLoginController::class, 'login']);
 
@@ -57,9 +57,9 @@ Route::prefix('shop-representative')->name('shop-representative.')->group(functi
         Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations.list');
     });
 });
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/thanks', function (Request $request) {
-        return view('auth.verify-email');
+        return view('auth.verify_email');
     })->name('verification.notice');
 
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
@@ -74,28 +74,31 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return back()->with('message', 'Verification link sent!');
     })->middleware('throttle:6,1')->name('verification.send');
 
-    Route::get('/', [MyPageController::class, 'userMyPage'])->name('userMyPage');
+    Route::middleware('verified')->group(function () {
 
-    Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
-    Route::post('/payment/success', [PaymentController::class, 'payment'])->name('payment.process');
-    Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
+        Route::get('/', [MyPageController::class, 'userMyPage'])->name('userMyPage');
 
-    Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
-    Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
+        Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
+        Route::post('/payment/success', [PaymentController::class, 'payment'])->name('payment.process');
+        Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
 
-    Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+        Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
+        Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
 
-    Route::get('/myPage', [MyPageController::class, 'showMyPage'])->name('myPage');
+        Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 
-    Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
+        Route::get('/myPage', [MyPageController::class, 'showMyPage'])->name('myPage');
 
-    Route::get('/done', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
+        Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
 
-    Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
+        Route::get('/done', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
 
-    Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
+        Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
 
-    Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+        Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
 
-    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+        Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
+        Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+    });
 });

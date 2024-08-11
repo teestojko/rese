@@ -12,7 +12,7 @@ class ShopRepresentativeLoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.shop-representative-login');
+        return view('auth.shop_representative_login');
     }
 
     public function login(Request $request)
@@ -20,7 +20,7 @@ class ShopRepresentativeLoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('shop_representative')->attempt($credentials)) {
-            return redirect()->route('shop-representative.dashboard');
+            return redirect()->route('shop_representative.dashboard');
         }
 
         return back()->withErrors([
