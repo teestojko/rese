@@ -10,7 +10,7 @@ use App\Models\Favorite;
 use App\Models\Reservation;
 use App\Models\Genre;
 use App\Models\Prefecture;
-
+use Carbon\Carbon;
 
 class MyPageController extends Controller
 {
@@ -28,25 +28,36 @@ class MyPageController extends Controller
         return view('index', compact('username','user','shops','prefectures','genres'));
     }
 
-    public function showMyPage()
+    public function showMyPage($id)
     {
-        $user = Auth::user();
-        $favorites = $user->favoriteShops()->with('genre', 'prefecture')->get();
-        // dd($favorites);
-        $reservations = $user->reservations()->get();
-        return view('myPage',compact('user','favorites','reservations',)
-        );
+    $user = Auth::user();
+    $favorites = $user->favoriteShops()->with('genre', 'prefecture')->get();
+    $now = Carbon::now();
+
+    // ユーザーに関連する最も近い予約を取得
+    $nearestReservation = Reservation::where('user_id', $user->id)
+        ->where('reservation_date', '>=', $now->toDateString())
+        ->where(function ($query) use ($now) {
+            $query->where('reservation_date', '>', $now->toDateString())
+                ->orWhere(function ($query) use ($now) {
+                    $query->where('reservation_date', $now->toDateString())
+                        ->where('reservation_time', '>', $now->toTimeString());
+                });
+        })
+        ->orderBy('reservation_date', 'asc')
+        ->orderBy('reservation_time', 'asc')
+        ->first();
+
+    return view('myPage', compact('user', 'favorites', 'nearestReservation'));
     }
 
     public function destroyReservation($id)
-{
-    $reservation = Reservation::find($id);
-    if ($reservation && $reservation->user_id == Auth::id()) {
-        $reservation->delete();
-        return redirect()->route('myPage')->with('success', '予約が削除されました。');
+    {
+        $reservation = Reservation::find($id);
+            if ($reservation && $reservation->user_id == Auth::id()) {
+                $reservation->delete();
+                return redirect()->route('myPage');
+            }
+            return redirect()->route('myPage');
     }
-
-    return redirect()->route('myPage')->with('error', '予約の削除に失敗しました。');
-}
-
 }

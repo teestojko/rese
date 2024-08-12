@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <form class="search_form" id="filterForm" action="{{ route('shops.filter') }}" method="GET">
+<form class="search_form" id="filterForm" action="{{ route('shops.filter') }}" method="GET">
     <div class="search_container">
         <div class="search1">
             <label class="search_label" for="prefecture_id"></label>
@@ -18,7 +18,7 @@
                     <option value="{{ $prefecture->id }}"{{ request('prefecture_id') == $prefecture->id ? 'selected' : '' }}>{{ $prefecture->name }}</option>
                 @endforeach
             </select>
-            <i class="fas fa-caret-down" style="color: #c7c7c7; position: absolute; top: 35%; left: 14%;"></i>
+            <i class="fas fa-caret-down" style="color: #c7c7c7;"></i>
         </div>
         <div class="search2">
             <label class="search_label" for="genre_id"></label>
@@ -28,7 +28,7 @@
                     <option value="{{ $genre->id }}" {{ request('genre_id') == $genre->id ? 'selected' : '' }}>{{ $genre->name }}</option>
                 @endforeach
             </select>
-            <i class="fas fa-caret-down " style="color: #c7c7c7; position: absolute; top: 35%; left: 31%;" ></i>
+            <i class="fas fa-caret-down" style="color: #c7c7c7;" ></i>
         </div>
         <div class="search3">
             <label class="search_label" for="shop_name"></label>

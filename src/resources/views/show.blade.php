@@ -87,7 +87,30 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    @if($shop->reservations && $shop->reservations->isNotEmpty())
+                    @if($nearestReservation)
+                    <div class="reservation_table_main">
+                        <table class="reservation_table">
+                            <tr class="reservation_tr">
+                                <td class="reservation_label">Shop</td>
+                                <td class="reservation_value">{{ $shop->name }}</td>
+                            </tr>
+                            <tr class="reservation_tr">
+                                <td class="reservation_label">Date</td>
+                                <td class="reservation_value">{{ $nearestReservation->reservation_date }}</td>
+                            </tr>
+                            <tr class="reservation_tr">
+                                <td class="reservation_label">Time</td>
+                                <td class="reservation_value">{{ $nearestReservation->reservation_time }}</td>
+                            </tr>
+                            <tr class="reservation_tr">
+                                <td class="reservation_label">Number</td>
+                                <td class="reservation_value">{{ $nearestReservation->number_of_people }}人</td>
+                            </tr>
+                        </table>
+                    </div>
+                    @endif
+
+                    {{-- @if($shop->reservations && $shop->reservations->isNotEmpty())
                     <div class="reservation_table_main">
                         <table class="reservation_table">
                                 @foreach($shop->reservations as $reservation)
@@ -110,14 +133,7 @@
                                 @endforeach
                             </table>
                         </div>
-
-                        <div class="reservation-item">
-                            <a href="{{ route('reservations.edit', $reservation->id) }}">
-                                <i class="fas fa-edit">予約変更</i>
-                            </a>
-                        </div>
-
-                    @endif
+                    @endif --}}
                 </div>
 
                 <button type="submit" class="btn-primary">
@@ -164,6 +180,13 @@
                     {{ session('error') }}
                 </div>
             @endif
+
+                {{-- <div class="reservation-item">
+                            <a href="{{ route('reservations.edit', $nearestReservation->id) }}">
+                                <i class="fas fa-edit">予約変更</i>
+                            </a>
+                        </div> --}}
+
             <!-- レビュー一覧 -->
             {{-- <div class="reviews">
                 <h2>レビュー一覧</h2>

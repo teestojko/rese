@@ -14,9 +14,12 @@
                 ご予約ありがとうございます。
             </div>
             <div class="reserve_button_content">
-                <button class="reserve_button" onclick="history.back()">
+                <a class="reserve_button" href="/">
                     戻る
-                </button>
+                </a>
+                {{-- <button class="reserve_button" onclick="history.back()">
+                    戻る
+                </button> --}}
             </div>
             <a class="reserve_nav" href="{{ route('redirect.to.payment') }}">
                 支払いに進む

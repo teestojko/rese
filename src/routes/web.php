@@ -31,7 +31,7 @@ use App\Http\Controllers\Admin\AdminController;
 */
 Route::get('/home', [AuthController::class, 'index'])->name('home');
 Route::get('/filter', [SearchController::class, 'filter'])->name('shops.filter');
-Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
+// Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('login');
@@ -78,6 +78,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/', [MyPageController::class, 'userMyPage'])->name('userMyPage');
 
+        Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
+
         Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
         Route::post('/payment/success', [PaymentController::class, 'payment'])->name('payment.process');
         Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
@@ -87,7 +89,8 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 
-        Route::get('/myPage', [MyPageController::class, 'showMyPage'])->name('myPage');
+        Route::get('/myPage/{shop}', [MyPageController::class, 'showMyPage'])->name('myPage');
+        Route::get('/reservation_thanks', [MyPageController::class, 'reservationThanks'])->name('reservation.thanks');
 
         Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
 

@@ -38,7 +38,7 @@
                         Logout
                     </button>
                 </form>
-                    <li class="nav_list"><a class="nav_a" href="/myPage">Mypage</a></li>
+                    <li class="nav_list"><a class="nav_a" href="/myPage/{shop}">Mypage</a></li>
                 @else
                     <li class="nav_list"><a class="nav_a" href="/home">Home</a></li>
                     <li class="nav_list"><a class="nav_a" href="/register">Registration</a></li>

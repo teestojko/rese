@@ -40,7 +40,6 @@
     font-size: 14px;
     padding-left: 15px;
     color: #666666;
-    border-left: 1px solid #ccc;
     appearance: none;
 }
 
@@ -50,6 +49,7 @@
 
 .search2{
     margin-right: 15px;
+    border-left: 1px solid #ccc;
 }
 
 .search3{

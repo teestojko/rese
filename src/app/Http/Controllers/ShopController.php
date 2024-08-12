@@ -10,17 +10,26 @@ use Carbon\Carbon;
 
 class ShopController extends Controller
 {
+
     public function show($id)
-    {
-        $shop = Shop::with(['reservations' => function ($query) {
-            $query->where('reservation_date', '>=', Carbon::today()->toDateString())
-                ->orderBy('reservation_date', 'asc')
-                ->orderBy('reservation_time', 'asc');
-        }])->findOrFail($id);
+{
+    $now = Carbon::now();
 
-        // 現在の日付に最も近い予約を取得
-        $nearestReservation = $shop->reservations->first();
+    $shop = Shop::with(['reservations' => function ($query) use ($now) {
+        $query->where('reservation_date', '>=', $now->toDateString())
+            ->where(function ($query) use ($now) {
+                $query->where('reservation_date', '>', $now->toDateString())
+                    ->orWhere(function ($query) use ($now) {
+                        $query->where('reservation_date', $now->toDateString())
+                            ->where('reservation_time', '>', $now->toTimeString());
+                    });
+            })
+            ->orderBy('reservation_date', 'asc')
+            ->orderBy('reservation_time', 'asc');
+    }])->findOrFail($id);
 
-        return view('show', compact('shop', 'nearestReservation'));
-    }
+    $nearestReservation = $shop->reservations->first();
+
+    return view('show', compact('shop', 'nearestReservation'));
+}
 }

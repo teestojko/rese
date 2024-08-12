@@ -13,12 +13,6 @@ class AuthController extends Controller
 {
     public function index()
     {
-        // $username = null;
-        // $user = null;
-        // if (auth()->check()) {
-        //     $username = auth()->user()->name;
-        //     $user = auth()->user();
-        // }
         $shops = Shop::all();
         $prefectures = Prefecture::all();
         $genres = Genre::all();
