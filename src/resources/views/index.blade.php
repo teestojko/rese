@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<form class="search_form" id="filterForm" action="{{ route('shops.filter') }}" method="GET">
+<form class="search_form" id="filterForm" action="{{ route('shops_filter') }}" method="GET">
     <div class="search_container">
         <div class="search1">
             <label class="search_label" for="prefecture_id"></label>
@@ -32,9 +32,12 @@
         </div>
         <div class="search3">
             <label class="search_label" for="shop_name"></label>
-                <span class="submit3">
+                <button type="submit" class="submit3">
                     <i class="fas fa-search search_icon"></i>
-                </span>
+                </button>
+                {{-- <span class="submit3">
+                    <i class="fas fa-search search_icon"></i>
+                </span> --}}
             <input type="text" name="shop_name" id="shop_name" class="search_input" placeholder="Search ...">
         </div>
     </div>

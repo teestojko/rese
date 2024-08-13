@@ -12,7 +12,7 @@
     <div class="shop_all">
         <div class="shop_detail_page">
             <div class="shop_name_top">
-                <a href="{{ route('userMyPage') }}" class="btn-secondary">&lt;</a>
+                <a href="{{ route('user_my_page') }}" class="btn-secondary">&lt;</a>
                 <div class="shop_name">
                     {{ $shop->name }}
                 </div>
@@ -87,7 +87,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    @if($nearestReservation)
+                    @if($nearest_reservation)
                     <div class="reservation_table_main">
                         <table class="reservation_table">
                             <tr class="reservation_tr">
@@ -96,15 +96,15 @@
                             </tr>
                             <tr class="reservation_tr">
                                 <td class="reservation_label">Date</td>
-                                <td class="reservation_value">{{ $nearestReservation->reservation_date }}</td>
+                                <td class="reservation_value">{{ $nearest_reservation->reservation_date }}</td>
                             </tr>
                             <tr class="reservation_tr">
                                 <td class="reservation_label">Time</td>
-                                <td class="reservation_value">{{ $nearestReservation->reservation_time }}</td>
+                                <td class="reservation_value">{{ $nearest_reservation->reservation_time }}</td>
                             </tr>
                             <tr class="reservation_tr">
                                 <td class="reservation_label">Number</td>
-                                <td class="reservation_value">{{ $nearestReservation->number_of_people }}人</td>
+                                <td class="reservation_value">{{ $nearest_reservation->number_of_people }}人</td>
                             </tr>
                         </table>
                     </div>
@@ -182,7 +182,7 @@
             @endif
 
                 {{-- <div class="reservation-item">
-                            <a href="{{ route('reservations.edit', $nearestReservation->id) }}">
+                            <a href="{{ route('reservations.edit', $nearest_reservation->id) }}">
                                 <i class="fas fa-edit">予約変更</i>
                             </a>
                         </div> --}}

@@ -11,12 +11,12 @@ class ReservationListController extends Controller
 {
     public function reservationList()
     {
-        $shopRepresentative = Auth::guard('shop_representative')->user();
+        $shop_representative = Auth::guard('shop_representative')->user();
 
-        $shopId = $shopRepresentative->shop_id;
+        $shop_id = $shop_representative->shop_id;
 
-        $reservations = Reservation::where('shop_id', $shopId)->with('user')->get();
+        $reservations = Reservation::where('shop_id', $shop_id)->with('user')->get();
 
-        return view('representative.reservation-list', compact('reservations'));
+        return view('representative.reservation_list', compact('reservations'));
     }
 }

@@ -13,7 +13,7 @@ class ShopCreateEditController extends Controller
     public function edit($id)
     {
         $shop = Shop::findOrFail($id);
-        return view('representative/shop-update', compact('shop'));
+        return view('representative/shop_update', compact('shop'));
     }
 
     public function update(ShopCreateEditRequest $request, $id)

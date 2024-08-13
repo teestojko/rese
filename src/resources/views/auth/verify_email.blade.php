@@ -8,7 +8,7 @@
                 Rese
             </title>
         <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/register-thanks.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/register_thanks.css') }}">
     </head>
     <body>
         <div class="verify_content">
@@ -57,7 +57,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/register-thanks.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/register_thanks.css') }}">
 </head>
 <body>
 

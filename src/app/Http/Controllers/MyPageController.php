@@ -16,16 +16,16 @@ class MyPageController extends Controller
 {
     public function userMyPage()
     {
-        $username = null;
+        $user_name = null;
         if (auth()->check()) {
-            $username = auth()->user()->name;
+            $user_name = auth()->user()->name;
         }
         $user = Auth::user();
         $shops = Shop::all();
         $prefectures = Prefecture::all();
         $genres = Genre::all();
 
-        return view('index', compact('username','user','shops','prefectures','genres'));
+        return view('index', compact('user_name','user','shops','prefectures','genres'));
     }
 
     public function showMyPage($id)
@@ -35,7 +35,7 @@ class MyPageController extends Controller
     $now = Carbon::now();
 
     // ユーザーに関連する最も近い予約を取得
-    $nearestReservation = Reservation::where('user_id', $user->id)
+    $nearest_reservation = Reservation::where('user_id', $user->id)
         ->where('reservation_date', '>=', $now->toDateString())
         ->where(function ($query) use ($now) {
             $query->where('reservation_date', '>', $now->toDateString())
@@ -48,7 +48,7 @@ class MyPageController extends Controller
         ->orderBy('reservation_time', 'asc')
         ->first();
 
-    return view('myPage', compact('user', 'favorites', 'nearestReservation'));
+    return view('myPage', compact('user', 'favorites', 'nearest_reservation'));
     }
 
     public function destroyReservation($id)

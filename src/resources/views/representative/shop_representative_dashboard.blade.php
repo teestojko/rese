@@ -22,5 +22,5 @@
         <p>No shop information available.</p>
     @endif
 
-    <a href="{{ route('shop_representative.reservations.list') }}">View Reservations</a>
+    <a href="{{ route('shop_representative.reservations_list') }}">View Reservations</a>
 @endsection

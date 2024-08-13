@@ -28,8 +28,8 @@ class ShopController extends Controller
             ->orderBy('reservation_time', 'asc');
     }])->findOrFail($id);
 
-    $nearestReservation = $shop->reservations->first();
+    $nearest_reservation = $shop->reservations->first();
 
-    return view('show', compact('shop', 'nearestReservation'));
+    return view('show', compact('shop', 'nearest_reservation'));
 }
 }

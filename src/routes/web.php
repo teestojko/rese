@@ -30,7 +30,7 @@ use App\Http\Controllers\Admin\AdminController;
 |
 */
 Route::get('/home', [AuthController::class, 'index'])->name('home');
-Route::get('/filter', [SearchController::class, 'filter'])->name('shops.filter');
+Route::get('/filter', [SearchController::class, 'filter'])->name('shops_filter');
 // Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -39,7 +39,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-        Route::get('/send_email', [AdminEmailController::class, 'showForm'])->name('send_email-form');
+        Route::get('/send_email', [AdminEmailController::class, 'showForm'])->name('send_email_form');
         Route::post('/send_email', [AdminEmailController::class, 'sendEmail'])->name('send_email');
     });
 });
@@ -50,11 +50,11 @@ Route::prefix('shop_representative')->name('shop_representative.')->group(functi
 
     Route::middleware('auth:shop_representative')->group(function () {
         Route::get('/dashboard', [ShopRepresentativeController::class, 'dashboard'])->name('dashboard');
-        Route::get('/edit', [ShopRepresentativeController::class, 'create'])->name('edit.create');
+        Route::get('/edit', [ShopRepresentativeController::class, 'create'])->name('edit_create');
         Route::post('/store', [ShopRepresentativeController::class, 'store'])->name('store');
         Route::get('/{id}/edit', [ShopCreateEditController::class, 'edit'])->name('edit');
         Route::post('/{id}/update', [ShopCreateEditController::class, 'update'])->name('update');
-        Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations.list');
+        Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations_list');
     });
 });
 Route::middleware('auth')->group(function () {
@@ -76,7 +76,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('verified')->group(function () {
 
-        Route::get('/', [MyPageController::class, 'userMyPage'])->name('userMyPage');
+        Route::get('/', [MyPageController::class, 'userMyPage'])->name('user_my_page');
 
         Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 

@@ -12,7 +12,7 @@ class SearchController extends Controller
 {
     public function filter(Request $request)
     {
-        $username = auth()->check() ? auth()->user()->name : null;
+        $user_name = auth()->check() ? auth()->user()->name : null;
         $user = Auth::user();
         $prefectures = Prefecture::all();
         $genres = Genre::all();
@@ -29,6 +29,6 @@ class SearchController extends Controller
     }
         $shops = $query->get();
 
-        return view('index', compact('username', 'user', 'shops', 'prefectures', 'genres'));
+        return view('index', compact('user_name', 'user', 'shops', 'prefectures', 'genres'));
     }
 }

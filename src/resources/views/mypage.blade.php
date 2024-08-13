@@ -23,7 +23,7 @@
                     予約状況
                 </div>
 
-                @if ($nearestReservation)
+                @if ($nearest_reservation)
                 <div class="table_main">
                     <table class="reserve_table">
                         <div class="reservation_id_table">
@@ -32,7 +32,7 @@
                                     {{-- {{$reservation->id}} --}}
                                 </div>
                                 <p class="p_button">
-                                    <form action="{{ route('reservations.destroy', $nearestReservation->id) }}" method="POST" style="display:inline;">
+                                    <form action="{{ route('reservations.destroy', $nearest_reservation->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="delete-btn">
@@ -44,21 +44,21 @@
                         <thead>
                             <tr class="reserve_tr">
                                 <td class="reserve_label">Shop</td>
-                                <td class="reserve_value">{{ $nearestReservation->shop->name }}</td>
+                                <td class="reserve_value">{{ $nearest_reservation->shop->name }}</td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="reserve_tr">
                                 <td class="reserve_label">Date</td>
-                                <td class="reserve_value">{{ $nearestReservation->reservation_date }}</td>
+                                <td class="reserve_value">{{ $nearest_reservation->reservation_date }}</td>
                             </tr>
                             <tr class="reserve_tr">
                                 <td class="reserve_label">Time</td>
-                                <td class="reserve_value">{{ $nearestReservation->reservation_time }}</td>
+                                <td class="reserve_value">{{ $nearest_reservation->reservation_time }}</td>
                             </tr>
                             <tr class="reserve_tr">
                                 <td class="reserve_label">Number</td>
-                                <td class="reserve_value">{{ $nearestReservation->number_of_people }}人</td>
+                                <td class="reserve_value">{{ $nearest_reservation->number_of_people }}人</td>
                             </tr>
                         </tbody>
                     </table>
