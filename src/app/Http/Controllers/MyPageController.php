@@ -54,10 +54,10 @@ class MyPageController extends Controller
     public function destroyReservation($id)
     {
         $reservation = Reservation::find($id);
-            if ($reservation && $reservation->user_id == Auth::id()) {
-                $reservation->delete();
-                return redirect()->route('myPage');
-            }
-            return redirect()->route('myPage');
+        if ($reservation && $reservation->user_id == Auth::id()) {
+            $shopId = $reservation->shop_id;
+            $reservation->delete();
+        }
+        return redirect()->route('myPage', ['shop' => $shopId]);
     }
 }

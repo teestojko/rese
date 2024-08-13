@@ -17,7 +17,7 @@ class ReviewController extends Controller
             if ($existingReview) {
                 return redirect()->route('shops.show', $shop)->with('error', '既にこの店舗にレビューを投稿しています。');
             }
-            
+
         $review = new Review();
         $review->user_id = Auth::id();
         $review->shop_id = $shop->id;
@@ -27,6 +27,16 @@ class ReviewController extends Controller
 
         return redirect()->route('shops.show', $shop)->with('success', 'レビューを投稿しました');
     }
+
+    public function index(Shop $shop)
+    {
+        $reviews = Review::where('shop_id', $shop->id)
+            ->where('user_id', Auth::id())
+            ->get();
+
+        return view('reviews.reviews_index', compact('reviews', 'shop'));
+    }
+
 
     public function destroy(Review $review)
     {

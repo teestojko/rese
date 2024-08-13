@@ -102,6 +102,8 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
+        Route::get('/shops/{shop}/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+
         Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
     });
 });

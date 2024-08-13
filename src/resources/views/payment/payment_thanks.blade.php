@@ -17,9 +17,6 @@
                 <a class="reserve_button" href="/">
                     戻る
                 </a>
-                {{-- <button class="reserve_button" onclick="history.back()">
-                    戻る
-                </button> --}}
             </div>
             <a class="reserve_nav" href="{{ route('redirect.to.payment') }}">
                 支払いに進む

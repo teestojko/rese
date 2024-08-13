@@ -1,0 +1,53 @@
+.content{
+    width: 100vw;
+    height: 89vh;
+}
+
+.detail{
+    height: 100%;
+    padding: 5%;
+}
+
+.top{
+    font-size: 2rem;
+    font-family: system-ui;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    color: rgb(175, 175, 175);
+}
+
+.title{
+    font-size: 1.7rem;
+    font-family: system-ui;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+.shop_edit{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.shop_edit_a{
+    text-decoration: none;
+    padding: 1%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: rgb(33, 89, 255);
+}
+
+.reservation_list{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.reservation_list_a{
+    text-decoration: none;
+    padding: 1% 2.3%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: rgb(33, 89, 255);
+}

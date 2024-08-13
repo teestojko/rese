@@ -168,6 +168,9 @@
                     </div>
                     <button type="submit" class="submit">投稿する</button>
                 </form>
+                <a href="{{ route('reviews.index', ['shop' => $shop->id]) }}" class="btn-primary2">
+                    投稿したレビューを確認する
+                </a>
             </div>
             @if(session('success'))
                 <div class="alert-success">
