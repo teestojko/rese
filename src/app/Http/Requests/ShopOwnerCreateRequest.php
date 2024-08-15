@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ShopCreateEditRequest extends FormRequest
+class ShopOwnerCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class ShopCreateEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'image_path' => 'required|string|max:255',
-            'prefecture' => 'required|string|max:255',
-            'genre' => 'required|string|max:255',
-            'detail' => 'required|string',
+        'name' => 'required|string|max:255',
+        'image_path' => 'required|file|mimes:jpeg,png,jpg|max:2048',
+        'prefecture_id' => 'required|integer',
+        'genre_id' => 'required|integer',
+        'detail' => 'required|string',
         ];
     }
 }

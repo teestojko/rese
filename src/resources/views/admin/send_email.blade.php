@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/send_email.css') }}">
 @endsection
 
 @section('content')
@@ -13,14 +13,6 @@
 
     <form action="{{ route('admin.send_email') }}" method="POST">
         @csrf
-        {{-- <div>
-            <label for="user_id">Select User:</label>
-            <ul>
-                @foreach ($users as $user)
-                    <li>{{ $user->name }} ({{ $user->email }})</li>
-                @endforeach
-            </ul>
-        </div> --}}
         <div>
             <label for="subject">Subject:</label>
             <input type="text" name="subject" id="subject" required>

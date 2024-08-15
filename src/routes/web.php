@@ -15,10 +15,11 @@ use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Auth\ShopRepresentativeLoginController;
 use App\Http\Controllers\ShopRepresentative\ShopRepresentativeController;
-use App\Http\Controllers\ShopRepresentative\ShopCreateEditController;
+use App\Http\Controllers\ShopRepresentative\ShopEditController;
 use App\Http\Controllers\ShopRepresentative\ReservationListController;
 use App\Http\Controllers\Admin\AdminEmailController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ShopOwnerCreateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('/edit', [ShopOwnerCreateController::class, 'create'])->name('edit_create');
+        Route::post('/store', [ShopOwnerCreateController::class, 'store'])->name('store');
         Route::get('/send_email', [AdminEmailController::class, 'showForm'])->name('send_email_form');
         Route::post('/send_email', [AdminEmailController::class, 'sendEmail'])->name('send_email');
     });
@@ -50,11 +53,11 @@ Route::prefix('shop_representative')->name('shop_representative.')->group(functi
 
     Route::middleware('auth:shop_representative')->group(function () {
         Route::get('/dashboard', [ShopRepresentativeController::class, 'dashboard'])->name('dashboard');
-        Route::get('/edit', [ShopRepresentativeController::class, 'create'])->name('edit_create');
-        Route::post('/store', [ShopRepresentativeController::class, 'store'])->name('store');
-        Route::get('/{id}/edit', [ShopCreateEditController::class, 'edit'])->name('edit');
-        Route::post('/{id}/update', [ShopCreateEditController::class, 'update'])->name('update');
+        Route::get('/{id}/edit', [ShopEditController::class, 'edit'])->name('edit');
+        Route::post('/{id}/update', [ShopEditController::class, 'update'])->name('update');
         Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations_list');
+        Route::get('/shop_representative/create', [ShopRepresentativeController::class, 'create'])->name('shop_create');
+        Route::post('/shop_representative/store', [ShopRepresentativeController::class, 'store'])->name('shop_store');
     });
 });
 Route::middleware('auth')->group(function () {

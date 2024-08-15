@@ -2,7 +2,7 @@
 
 @section('css')
 
-<link rel="stylesheet" href="{{ asset('css/Representative/shop_representative_dashboard.css') }}">
+<link rel="stylesheet" href="{{ asset('css/representative/shop_representative_dashboard.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 @endsection
@@ -13,11 +13,6 @@
         <div class="top">
             shop_owner Dashboard
         </div>
-        @if (session('success'))
-            <p>
-                {{ session('success') }}
-            </p>
-        @endif
         @if ($shop)
             <div class="title">
                 {{ $shop->name }}
@@ -35,6 +30,16 @@
                     予約一覧
                 </a>
             </div>
+            <div class="shop_create">
+                <a class="shop_create_a" href="{{ route('shop_representative.shop_create', $shop->id) }}">
+                    店舗作成
+                </a>
+            </div>
+            @if (session('success'))
+            <p>
+                {{ session('success') }}
+            </p>
+        @endif
     </div>
 </div>
 @endsection

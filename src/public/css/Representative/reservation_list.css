@@ -1,0 +1,74 @@
+.main{
+    width: 100%;
+    height: 89vh;
+}
+
+.sub{
+    width: 80%;
+    height: 75%;
+    margin: 3% 10%;
+}
+
+.title{
+    font-size: 2rem;
+    font-family: system-ui;
+    font-weight: bold;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    align-content: center;
+    color: rgb(175, 175, 175);
+}
+
+.table{
+    display: table;
+    margin-top: 2%;
+    width: 100%;
+    height: 90%;
+}
+
+.table_tr_top{
+    width: 100%;
+
+}
+
+.table_name{
+    width: 30%;
+    text-align: start;
+}
+
+.table_date{
+    width: 30%;
+    text-align: start;
+}
+
+.table_time{
+    width: 30%;
+    text-align: start;
+}
+
+.table_number{
+    width: 10%;
+    text-align: start;
+}
+
+.pagination{
+    position: absolute;
+    bottom: 5%;
+    right: 45%;
+}
+
+.dashboard_button_content{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 15%;
+}
+
+.dashboard_button{
+    text-decoration: none;
+    padding: 1.3% 4%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: rgb(74, 120, 255);
+}
