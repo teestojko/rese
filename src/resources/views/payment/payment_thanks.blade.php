@@ -18,9 +18,19 @@
                     戻る
                 </a>
             </div>
-            <a class="reserve_nav" href="{{ route('redirect.to.payment') }}">
-                支払いに進む
-            </a>
+            <div class="nav_content">
+                <a class="reserve_nav" href="{{ route('redirect.to.payment') }}">
+                    支払いに進む
+                </a>
+            </div>
+            <div>
+                <div class="qr_title">
+                    この画面を保存して、来店時に以下のQRコードを提示してください
+                </div>
+                <div>
+                    {!! $qrCode !!}
+                </div>
+            </div>
         </div>
     </div>
 @endsection

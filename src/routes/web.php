@@ -89,15 +89,14 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
         Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
+        Route::get('/myPage/{shop}', [MyPageController::class, 'showMyPage'])->name('myPage');
 
         Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
-
-        Route::get('/myPage/{shop}', [MyPageController::class, 'showMyPage'])->name('myPage');
         Route::get('/reservation_thanks', [MyPageController::class, 'reservationThanks'])->name('reservation.thanks');
+        Route::get('/done/{reservationId}', [ReservationController::class, 'generateQRCode'])->name('payment.thanks');
+
 
         Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
-
-        Route::get('/done', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
 
         Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
 
