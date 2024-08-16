@@ -28,22 +28,35 @@ class ShopRepresentativeController extends Controller
         return view('representative/shop_create', compact('prefectures', 'genres'));
     }
 
-public function store(ShopOwnerCreateRequest $request)
-{
-    $shop = new Shop();
-    $shop->name = $request->name;
+    public function store(ShopOwnerCreateRequest $request)
+    {
+        $shop = new Shop();
+        $shop->name = $request->name;
 
-    if ($request->hasFile('image_path')) {
-        $filePath = $request->file('image_path')->store('public');
-        $shop->image_path = str_replace('public/', 'storage/', $filePath);
+        if ($request->hasFile('image_path')) {
+            $filePath = $request->file('image_path')->store('public');
+            $shop->image_path = str_replace('public/', 'storage/', $filePath);
+        }
+
+        $shop->prefecture_id = $request->prefecture_id;
+        $shop->genre_id = $request->genre_id;
+        $shop->detail = $request->detail;
+        $shop->save();
+
+        return redirect()->route('shop_representative.dashboard')->with('success', '店舗が正常に作成されました。');
     }
 
-    $shop->prefecture_id = $request->prefecture_id;
-    $shop->genre_id = $request->genre_id;
-    $shop->detail = $request->detail;
-    $shop->save();
+    public function verifyReservation(Request $request)
+    {
+        $reservationId = $request->input('reservationId');
+        $reservation = Reservation::find($reservationId);
 
-    return redirect()->route('shop_representative.dashboard')->with('success', '店舗が正常に作成されました。');
-}
-
+        if ($reservation) {
+            // 予約が見つかった場合の処理
+            return response()->json(['status' => 'success', 'message' => 'Reservation verified']);
+        } else {
+            // 予約が見つからなかった場合の処理
+            return response()->json(['status' => 'error', 'message' => 'Reservation not found']);
+        }
+    }
 }

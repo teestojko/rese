@@ -35,6 +35,7 @@
                     店舗作成
                 </a>
             </div>
+            <a href="{{ route('shop_representative.qr_scanner') }}">QRコードスキャン</a>
             @if (session('success'))
             <p>
                 {{ session('success') }}

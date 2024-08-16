@@ -17,9 +17,11 @@ use App\Http\Controllers\Auth\ShopRepresentativeLoginController;
 use App\Http\Controllers\ShopRepresentative\ShopRepresentativeController;
 use App\Http\Controllers\ShopRepresentative\ShopEditController;
 use App\Http\Controllers\ShopRepresentative\ReservationListController;
+use App\Http\Controllers\ShopRepresentative\QRScannerController;
 use App\Http\Controllers\Admin\AdminEmailController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ShopOwnerCreateController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +60,8 @@ Route::prefix('shop_representative')->name('shop_representative.')->group(functi
         Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations_list');
         Route::get('/shop_representative/create', [ShopRepresentativeController::class, 'create'])->name('shop_create');
         Route::post('/shop_representative/store', [ShopRepresentativeController::class, 'store'])->name('shop_store');
+        Route::get('/reservation/verify/{id}', [ReservationController::class, 'verifyReservation'])->name('reservation.verify');
+        Route::get('/qr-scanner', [QRScannerController::class, 'showScanner'])->name('qr_scanner');
     });
 });
 Route::middleware('auth')->group(function () {
