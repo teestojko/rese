@@ -21,9 +21,6 @@ class AdminEmailController extends Controller
 
     public function sendEmail(AdminEmailRequest $request)
     {
-
-        // $user = User::findOrFail($request->user_id);
-        // $user = Auth::user();
         $users = User::all();
 
         foreach ($users as $user) {

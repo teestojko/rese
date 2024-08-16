@@ -10,6 +10,9 @@
 @section('content')
     <div class="main">
         <div class="main_content">
+            <div class="title">
+                店舗代表者作成画面
+            </div>
             <form class="shop_edit_form" method="POST" action="{{ route('admin.store') }}">
                 @csrf
                 <div class="name_culumn">

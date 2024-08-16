@@ -6,7 +6,19 @@
 .main_content{
     width: 80%;
     height: 70%;
-    margin: 6% 10%;
+    margin: 3% 10%;
+}
+
+.title{
+    font-size: 2rem;
+    font-family: system-ui;
+    font-weight: bold;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    align-content: center;
+    color: rgb(175, 175, 175);
+    margin-bottom: 3%;
 }
 
 .shop_edit_form{

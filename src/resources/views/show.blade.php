@@ -109,33 +109,7 @@
                         </table>
                     </div>
                     @endif
-
-                    {{-- @if($shop->reservations && $shop->reservations->isNotEmpty())
-                    <div class="reservation_table_main">
-                        <table class="reservation_table">
-                                @foreach($shop->reservations as $reservation)
-                                    <tr class="reservation_tr">
-                                        <td class="reservation_label">Shop</td>
-                                        <td class="reservation_value">{{ $shop->name }}</td>
-                                    </tr>
-                                    <tr class="reservation_tr">
-                                        <td class="reservation_label">Date</td>
-                                        <td class="reservation_value">{{ $reservation->reservation_date }}</td>
-                                    </tr>
-                                    <tr class="reservation_tr">
-                                        <td class="reservation_label">Time</td>
-                                        <td class="reservation_value">{{ $reservation->reservation_time }}</td>
-                                    </tr>
-                                    <tr class="reservation_tr">
-                                        <td class="reservation_label">Number</td>
-                                        <td class="reservation_value">{{ $reservation->number_of_people }}人</td>
-                                    </tr>
-                                @endforeach
-                            </table>
-                        </div>
-                    @endif --}}
                 </div>
-
                 <button type="submit" class="btn-primary">
                     予約する
                 </button>
