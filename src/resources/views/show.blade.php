@@ -46,7 +46,7 @@
             @csrf
                 <div class="input_form">
                     <input type="hidden" name="shop_id" value="{{ $shop->id }}">
-                    <div class="form-group">
+                    <div class="reserve_form-group">
                         <label for="reservation_date">
                         </label>
                         <input class="input" type="date" id="reservation_date" name="reservation_date" class="form-control" required min="{{ $today }}">
@@ -54,7 +54,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="reserve_form-group">
                         <label for="reservation_time">
                         </label>
                         <select id="reservation_time" name="reservation_time" class="form-control" required>
@@ -79,7 +79,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="reserve_form-group">
                         <label for="number_of_people">
                         </label>
                         <input class="input3" type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" required placeholder="人数を選択">
@@ -118,7 +118,7 @@
         <div class="review_main">
             <div class="review_form">
                 <div class="review_title">レビューを投稿する</div>
-                <form action="{{ route('reviews.store', $shop->id) }}" method="POST">
+                <form class="review_form_detail" action="{{ route('reviews.store', $shop->id) }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="comment">レビュー内容</label>
@@ -127,9 +127,9 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <label for="stars">評価</label>
-                        <select id="stars" name="stars" class="form-control" required>
+                    <div class="form-group2">
+                        <label class="stars" for="stars">評価</label>
+                        <select id="stars" name="stars" class="form-control2" required>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -140,11 +140,14 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="submit">投稿する</button>
+                    <div class="review_button">
+                        <button type="submit" class="submit">投稿する</button>
+                        <a href="{{ route('reviews.index', ['shop' => $shop->id]) }}" class="btn-primary2">
+                            レビューを確認する
+                        </a>
+                    </div>
                 </form>
-                <a href="{{ route('reviews.index', ['shop' => $shop->id]) }}" class="btn-primary2">
-                    投稿したレビューを確認する
-                </a>
+
             </div>
             @if(session('success'))
                 <div class="alert-success">

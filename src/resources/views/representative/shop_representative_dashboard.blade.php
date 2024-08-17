@@ -17,7 +17,7 @@
             <div class="title">
                 {{ $shop->name }}
             </div>
-            <div class="shop_edit">
+            <div class="button_main">
                 <a class="shop_edit_a" href="{{ route('shop_representative.edit', $shop->id) }}">
                     店舗情報変更
                 </a>
@@ -25,17 +25,19 @@
         @else
             <p>No shop information available.</p>
         @endif
-            <div class="reservation_list">
+            <div class="button_main">
                 <a class="reservation_list_a" href="{{ route('shop_representative.reservations_list') }}">
                     予約一覧
                 </a>
             </div>
-            <div class="shop_create">
+            <div class="button_main">
                 <a class="shop_create_a" href="{{ route('shop_representative.shop_create', $shop->id) }}">
                     店舗作成
                 </a>
             </div>
-            <a href="{{ route('shop_representative.qr_scanner') }}">QRコードスキャン</a>
+            <div class="button_main">
+                <a class="qr_scan" href="{{ route('shop_representative.qr_scanner') }}">QRコードスキャン</a>
+            </div>
             @if (session('success'))
             <p>
                 {{ session('success') }}

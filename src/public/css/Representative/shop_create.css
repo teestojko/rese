@@ -21,7 +21,7 @@
 .column{
     display: flex;
     width: 100%;
-    height: 8%;
+    height: 11%;
     margin-top: 3%;
 }
 
@@ -43,11 +43,10 @@
 }
 
 .shop_create_form{
-    position: relative;
     width: 100%;
     margin-top: 3%;
     text-align: center;
-    height: 85%;
+    height: 60%;
 }
 
 #name{
@@ -136,12 +135,16 @@
 .dashboard_button_content{
     text-align: center;
     width: 100%;
-
+    height: 10%;
+    align-content: center;
 }
 
 .dashboard_button{
+    position: absolute;
+    right: 10%;
+    top: 3%;
     text-decoration: none;
-    padding: 1.3% 4%;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     color: rgb(74, 120, 255);
