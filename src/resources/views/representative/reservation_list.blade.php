@@ -14,16 +14,13 @@
             Reservation List
         </div>
 
-        @if ($reservations->isEmpty())
-            <p>No reservations found.</p>
-        @else
         @php
             $currentDate = \Carbon\Carbon::parse($date ?? now()->toDateString());
             $previousDate = $currentDate->copy()->subDay()->toDateString();
             $nextDate = $currentDate->copy()->addDay()->toDateString();
         @endphp
         <div class="date-navigation">
-            <form class="date-form" action="{{ route('attendance.date', ['date' => $previousDate]) }}" method="get">
+            <form class="date-form" action="{{ route('shop_representative.attendance.date', ['date' => $previousDate]) }}" method="get">
                 <button class="submit" type="submit">
                     &lt;
                 </button>
@@ -31,12 +28,16 @@
             <p class="attendance_date">
                 {{ $currentDate->toDateString() }}
             </p>
-            <form class="date-form" action="{{ route('attendance.date', ['date' => $nextDate]) }}" method="get">
+            <form class="date-form" action="{{ route('shop_representative.attendance.date', ['date' => $nextDate]) }}" method="get">
                 <button class="submit" type="submit">
                     &gt;
                 </button>
             </form>
         </div>
+
+        @if ($reservations->isEmpty())
+            <p class="error_title">No reservations found.</p>
+        @else
             <table class="table">
                 {{-- <thead> --}}
                     <tr class="table_tr_top">
@@ -57,7 +58,7 @@
                     @endforeach
                 {{-- </tbody> --}}
             </table>
-            {{ $reservations->links() }}
+            {{ $reservations->links('vendor.pagination.bootstrap-4') }}
         @endif
         <div class="dashboard_button_content">
             <a class="dashboard_button" href="{{ route('shop_representative.dashboard')}}">

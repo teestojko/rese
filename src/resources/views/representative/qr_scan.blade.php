@@ -35,9 +35,18 @@
 <head>
     <title>QR Code Scanner</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/representative/qr_scan.css') }}">
 </head>
 <body>
-    <h1>QR Code Scanner</h1>
+<div class="qr_main">
+    <div class="title">
+        QR Code Scanner
+    </div>
+    <div class="dashboard_button_content">
+        <a class="dashboard_button" href="{{ route('shop_representative.dashboard')}}">
+            戻る
+        </a>
+    </div>
     <div id="interactive" class="viewport"></div>
     <script class="qr" type="text/javascript">
         Quagga.init({
@@ -63,5 +72,6 @@
             // サーバーに照合リクエストを送る処理
         });
     </script>
+</div>
 </body>
 </html>

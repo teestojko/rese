@@ -58,6 +58,7 @@ Route::prefix('shop_representative')->name('shop_representative.')->group(functi
         Route::get('/{id}/edit', [ShopEditController::class, 'edit'])->name('edit');
         Route::post('/{id}/update', [ShopEditController::class, 'update'])->name('update');
         Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations_list');
+        Route::get('shop_representative/reservation/list/{date}', [ReservationListController::class, 'changeReservationDate'])->name('attendance.date');
         // Route::get('/reservation/list', [ReservationListController::class, 'reservationList']);
         Route::get('/shop_representative/create', [ShopRepresentativeController::class, 'create'])->name('shop_create');
         Route::post('/shop_representative/store', [ShopRepresentativeController::class, 'store'])->name('shop_store');
