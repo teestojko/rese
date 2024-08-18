@@ -8,28 +8,29 @@
 @endsection
 
 @section('content')
+<div class="user_name">
+    @if (Auth::check())
+    <p class='message'>
+        {{ Auth::user()->name }} さん
+    </p>
+    @endif
+</div>
+
+
+
     <div class="mypage_top">
-        <div class="user_name">
-            @if (Auth::check())
-        <p class='message'>
-            {{ Auth::user()->name }} さん
-        </p>
-        @endif
-        </div>
-
-        {{-- <div class="user_mypage"> --}}
-            <div class="user_reservation">
-                <div class="user_mypage_main">
-                    予約状況
-                </div>
-
+        <div class="reservation_main">
+            <div class="user_mypage_title">
+                予約状況
+            </div>
+            <div class="table_main">
                 @if ($nearest_reservation)
-                <div class="table_main">
+                <div class="table_detail">
                     <table class="reserve_table">
                         <div class="reservation_id_table">
                             <i class="fa-regular fa-clock"></i>
-                                <div class="reservation_id">予約
-                                    {{-- {{$reservation->id}} --}}
+                                <div class="reservation_id">
+                                    予約{{-- {{$reservation->id}} --}}
                                 </div>
                                 <p class="p_button">
                                     <form action="{{ route('reservations.destroy', $nearest_reservation->id) }}" method="POST" style="display:inline;">
@@ -62,13 +63,14 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
                 @else
                     <p>
                         予約情報はありません。
                     </p>
                 @endif
-                </div>
             </div>
+        </div>
             <div class="user_favorite">
                 <div class="user_mypage_main2">
                     お気に入り店舗
@@ -126,6 +128,5 @@
                     </ul>
                 @endif
             </div>
-        {{-- </div> --}}
     </div>
 @endsection
