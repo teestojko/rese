@@ -42,9 +42,24 @@
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
+.table_main{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5%;
+    background-color: rgb(33, 89, 255);
+    color: #ffffff;
+    height: 91%;
+    width: 76%;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
 @media screen and (max-width: 768px) {
     .user_my_page_item {
         width: 44%;
+    }
+    .table_main{
+        width: 85%;
     }
 }
 
@@ -61,6 +76,25 @@
     height: 60%;
     text-align: center;
     margin-top: 2%;
+}
+
+.reservation_main2{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 60%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.table_detail{
+    width: 100%;
+    height: 100%;
+}
+
+.table_detail2{
+    width: 100%;
+    height: 30vh;
 }
 
 .user_my_page_title{
@@ -108,18 +142,6 @@
     align-items: center;
     padding-left: 3%;
     width: 100%;
-}
-
-.table_main{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 5%;
-    background-color: rgb(33, 89, 255);
-    color: #ffffff;
-    height: 66%;
-    width: 76%;
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
 .reserve_name{
@@ -175,6 +197,13 @@
 
 .reserve_id{
     width: 80%;
+}
+
+.reservation_item{
+    width: 100%;
+    height: 5vh;
+    border-bottom: 1px solid;
+    align-content: center;
 }
 
 .user_favorite{
@@ -250,8 +279,3 @@
     border: none;
 }
 
-.table_detail{
-    width: 100%;
-    height: 100%;
-
-}

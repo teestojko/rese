@@ -30,7 +30,7 @@
                         <div class="reservation_id_table">
                             <i class="fa-regular fa-clock"></i>
                                 <div class="reservation_id">
-                                    予約{{-- {{$reservation->id}} --}}
+                                    予約1
                                 </div>
                                 <p class="p_button">
                                     <form action="{{ route('reservations.destroy', $nearest_reservation->id) }}" method="POST" style="display:inline;">
@@ -70,7 +70,66 @@
                     </p>
                 @endif
             </div>
+
+        <!-- 全ての予約情報を表示 -->
+    <div class="reservation_main2">
+        <div class="user_my_page_title">
+            全ての予約
         </div>
+        <div class="table_main">
+            @if ($all_reservations->isEmpty())
+                <p>予約情報はありません。</p>
+            @else
+                @foreach ($all_reservations as $reservation)
+                <div class="table_detail2">
+                    <table class="reserve_table">
+                        <div class="reservation_id_table">
+                            <i class="fa-regular fa-clock"></i>
+                            <div class="reservation_id">
+                                予約{{ $loop->iteration }}
+                            </div>
+                            <p class="p_button">
+                                <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="delete-btn">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </form>
+                            </p>
+                        </div>
+                        <thead>
+                            <tr class="reserve_tr">
+                                <td class="reserve_label">Shop</td>
+                                <td class="reserve_value">{{ $reservation->shop->name }}</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="reserve_tr">
+                                <td class="reserve_label">Date</td>
+                                <td class="reserve_value">{{ $reservation->reservation_date }}</td>
+                            </tr>
+                            <tr class="reserve_tr">
+                                <td class="reserve_label">Time</td>
+                                <td class="reserve_value">{{ $reservation->reservation_time }}</td>
+                            </tr>
+                            <tr class="reserve_tr">
+                                <td class="reserve_label">Number</td>
+                                <td class="reserve_value">{{ $reservation->number_of_people }}人</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="reservation_item">
+                        <a href="{{ route('reservations.edit', $reservation->id) }}">
+                            <i class="fas fa-edit" style="color: burlywood;">予約変更</i>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            @endif
+        </div>
+    </div>
+</div>
             <div class="user_favorite">
                 <div class="user_my_page_main2">
                     お気に入り店舗
