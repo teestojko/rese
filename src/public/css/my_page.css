@@ -1,11 +1,11 @@
 
 
-.mypage_top{
+.my_page_top{
     display: flex;
     flex-wrap: wrap;
     padding: 2% 5%;
     width: 100vw;
-    height: 84vh;
+    height: auto;
     background: rgb(248, 248, 248);
 }
 
@@ -24,38 +24,32 @@
 
 }
 
-.user_mypage_ul{
+.user_my_page_ul{
     display: flex;
     flex-wrap: wrap;
+    margin-top: 0;
     padding-left: 0;
     width: 100%;
 }
 
-.user_mypage_item{
+.user_my_page_item{
+    width: 37%;
+    height: auto;
+    margin: 10px 10px;
     box-sizing: border-box;
     border: 1px solid #ddd;
-    height: 25%;
-    width: 22%;
-    margin: 10px 10px;
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
-    padding-bottom: 1%;
-}
-
-@media screen and (max-width: 1024px) {
-    .user_mypage_item {
-        width: 30%;
-    }
 }
 
 @media screen and (max-width: 768px) {
-    .user_mypage_item {
+    .user_my_page_item {
         width: 44%;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .user_mypage_item {
+@media screen and (max-width: 640px) {
+    .user_my_page_item {
         width: 93%;
     }
 }
@@ -65,11 +59,11 @@
     flex-wrap: wrap;
     width: 40%;
     height: 60%;
-    margin-top: 2%;
     text-align: center;
+    margin-top: 2%;
 }
 
-.user_mypage_title{
+.user_my_page_title{
     width: 100%;
     align-content: center;
     font-family: system-ui;
@@ -77,10 +71,11 @@
     font-size: 20px;
     padding-left: 5%;
     text-align: left;
-    height: 20%;
+    height:9vh;
+    margin-top: 2%;
 }
 
-.user_mypage_main2{
+.user_my_page_main2{
     width: 100%;
     font-family: system-ui;
     font-weight: bold;
@@ -190,51 +185,44 @@
     margin-top: 2%;
 }
 
-.user_mypage_item{
-    width: 37%;
-    margin: 0 10% 3% 0;
-    /* height: 46%; */
-    height: 93%;
-}
-
-.user_mypage_img{
+.user_my_page_img{
     height: 20vh;
     width: 100%;
     border-radius: 5px 5px 0 0;
 }
 
-.user_mypage_detail{
+.user_my_page_detail{
     padding-left: 5%;
 }
 
-.user_mypage_name{
+.user_my_page_name{
     font-weight: bold;
     font-size: 1.1rem;
     padding-top: 4%;
     text-align: left;
 }
 
-.user_mypage_prefecture_genre{
+.user_my_page_prefecture_genre{
     display: flex;
     line-height: 0%;
 }
 
-.user_mypage_prefecture{
+.user_my_page_prefecture{
     display: flex;
 }
 
-.user_mypage_genre{
+.user_my_page_genre{
     display: flex;
     padding-left: 2%;
 }
 
-.user_mypage_primary_favorite{
+.user_my_page_primary_favorite{
     display: flex;
     align-items: stretch;
     width: 95%;
 }
 
-.user_mypage_primary,.user_mypage_favorite{
+.user_my_page_primary,.user_my_page_favorite{
     flex: 1;
     text-align: left;
 }
@@ -247,7 +235,7 @@
     border-radius: 8px;
 
 }
-.user_mypage_form{
+.user_my_page_form{
     display: flex;
 }
 

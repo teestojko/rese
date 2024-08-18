@@ -2,7 +2,7 @@
 
 @section('css')
 
-<link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
+<link rel="stylesheet" href="{{ asset('css/my_page.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 @endsection
@@ -18,9 +18,9 @@
 
 
 
-    <div class="mypage_top">
+    <div class="my_page_top">
         <div class="reservation_main">
-            <div class="user_mypage_title">
+            <div class="user_my_page_title">
                 予約状況
             </div>
             <div class="table_main">
@@ -72,7 +72,7 @@
             </div>
         </div>
             <div class="user_favorite">
-                <div class="user_mypage_main2">
+                <div class="user_my_page_main2">
                     お気に入り店舗
                 </div>
                 @if ($favorites->isEmpty())
@@ -80,35 +80,35 @@
                         お気に入り店舗はありません。
                     </p>
                 @else
-                    <ul class="user_mypage_ul">
+                    <ul class="user_my_page_ul">
                         @foreach ($favorites as $favorite)
-                        <div class="user_mypage_item">
-                            <img class="user_mypage_img" src="{{ asset($favorite->image_path) }}" alt="{{ $favorite->name }}">
-                            <div class="user_mypage_detail">
-                                <div class="user_mypage_name">
+                        <div class="user_my_page_item">
+                            <img class="user_my_page_img" src="{{ asset($favorite->image_path) }}" alt="{{ $favorite->name }}">
+                            <div class="user_my_page_detail">
+                                <div class="user_my_page_name">
                                     {{ $favorite->name }}
                                 </div>
-                                <div class="user_mypage_prefecture_genre">
-                                    <p class="user_mypage_prefecture">
+                                <div class="user_my_page_prefecture_genre">
+                                    <p class="user_my_page_prefecture">
                                     <span>
                                         #
                                     </span>
                                         {{ $favorite->prefecture->name }}
                                     </p >
-                                    <p class="user_mypage_genre">
+                                    <p class="user_my_page_genre">
                                     <span>
                                         #
                                     </span>
                                         {{ $favorite->genre->name }}
                                     </p>
                                 </div>
-                                <div class="user_mypage_primary_favorite">
-                                    <p class="user_mypage_primary">
+                                <div class="user_my_page_primary_favorite">
+                                    <p class="user_my_page_primary">
                                         <a href="{{ route('shops.show', ['shop' => $favorite->id]) }}" class="btn-primary">
                                             詳しく見る
                                         </a>
                                     </p>
-                                    <form class="user_mypage_form" action="{{ $favorite->isFavorited() ? route('favorites.toggle.remove', ['shop' => $favorite->id]) : route('favorites.toggle.add', ['shop' => $favorite->id]) }}" method="POST">
+                                    <form class="user_my_page_form" action="{{ $favorite->isFavorited() ? route('favorites.toggle.remove', ['shop' => $favorite->id]) : route('favorites.toggle.add', ['shop' => $favorite->id]) }}" method="POST">
                                     @csrf
                                         @if ($favorite->isFavorited())
                                             @method('DELETE')

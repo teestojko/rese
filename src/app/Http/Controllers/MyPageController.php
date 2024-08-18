@@ -48,7 +48,7 @@ class MyPageController extends Controller
         ->orderBy('reservation_time', 'asc')
         ->first();
 
-    return view('myPage', compact('user', 'favorites', 'nearest_reservation'));
+    return view('my_page', compact('user', 'favorites', 'nearest_reservation'));
     }
 
     public function destroyReservation($id)
