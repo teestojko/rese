@@ -1,5 +1,5 @@
 .search_container {
-    width: 58%;
+    width: 50%;
     position: relative;
     display: flex;
     align-items: center;
@@ -45,11 +45,13 @@
 }
 
 .search1{
+    text-align: center;
     width: 20%;
     margin-right: 15px;
 }
 
 .search2{
+    text-align: center;
     width: 25%;
     margin-right: 15px;
     border-left: 1px solid #ccc;

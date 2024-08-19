@@ -11,9 +11,6 @@
             全てのユーザーにメール送信
         </div>
         <div class="sub_content">
-        @if (session('success'))
-            <p>{{ session('success') }}</p>
-        @endif
 
         <form class="email_form" action="{{ route('admin.send_email') }}" method="POST">
             @csrf
@@ -45,7 +42,7 @@
             </a>
         </div>
         @if (session('success'))
-            <p>
+            <p class="success_message">
                 {{ session('success') }}
             </p>
         @endif

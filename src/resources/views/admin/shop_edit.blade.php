@@ -74,7 +74,7 @@
                 </a>
             </div>
             @if (session('success'))
-                <p>{{ session('success') }}</p>
+                <p class="success_message">{{ session('success') }}</p>
             @endif
         </div>
     </div>

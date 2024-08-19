@@ -2,7 +2,7 @@
 
 @section('css')
 
-<link rel="stylesheet" href="{{ asset('css/payment-success.css') }}">
+<link rel="stylesheet" href="{{ asset('css/payment_success.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 @endsection
@@ -13,7 +13,7 @@
             <div class="reserve_thanks_massage">
                 お支払いが完了しました
             </div>
-            <a class="reserve_nav" href="{{ route('userMyPage') }}">
+            <a class="reserve_nav" href="{{ route('user_my_page') }}">
                 ホーム画面へ戻る
             </a>
         </div>

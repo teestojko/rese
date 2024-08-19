@@ -26,6 +26,7 @@
                         画像を選択
                     </label>
                     <input type="file" name="image_path" id="image_path" required>
+                    <div id="file_name">選択ファイル名</div>
             </div>
             <div class="column">
                 <div class="label_content">
@@ -88,4 +89,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('image_path').addEventListener('change', function(){
+        const fileName = this.files[0].name;
+        document.getElementById('file_name').textContent = fileName;
+    });
+</script>
 @endsection

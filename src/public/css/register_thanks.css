@@ -41,4 +41,30 @@
     color: chocolate;
 }
 
+.thanks_retry{
+    margin-top: 3%;
+    height: 20%;
+    width: 100%;
+    align-content: space-around;
+}
 
+.comment{
+    text-align: center;
+}
+
+.form{
+    text-align: center;
+    margin-top: 3%;
+}
+
+.submit{
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 1rem;
+}
+
+.thanks_message2{
+    margin-top: 3%;
+    text-align: center;
+}

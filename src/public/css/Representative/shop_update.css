@@ -69,13 +69,22 @@
 
 .image_path_label{
     padding-left: 1%;
-    width: 77%;
+    width: 50%;
     text-align: start;
     align-content: center;
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
     color: rgb(138, 138, 138);
+}
+
+#file_name{
+    width: 20%;
+    align-content: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+    color: rgb(138, 138, 138);
+    font-size: 0.7rem;
 }
 
 #image_path{

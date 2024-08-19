@@ -34,10 +34,7 @@ class MyPageController extends Controller
     $favorites = $user->favoriteShops()->with('genre', 'prefecture')->get();
     $now = Carbon::now();
 
-    // 全予約の数を取得
     $total_reservations = Reservation::where('user_id', $user->id)->count();
-    // dd($total_reservations);
-    // ユーザーに関連する最も近い予約を取得
     $nearest_reservation = Reservation::where('user_id', $user->id)
         ->where('reservation_date', '>=', $now->toDateString())
         ->where(function ($query) use ($now) {

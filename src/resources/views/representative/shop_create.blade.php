@@ -20,9 +20,9 @@
     @csrf
 
         <div class="column">
-        <div class="comment">
-            画像
-        </div>
+            <div class="comment">
+                画像
+            </div>
             <label class="image_path_label" for="image_path" >
                 画像を選択
             </label>
