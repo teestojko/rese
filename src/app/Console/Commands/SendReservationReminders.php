@@ -24,7 +24,7 @@ class SendReservationReminders extends Command
      *
      * @var string
      */
-    protected $description = 'Send reservation reminders on the morning of the reservation day';
+    protected $description = '送信リマインダーの予約';
 
     /**
      * Create a new command instance.
@@ -48,13 +48,11 @@ class SendReservationReminders extends Command
 
         $today = Carbon::today();
 
-        // $reservations = Reservation::whereDate('reservation_date', $today)->get();
-
         foreach ($reservations as $reservation) {
             Mail::to($reservation->user->email)->send(new ReservationReminder($reservation));
             Log::info('Reservation reminder sent to: ' . $reservation->user->email);
         }
 
-        $this->info('Reservation reminders sent successfully.');
+        $this->info('リマインダーが送信されました。');
     }
 }
