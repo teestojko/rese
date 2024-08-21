@@ -221,13 +221,13 @@ img{
 
 .alert-success{
     position: absolute;
-    bottom: -40px;
+    bottom: -10px;
     margin-left: 10%;
 }
 
 .alert-danger{
     position: absolute;
-    bottom: -40px;
+    bottom: -10px;
     margin-left: 10%;
 }
 

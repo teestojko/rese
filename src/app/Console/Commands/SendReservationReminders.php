@@ -50,7 +50,7 @@ class SendReservationReminders extends Command
 
         foreach ($reservations as $reservation) {
             Mail::to($reservation->user->email)->send(new ReservationReminder($reservation));
-            Log::info('Reservation reminder sent to: ' . $reservation->user->email);
+            Log::info('Reservation reminder sent to:' . $reservation->user->email);
         }
 
         $this->info('リマインダーが送信されました。');

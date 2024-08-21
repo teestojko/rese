@@ -39,7 +39,7 @@
                 <a class="qr_scan" href="{{ route('shop_representative.qr_scanner') }}">QRコードスキャン</a>
             </div>
             @if (session('success'))
-            <p>
+            <p class="success_message">
                 {{ session('success') }}
             </p>
         @endif

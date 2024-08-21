@@ -44,7 +44,7 @@
                 </div>
                 <div class="confirm_culumn">
                     <div class="comment">
-                        確認用パスワード
+                        確認パスワード
                     </div>
                     <div class="input">
                         <label for="password_confirmation"></label>

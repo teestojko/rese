@@ -63,3 +63,7 @@
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
     color: rgb(33, 89, 255);
 }
+
+.success_message{
+    text-align: center;
+}

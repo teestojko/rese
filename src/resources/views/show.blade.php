@@ -147,7 +147,6 @@
                         </a>
                     </div>
                 </form>
-
             </div>
             @if(session('success'))
                 <div class="alert-success">
@@ -160,36 +159,6 @@
                     {{ session('error') }}
                 </div>
             @endif
-
-                {{-- <div class="reservation-item">
-                            <a href="{{ route('reservations.edit', $nearest_reservation->id) }}">
-                                <i class="fas fa-edit">予約変更</i>
-                            </a>
-                        </div> --}}
-
-            <!-- レビュー一覧 -->
-            {{-- <div class="reviews">
-                <h2>レビュー一覧</h2>
-                @foreach($shop->reviews as $review)
-                    <div class="review">
-                        <div class="review-header">
-                            <strong>{{ $review->user->name }}</strong>
-                            <span>{{ $review->created_at->format('Y-m-d H:i') }}</span>
-                            @if(Auth::id() === $review->user_id)
-                                <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">削除</button>
-                                </form>
-                            @endif
-                        </div>
-                        <div class="review-body">
-                            <p>{{ $review->comment }}</p>
-                            <span>評価: {{ $review->stars }}</span>
-                        </div>
-                    </div>
-                @endforeach
-            </div> --}}
         </div>
     </div>
 @endsection
