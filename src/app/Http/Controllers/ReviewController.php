@@ -6,16 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\Review;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ReviewRequest;
+
 
 class ReviewController extends Controller
 {
-    public function store(Request $request, Shop $shop)
+
+    public function review(Shop $shop)
+    {
+        return view('reviews.review', compact('shop'));
+    }
+
+    public function store(ReviewRequest $request, Shop $shop)
     {
         $existingReview = Review::where('user_id', Auth::id())
             ->where('shop_id', $shop->id)
             ->first();
             if ($existingReview) {
-                return redirect()->route('shops.show', $shop)->with('error', '既にこの店舗にレビューを投稿しています。');
+                return redirect()->back()->withErrors(['custom_error' => '既にこの店舗にレビューを投稿しています。']);
             }
 
         $review = new Review();
@@ -25,7 +33,9 @@ class ReviewController extends Controller
         $review->stars = $request->stars;
         $review->save();
 
-        return redirect()->route('shops.show', $shop)->with('success', 'レビューを投稿しました');
+
+        return back()
+        ->with('success', 'レビューを投稿しました');
     }
 
     public function index(Shop $shop)

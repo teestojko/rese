@@ -63,7 +63,7 @@ Route::prefix('shop_representative')->name('shop_representative.')->group(functi
         Route::get('/shop_representative/create', [ShopRepresentativeController::class, 'create'])->name('shop_create');
         Route::post('/shop_representative/store', [ShopRepresentativeController::class, 'store'])->name('shop_store');
         Route::get('/reservation/verify/{id}', [ReservationController::class, 'verifyReservation'])->name('reservation.verify');
-        Route::get('/qr-scanner', [QRScannerController::class, 'showScanner'])->name('qr_scanner');
+        // Route::get('/qr-scanner', [QRScannerController::class, 'showScanner'])->name('qr_scanner');
     });
 });
 Route::middleware('auth')->group(function () {
@@ -110,8 +110,10 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
+        Route::get('/review/{shop}', [ReviewController::class, 'review'])->name('reviews.review');
+
         Route::get('/shops/{shop}/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
-        Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+        Route::delete('/reviews/index/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
     });
 });

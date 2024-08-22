@@ -115,50 +115,10 @@
                 </button>
             </form>
         </div>
-        <div class="review_main">
-            <div class="review_form">
-                <div class="review_title">レビューを投稿する</div>
-                <form class="review_form_detail" action="{{ route('reviews.store', $shop->id) }}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="comment">レビュー内容</label>
-                        <textarea id="comment" name="comment" class="form-control" required></textarea>
-                        @error('comment')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="form-group2">
-                        <label class="stars" for="stars">評価</label>
-                        <select id="stars" name="stars" class="form-control2" required>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        @error('stars')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="review_button">
-                        <button type="submit" class="submit">投稿する</button>
-                        <a href="{{ route('reviews.index', ['shop' => $shop->id]) }}" class="btn-primary2">
-                            レビューを確認する
-                        </a>
-                    </div>
-                </form>
-            </div>
-            @if(session('success'))
-                <div class="alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            @if(session('error'))
-                <div class="alert-danger">
-                    {{ session('error') }}
-                </div>
-            @endif
+        <div class="button">
+            <a href="{{ route('reviews.review', ['shop' => $shop->id]) }}" class="btn-primary2">
+                レビューを投稿する
+            </a>
         </div>
     </div>
 @endsection

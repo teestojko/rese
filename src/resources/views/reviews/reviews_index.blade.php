@@ -38,18 +38,18 @@
                     </tr>
                 </table>
 
-                        <form class="review_form" action="{{ route('reviews.destroy', $review->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="submit" type="submit">
-                                レビューを削除
-                            </button>
-                        </form>
+                <form class="review_form" action="{{ route('reviews.destroy', $review->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="submit" type="submit">
+                        レビューを削除
+                    </button>
+                </form>
             @endforeach
         </ul>
         @endif
         <div class="review_button_content">
-            <a class="review_button" href="{{ route('shops.show', ['shop' => $shop->id]) }}">
+            <a class="review_button" href="{{ route('reviews.review', ['shop' => $shop->id]) }}">
                 戻る
             </a>
         </div>
