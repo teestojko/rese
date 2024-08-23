@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Http\Requests\ReservationRequest;
 use Illuminate\Support\Facades\Auth;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ReservationController extends Controller
 {
@@ -16,23 +15,20 @@ class ReservationController extends Controller
         $data = $request->all();
         $data['user_id'] = $user_id;
 
-        $reservation = Reservation::create($data);
+        Reservation::create($data);
 
-        return redirect()->route('payment.thanks',['reservationId' => $reservation->id]);
+        return redirect()->route('payment.thanks');
+        // $reservation = Reservation::create($data);
+
+        // return redirect()->route('payment.thanks',['reservationId' => $reservation->id]);
     }
 
-    public function generateQRCode($reservationId)
+    
+
+    public function showThanksPage()
     {
-        $url = route('shop_representative.reservations_list', ['id' => $reservationId]);
-        $qrCode = QrCode::size(300)->generate($url);
-
-        return view('payment.payment_thanks', compact('qrCode'));
+        return view('payment.payment_thanks');
     }
-
-    // public function showThanksPage()
-    // {
-    //     return view('payment.payment_thanks');
-    // }
 
     public function edit($id)
 {

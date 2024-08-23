@@ -8,5 +8,12 @@
 @endsection
 
 @section('content')
-
+    <div>
+        <div class="qr_title">
+            この画面を保存して、来店時に以下のQRコードを提示してください
+        </div>
+        <div>
+            {!! $qrCode !!}
+        </div>
+    </div>
 @endsection

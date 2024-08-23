@@ -35,9 +35,6 @@
                     店舗作成
                 </a>
             </div>
-            <div class="button_main">
-                <a class="qr_scan" href="{{ route('shop_representative.qr_scanner') }}">QRコードスキャン</a>
-            </div>
             @if (session('success'))
             <p class="success_message">
                 {{ session('success') }}

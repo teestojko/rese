@@ -23,59 +23,7 @@
             <div class="user_my_page_title">
                 予約状況
             </div>
-            <div class="table_main">
-                @if ($nearest_reservation)
-                <div class="table_detail">
-                    <table class="reserve_table">
-                        <div class="reservation_id_table">
-                            <i class="fa-regular fa-clock"></i>
-                                <div class="reservation_id">
-                                    予約1
-                                </div>
-                                <p class="p_button">
-                                    <form action="{{ route('reservations.destroy', $nearest_reservation->id) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="delete-btn">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </form>
-                                </p>
-                        </div>
-                        <thead>
-                            <tr class="reserve_tr">
-                                <td class="reserve_label">Shop</td>
-                                <td class="reserve_value">{{ $nearest_reservation->shop->name }}</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="reserve_tr">
-                                <td class="reserve_label">Date</td>
-                                <td class="reserve_value">{{ $nearest_reservation->reservation_date }}</td>
-                            </tr>
-                            <tr class="reserve_tr">
-                                <td class="reserve_label">Time</td>
-                                <td class="reserve_value">{{ $nearest_reservation->reservation_time }}</td>
-                            </tr>
-                            <tr class="reserve_tr">
-                                <td class="reserve_label">Number</td>
-                                <td class="reserve_value">{{ $nearest_reservation->number_of_people }}人</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                @else
-                    <p>
-                        予約情報はありません。
-                    </p>
-                @endif
-            </div>
-
-        <!-- 全ての予約情報を表示 -->
     <div class="reservation_main2">
-        <div class="user_my_page_title">
-            全ての予約
-        </div>
         <div class="table_main">
             @if ($all_reservations->isEmpty())
                 <p>予約情報はありません。</p>
@@ -124,6 +72,7 @@
                             <i class="fas fa-edit" style="color: burlywood;">予約変更</i>
                         </a>
                     </div>
+                    <a href="{{ route('qr_scanner', $reservation->id) }}">QRコードスキャン</a>
                 </div>
                 @endforeach
             @endif

@@ -59,11 +59,9 @@ Route::prefix('shop_representative')->name('shop_representative.')->group(functi
         Route::post('/{id}/update', [ShopEditController::class, 'update'])->name('update');
         Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations_list');
         Route::get('shop_representative/reservation/list/{date}', [ReservationListController::class, 'changeReservationDate'])->name('attendance.date');
-        // Route::get('/reservation/list', [ReservationListController::class, 'reservationList']);
         Route::get('/shop_representative/create', [ShopRepresentativeController::class, 'create'])->name('shop_create');
         Route::post('/shop_representative/store', [ShopRepresentativeController::class, 'store'])->name('shop_store');
         Route::get('/reservation/verify/{id}', [ReservationController::class, 'verifyReservation'])->name('reservation.verify');
-        // Route::get('/qr-scanner', [QRScannerController::class, 'showScanner'])->name('qr_scanner');
     });
 });
 Route::middleware('auth')->group(function () {
@@ -99,7 +97,10 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
         Route::get('/reservation_thanks', [MyPageController::class, 'reservationThanks'])->name('reservation.thanks');
-        Route::get('/done/{reservationId}', [ReservationController::class, 'generateQRCode'])->name('payment.thanks');
+        // Route::get('/done/{reservationId}', [ReservationController::class, 'generateQRCode'])->name('payment.thanks');
+        Route::get('/done', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
+        Route::get('/qr_scanner/{reservationId}', [QRScannerController::class, 'generateQRCode'])->name('qr_scanner');
+
 
 
         Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
