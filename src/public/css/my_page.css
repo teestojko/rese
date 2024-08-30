@@ -35,7 +35,7 @@
 .user_my_page_item{
     width: 37%;
     height: auto;
-    margin: 10px 10px;
+    margin: 10px 50px 10px 0;
     box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -45,21 +45,18 @@
 .table_main{
     display: flex;
     flex-wrap: wrap;
-    padding: 5%;
-    background-color: rgb(33, 89, 255);
+    padding: 0 5%;
     color: #ffffff;
     height: 91%;
-    width: 76%;
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+    width: 90%;
 }
 
 @media screen and (max-width: 768px) {
     .user_my_page_item {
-        width: 44%;
+        width: 70%;
     }
     .table_main{
-        width: 85%;
+        width: 100%;
     }
 }
 
@@ -94,7 +91,34 @@
 
 .table_detail2{
     width: 100%;
-    height: 30vh;
+    height: 35vh;
+    margin-bottom: 10%;
+    padding: 3%;
+    background-color: rgb(33, 89, 255);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.form_content{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.reservation_item{
+    width: 50%;
+    height: 5vh;
+    align-content: center;
+}
+
+.fas.fa-edit{
+    color: blanchedalmond;
+}
+
+.qr_scan{
+    text-decoration: none;
+    color: blanchedalmond;
+    width: 50%;
 }
 
 .user_my_page_title{
@@ -142,6 +166,7 @@
     align-items: center;
     padding-left: 3%;
     width: 100%;
+    height: 25%;
 }
 
 .reserve_name{
@@ -151,6 +176,7 @@
 .reserve_table {
     display: table;
     width: 100%;
+    height: 60%;
     border-collapse: separate;
     border-spacing: 0;
 }
@@ -197,13 +223,6 @@
 
 .reserve_id{
     width: 80%;
-}
-
-.reservation_item{
-    width: 100%;
-    height: 5vh;
-    border-bottom: 1px solid;
-    align-content: center;
 }
 
 .user_favorite{
@@ -279,3 +298,16 @@
     border: none;
 }
 
+.fas.fa-heart{
+    color: red;
+    background: none;
+    border: none;
+    font-size: 24px;
+}
+
+.far.fa-heart{
+    color: #c7c7c7;
+    background: none;
+    border: none;
+    font-size: 24px;
+}

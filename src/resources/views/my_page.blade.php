@@ -67,12 +67,14 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="reservation_item">
-                        <a href="{{ route('reservations.edit', $reservation->id) }}">
-                            <i class="fas fa-edit" style="color: burlywood;">予約変更</i>
-                        </a>
+                    <div class="form_content">
+                        <div class="reservation_item">
+                            <a href="{{ route('reservations.edit', $reservation->id) }}">
+                                <i class="fas fa-edit">予約変更</i>
+                            </a>
+                        </div>
+                        <a class="qr_scan" href="{{ route('qr_scanner', $reservation->id) }}">QR表示</a>
                     </div>
-                    <a href="{{ route('qr_scanner', $reservation->id) }}">QRコードスキャン</a>
                 </div>
                 @endforeach
             @endif
@@ -121,11 +123,11 @@
                                         @if ($favorite->isFavorited())
                                             @method('DELETE')
                                             <button type="submit" class="submit">
-                                                <i class="fas fa-heart" style="color: red; background: none; border: none; font-size: 24px;"></i>
+                                                <i class="fas fa-heart"></i>
                                             </button>
                                         @else
                                             <button type="submit" class="submit2">
-                                                <i class="far fa-heart" style="color: #c7c7c7;; background: none; border: none; font-size: 24px;"></i>
+                                                <i class="far fa-heart"></i>
                                             </button>
                                         @endif
                                     </form>

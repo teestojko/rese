@@ -18,7 +18,7 @@
                     <option value="{{ $prefecture->id }}"{{ request('prefecture_id') == $prefecture->id ? 'selected' : '' }}>{{ $prefecture->name }}</option>
                 @endforeach
             </select>
-            <i class="fas fa-caret-down" style="color: #c7c7c7; position: absolute; top: 16px;"></i>
+            <i class="fas fa-caret-down"></i>
         </div>
         <div class="search2">
             <label class="search_label" for="genre_id"></label>
@@ -28,16 +28,13 @@
                     <option value="{{ $genre->id }}" {{ request('genre_id') == $genre->id ? 'selected' : '' }}>{{ $genre->name }}</option>
                 @endforeach
             </select>
-            <i class="fas fa-caret-down" style="color: #c7c7c7; position: absolute; top: 16px;" ></i>
+            <i class="fas fa-caret-down"></i>
         </div>
         <div class="search3">
             <label class="search_label" for="shop_name"></label>
                 <button type="submit" class="submit3">
                     <i class="fas fa-search search_icon"></i>
                 </button>
-                {{-- <span class="submit3">
-                    <i class="fas fa-search search_icon"></i>
-                </span> --}}
             <input type="text" name="shop_name" id="shop_name" class="search_input" placeholder="Search ...">
         </div>
     </div>
@@ -47,6 +44,7 @@
     <div class="shop_list">
         @foreach($shops as $shop)
             <div class="shop_item">
+                {{-- <img class="shop_img" src="{{ Storage::url($shop->image_path) }}" alt="{{ $shop->name }}"> --}}
                 <img class="shop_img" src="{{ asset($shop->image_path) }}" alt="{{ $shop->name }}">
                 <div class="shop_detail">
                     <div class="shop_name">
@@ -75,11 +73,11 @@
                                 @if ($shop->isFavorited())
                                     @method('DELETE')
                                     <button type="submit" class="submit">
-                                        <i class="fas fa-heart" style="color: red; background: none; border: none; font-size: 24px;"></i>
+                                        <i class="fas fa-heart"></i>
                                     </button>
                                 @else
                                     <button type="submit" class="submit2">
-                                        <i class="far fa-heart" style="color: #c7c7c7;; background: none; border: none; font-size: 24px;"></i>
+                                        <i class="far fa-heart"></i>
                                     </button>
                                 @endif
                             </form>
