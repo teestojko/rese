@@ -17,6 +17,27 @@
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
+@media screen and (max-width: 1024px) {
+    .login_detail {
+        width: 40%;
+        margin: 8% 30%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .login_detail {
+        width: 50%;
+        margin: 8% 25%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login_detail {
+        width: 60%;
+        margin: 8% 20%;
+    }
+}
+
 .login_form_heading{
     border-radius: 10px;
 }

@@ -11,13 +11,14 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\QRScannerController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Auth\ShopRepresentativeLoginController;
 use App\Http\Controllers\ShopRepresentative\ShopRepresentativeController;
 use App\Http\Controllers\ShopRepresentative\ShopEditController;
 use App\Http\Controllers\ShopRepresentative\ReservationListController;
-use App\Http\Controllers\ShopRepresentative\QRScannerController;
+
 use App\Http\Controllers\Admin\AdminEmailController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ShopOwnerCreateController;
@@ -100,7 +101,8 @@ Route::middleware('auth')->group(function () {
         // Route::get('/done/{reservationId}', [ReservationController::class, 'generateQRCode'])->name('payment.thanks');
         Route::get('/done', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
         Route::get('/qr_scanner/{reservationId}', [QRScannerController::class, 'generateQRCode'])->name('qr_scanner');
-
+        Route::get('/qr_scanner/check-in/{reservationId}', [QRScannerController::class, 'showCheckInPage'])->name('show_check_in');
+        Route::post('/qr_scanner/check-in/{reservationId}', [QRScannerController::class, 'confirmCheckIn'])->name('confirm_check_in');
 
 
         Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');

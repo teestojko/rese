@@ -1,0 +1,12 @@
+.qr_title{
+    height: 10vh;
+    font-size: large;
+    text-align: center;
+    align-content: center;
+}
+
+.qr_code{
+    height: 50vh;
+    text-align: center;
+    align-content: center;
+}
