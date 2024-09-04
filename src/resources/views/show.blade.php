@@ -87,28 +87,51 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    @if($nearest_reservation)
-                    <div class="reservation_table_main">
-                        <table class="reservation_table">
-                            <tr class="reservation_tr">
-                                <td class="reservation_label">Shop</td>
-                                <td class="reservation_value">{{ $shop->name }}</td>
-                            </tr>
-                            <tr class="reservation_tr">
-                                <td class="reservation_label">Date</td>
-                                <td class="reservation_value">{{ $nearest_reservation->reservation_date }}</td>
-                            </tr>
-                            <tr class="reservation_tr">
-                                <td class="reservation_label">Time</td>
-                                <td class="reservation_value">{{ $nearest_reservation->reservation_time }}</td>
-                            </tr>
-                            <tr class="reservation_tr">
-                                <td class="reservation_label">Number</td>
-                                <td class="reservation_value">{{ $nearest_reservation->number_of_people }}人</td>
-                            </tr>
-                        </table>
-                    </div>
-                    @endif
+                    <div id="nearest_reservation_section" style="display:none;">
+    <div class="reservation_table_main">
+        <table class="reservation_table">
+            <tr class="reservation_tr">
+                <td class="reservation_label">Shop</td>
+                <td class="reservation_value">{{ $shop->name }}</td>
+            </tr>
+            <tr class="reservation_tr">
+                <td class="reservation_label">Date</td>
+                <td class="reservation_value" id="selected_date"></td> <!-- 選択された日付を表示 -->
+            </tr>
+            <tr class="reservation_tr">
+                <td class="reservation_label">Time</td>
+                <td class="reservation_value" id="selected_time"></td> <!-- 選択された時間を表示 -->
+            </tr>
+            <tr class="reservation_tr">
+                <td class="reservation_label">Number</td>
+                <td class="reservation_value" id="selected_people"></td> <!-- 選択された人数を表示 -->
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+    // 日付の選択時に表示更新
+    document.getElementById('reservation_date').addEventListener('change', function() {
+        var selectedDate = this.value;
+        document.getElementById('selected_date').innerText = selectedDate;
+        document.getElementById('nearest_reservation_section').style.display = 'block';
+    });
+
+    // 時間の選択時に表示更新
+    document.getElementById('reservation_time').addEventListener('change', function() {
+        var selectedTime = this.value;
+        document.getElementById('selected_time').innerText = selectedTime;
+        document.getElementById('nearest_reservation_section').style.display = 'block';
+    });
+
+    // 人数の選択時に表示更新
+    document.getElementById('number_of_people').addEventListener('change', function() {
+        var selectedPeople = this.value;
+        document.getElementById('selected_people').innerText = selectedPeople + "人";
+        document.getElementById('nearest_reservation_section').style.display = 'block';
+    });
+</script>
+
                 </div>
                 <button type="submit" class="btn-primary">
                     予約する
