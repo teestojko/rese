@@ -1,10 +1,8 @@
 @extends('layouts.app')
 
 @section('css')
-
 <link rel="stylesheet" href="{{ asset('css/admin/shop_edit.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 @endsection
 
 @section('content')
@@ -14,7 +12,7 @@
                 店舗代表者作成画面
             </div>
             <form class="shop_edit_form" method="POST" action="{{ route('admin.store') }}">
-                @csrf
+            @csrf
                 <div class="name_culumn">
                     <div class="comment">
                         名前
@@ -59,13 +57,17 @@
                         <label for="shop_id"></label>
                         <select name="shop_id" id="shop_id" required>
                             @foreach ($shops as $shop)
-                                <option value="{{ $shop->id }}">{{ $shop->name }}</option>
+                                <option value="{{ $shop->id }}">
+                                    {{ $shop->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="button">
-                    <button class="submit" type="submit">作成する</button>
+                    <button class="submit" type="submit">
+                        作成する
+                    </button>
                 </div>
             </form>
             <div class="dashboard_button_content">
@@ -74,7 +76,9 @@
                 </a>
             </div>
             @if (session('success'))
-                <p class="success_message">{{ session('success') }}</p>
+                <p class="success_message">
+                    {{ session('success') }}
+                </p>
             @endif
         </div>
     </div>

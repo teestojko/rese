@@ -31,7 +31,6 @@ class QRScannerController extends Controller
         if (!$reservation) {
             return redirect()->back()->with('error', '予約が見つかりませんでした。');
         }
-        // 予約のチェックインを更新
         $reservation->checked_in = true;
         $reservation->save();
         return redirect()->back()->with('success', 'チェックインが確認されました。');

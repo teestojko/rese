@@ -24,7 +24,6 @@ class MyPageController extends Controller
         $shops = Shop::all();
         $prefectures = Prefecture::all();
         $genres = Genre::all();
-
         return view('index', compact('user_name','user','shops','prefectures','genres'));
     }
 
@@ -33,7 +32,6 @@ class MyPageController extends Controller
     $user = Auth::user();
     $favorites = $user->favoriteShops()->with('genre', 'prefecture')->get();
     $now = Carbon::now();
-
     $total_reservations = Reservation::where('user_id', $user->id)->count();
     $nearest_reservation = Reservation::where('user_id', $user->id)
         ->where('reservation_date', '>=', $now->toDateString())
@@ -47,12 +45,10 @@ class MyPageController extends Controller
         ->orderBy('reservation_date', 'asc')
         ->orderBy('reservation_time', 'asc')
         ->first();
-
     $all_reservations = Reservation::where('user_id', $user->id)
         ->orderBy('reservation_date', 'asc')
         ->orderBy('reservation_time', 'asc')
         ->get();
-
     return view('my_page', compact('user', 'favorites', 'nearest_reservation', 'all_reservations', 'total_reservations'));
     }
 

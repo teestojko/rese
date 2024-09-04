@@ -35,7 +35,6 @@ use App\Http\Controllers\Admin\ShopOwnerCreateController;
 */
 Route::get('/home', [AuthController::class, 'index'])->name('home');
 Route::get('/filter', [SearchController::class, 'filter'])->name('shops_filter');
-// Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('login');
@@ -72,51 +71,35 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
-
         return redirect()->intended(RouteServiceProvider::HOME);
     })->middleware('signed')->name('verification.verify');
 
     Route::post('/email/verification-notification', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();
-
         return back()->with('message', 'メールを再送信しました');
     })->middleware('throttle:6,1')->name('verification.send');
 
     Route::middleware('verified')->group(function () {
-
         Route::get('/', [MyPageController::class, 'userMyPage'])->name('user_my_page');
-
         Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
-
         Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
         Route::post('/payment/success', [PaymentController::class, 'payment'])->name('payment.process');
         Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
-
         Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
         Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
         Route::get('/myPage/{shop}', [MyPageController::class, 'showMyPage'])->name('myPage');
-
         Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
         Route::get('/reservation_thanks', [MyPageController::class, 'reservationThanks'])->name('reservation.thanks');
-        // Route::get('/done/{reservationId}', [ReservationController::class, 'generateQRCode'])->name('payment.thanks');
         Route::get('/done', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
         Route::get('/qr_scanner/{reservationId}', [QRScannerController::class, 'generateQRCode'])->name('qr_scanner');
         Route::get('/qr_scanner/check-in/{reservationId}', [QRScannerController::class, 'showCheckInPage'])->name('show_check_in');
         Route::post('/qr_scanner/check-in/{reservationId}', [QRScannerController::class, 'confirmCheckIn'])->name('confirm_check_in');
-
-
         Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
-
         Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
-
         Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
-
         Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
-
         Route::get('/review/{shop}', [ReviewController::class, 'review'])->name('reviews.review');
-
         Route::get('/shops/{shop}/reviews', [ReviewController::class, 'index'])->name('reviews.index');
-
         Route::delete('/reviews/index/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
     });
 });

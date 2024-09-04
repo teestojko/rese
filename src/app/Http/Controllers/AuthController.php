@@ -16,7 +16,6 @@ class AuthController extends Controller
         $shops = Shop::all();
         $prefectures = Prefecture::all();
         $genres = Genre::all();
-
         return view('index', compact('shops','prefectures','genres'));
     }
 }

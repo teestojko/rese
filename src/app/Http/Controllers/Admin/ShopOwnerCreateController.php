@@ -25,7 +25,6 @@ class ShopOwnerCreateController extends Controller
             'password' => Hash::make($request->password),
             'shop_id' => $request->shop_id,
         ]);
-
         return redirect()->back()->with('success', 'Shop代表者が作成されました');
     }
 }

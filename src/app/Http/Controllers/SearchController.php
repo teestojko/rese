@@ -16,7 +16,6 @@ class SearchController extends Controller
         $user = Auth::user();
         $prefectures = Prefecture::all();
         $genres = Genre::all();
-
         $query = Shop::query();
         if ($request->filled('prefecture_id')) {
             $query->where('prefecture_id', $request->prefecture_id);
@@ -26,9 +25,8 @@ class SearchController extends Controller
         }
         if ($request->filled('shop_name')) {
         $query->where('name', 'like', $request->shop_name . '%');
-    }
+        }
         $shops = $query->get();
-
         return view('index', compact('user_name', 'user', 'shops', 'prefectures', 'genres'));
     }
 }

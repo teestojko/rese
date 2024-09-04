@@ -14,16 +14,9 @@ class ReservationController extends Controller
         $user_id = Auth::id();
         $data = $request->all();
         $data['user_id'] = $user_id;
-
-        Reservation::create($data);
-
+            Reservation::create($data);
         return redirect()->route('payment.thanks');
-        // $reservation = Reservation::create($data);
-
-        // return redirect()->route('payment.thanks',['reservationId' => $reservation->id]);
     }
-
-    
 
     public function showThanksPage()
     {
@@ -31,17 +24,15 @@ class ReservationController extends Controller
     }
 
     public function edit($id)
-{
-    $reservation = Reservation::findOrFail($id);
-    return view('edit', compact('reservation'));
-}
+    {
+        $reservation = Reservation::findOrFail($id);
+        return view('edit', compact('reservation'));
+    }
 
-public function update(Request $request, $id)
-{
-    $reservation = Reservation::findOrFail($id);
-    $reservation->update($request->all());
-    return redirect()->route('shops.show', $reservation->shop_id)->with('success', 'Reservation updated successfully.');
-}
-
-
+    public function update(Request $request, $id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        $reservation->update($request->all());
+        return redirect()->route('shops.show', $reservation->shop_id)->with('success', 'Reservation updated successfully.');
+    }
 }

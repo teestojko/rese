@@ -5,14 +5,16 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/show.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/show.css') }}">
 @endsection
 
 @section('content')
     <div class="shop_all">
         <div class="shop_detail_page">
             <div class="shop_name_top">
-                <a href="{{ route('user_my_page') }}" class="btn-secondary">&lt;</a>
+                <a href="{{ route('user_my_page') }}" class="btn-secondary">
+                    &lt;
+                </a>
                 <div class="shop_name">
                     {{ $shop->name }}
                 </div>
@@ -51,12 +53,13 @@
                         </label>
                         <input class="input" type="date" id="reservation_date" name="reservation_date" class="form-control" required min="{{ $today }}">
                         @error('reservation_date')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
                         @enderror
                     </div>
                     <div class="reserve_form-group">
-                        <label for="reservation_time">
-                        </label>
+                        <label for="reservation_time"></label>
                         <select id="reservation_time" name="reservation_time" class="form-control" required>
                             <option value="">時間を選択</option>
                             <option value="17:00">17:00</option>
@@ -74,64 +77,70 @@
                             <option value="23:00">23:00</option>
                             <option value="23:30">23:30</option>
                         </select>
-
                         @error('reservation_time')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
                         @enderror
                     </div>
                     <div class="reserve_form-group">
-                        <label for="number_of_people">
-                        </label>
+                        <label for="number_of_people"></label>
                         <input class="input3" type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" required placeholder="人数を選択">
                         @error('number_of_people')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
                         @enderror
                     </div>
                     <div id="nearest_reservation_section" style="display:none;">
-    <div class="reservation_table_main">
-        <table class="reservation_table">
-            <tr class="reservation_tr">
-                <td class="reservation_label">Shop</td>
-                <td class="reservation_value">{{ $shop->name }}</td>
-            </tr>
-            <tr class="reservation_tr">
-                <td class="reservation_label">Date</td>
-                <td class="reservation_value" id="selected_date"></td> <!-- 選択された日付を表示 -->
-            </tr>
-            <tr class="reservation_tr">
-                <td class="reservation_label">Time</td>
-                <td class="reservation_value" id="selected_time"></td> <!-- 選択された時間を表示 -->
-            </tr>
-            <tr class="reservation_tr">
-                <td class="reservation_label">Number</td>
-                <td class="reservation_value" id="selected_people"></td> <!-- 選択された人数を表示 -->
-            </tr>
-        </table>
-    </div>
-</div>
-<script>
-    // 日付の選択時に表示更新
-    document.getElementById('reservation_date').addEventListener('change', function() {
-        var selectedDate = this.value;
-        document.getElementById('selected_date').innerText = selectedDate;
-        document.getElementById('nearest_reservation_section').style.display = 'block';
-    });
-
-    // 時間の選択時に表示更新
-    document.getElementById('reservation_time').addEventListener('change', function() {
-        var selectedTime = this.value;
-        document.getElementById('selected_time').innerText = selectedTime;
-        document.getElementById('nearest_reservation_section').style.display = 'block';
-    });
-
-    // 人数の選択時に表示更新
-    document.getElementById('number_of_people').addEventListener('change', function() {
-        var selectedPeople = this.value;
-        document.getElementById('selected_people').innerText = selectedPeople + "人";
-        document.getElementById('nearest_reservation_section').style.display = 'block';
-    });
-</script>
-
+                        <div class="reservation_table_main">
+                            <table class="reservation_table">
+                                <tr class="reservation_tr">
+                                    <td class="reservation_label">
+                                        Shop
+                                    </td>
+                                    <td class="reservation_value">
+                                        {{ $shop->name }}
+                                    </td>
+                                </tr>
+                                <tr class="reservation_tr">
+                                    <td class="reservation_label">
+                                        Date
+                                    </td>
+                                    <td class="reservation_value" id="selected_date"></td>
+                                </tr>
+                                <tr class="reservation_tr">
+                                    <td class="reservation_label">
+                                        Time
+                                    </td>
+                                    <td class="reservation_value" id="selected_time"></td>
+                                </tr>
+                                <tr class="reservation_tr">
+                                    <td class="reservation_label">
+                                        Number
+                                    </td>
+                                    <td class="reservation_value" id="selected_people"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById('reservation_date').addEventListener('change', function() {
+                            var selectedDate = this.value;
+                            document.getElementById('selected_date').innerText = selectedDate;
+                            document.getElementById('nearest_reservation_section').style.display = 'block';
+                        });
+                        document.getElementById('reservation_time').addEventListener('change', function() {
+                            var selectedTime = this.value;
+                            document.getElementById('selected_time').innerText = selectedTime;
+                            document.getElementById('nearest_reservation_section').style.display = 'block';
+                        });
+                        document.getElementById('number_of_people').addEventListener('change', function() {
+                            var selectedPeople = this.value;
+                            document.getElementById('selected_people').innerText = selectedPeople + "人";
+                            document.getElementById('nearest_reservation_section').style.display = 'block';
+                        });
+                    </script>
                 </div>
                 <button type="submit" class="btn-primary">
                     予約する

@@ -11,10 +11,8 @@ use Stripe\Charge;
 use Exception;
 use Stripe\Stripe;
 
-
 class PaymentController extends Controller
 {
-
     public function redirectToPayment()
     {
         return redirect()->route('payment.show');
@@ -25,10 +23,9 @@ class PaymentController extends Controller
         return view('payment.payment');
     }
 
-public function payment(Request $request)
+    public function payment(Request $request)
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));
-
         try {
             $customer = Customer::create(array(
                 'email' => $request->stripeEmail,
@@ -39,12 +36,9 @@ public function payment(Request $request)
                 'amount' => 100,
                 'currency' => 'jpy'
             ));
-
             return view('payment.success');
             } catch (\Exception $e) {
                 return back()->with('error', $e->getMessage());
             }
     }
-
-
 }

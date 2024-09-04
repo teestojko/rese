@@ -15,14 +15,12 @@ class AdminEmailController extends Controller
     public function showForm()
     {
         $users = User::all();
-
         return view('admin.send_email', compact('users'));
     }
 
     public function sendEmail(AdminEmailRequest $request)
     {
         $users = User::all();
-
         foreach ($users as $user) {
             Mail::to($user->email)->send(new UserNotification($request->subject, $request->message));
         }

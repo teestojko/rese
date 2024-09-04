@@ -25,15 +25,12 @@ class ReviewController extends Controller
             if ($existingReview) {
                 return redirect()->back()->withErrors(['custom_error' => '既にこの店舗にレビューを投稿しています。']);
             }
-
         $review = new Review();
         $review->user_id = Auth::id();
         $review->shop_id = $shop->id;
         $review->comment = $request->comment;
         $review->stars = $request->stars;
         $review->save();
-
-
         return back()
         ->with('success', 'レビューを投稿しました');
     }
@@ -43,19 +40,15 @@ class ReviewController extends Controller
         $reviews = Review::where('shop_id', $shop->id)
             ->where('user_id', Auth::id())
             ->get();
-
         return view('reviews.reviews_index', compact('reviews', 'shop'));
     }
-
 
     public function destroy(Review $review)
     {
         if (Auth::id() !== $review->user_id) {
             return response()->json(['error' => 'この操作を実行する権限がありません。'], 403);
         }
-
         $review->delete();
-
         return back()->with('success', 'レビューを削除しました');
     }
 }

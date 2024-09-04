@@ -18,11 +18,9 @@ class ShopRepresentativeLoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-
-        if (Auth::guard('shop_representative')->attempt($credentials)) {
-            return redirect()->route('shop_representative.dashboard');
-        }
-
+            if (Auth::guard('shop_representative')->attempt($credentials)) {
+                return redirect()->route('shop_representative.dashboard');
+            }
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);

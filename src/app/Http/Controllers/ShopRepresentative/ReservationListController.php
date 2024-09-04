@@ -11,43 +11,25 @@ use Carbon\Carbon;
 
 class ReservationListController extends Controller
 {
-    // public function reservationList()
-    // {
-    //     $shop_representative = Auth::guard('shop_representative')->user();
-
-    //     $shop_id = $shop_representative->shop_id;
-
-    //     $reservations = Reservation::where('shop_id', $shop_id)->with('user')->paginate(5);
-
-    //     return view('representative.reservation_list', compact('reservations'));
-    // }
-
-        public function reservationList()
+    public function reservationList()
     {
-        // 現在の日付を取得
         $date = Carbon::now()->toDateString();
-        // dd($date);
         return $this->fetchReservations($date);
     }
 
-    // 日付変更用メソッド
     public function changeReservationDate($date)
     {
         return $this->fetchReservations($date);
     }
 
-    // 予約を取得してビューに渡すメソッド
     private function fetchReservations($date)
     {
         $shop_representative = Auth::guard('shop_representative')->user();
         $shop_id = $shop_representative->shop_id;
-
         $reservations = Reservation::where('shop_id', $shop_id)
             ->with('user')
             ->whereDate('reservation_date', $date)
             ->paginate(5);
-        // dd($reservations);
-
         return view('representative.reservation_list', compact('reservations', 'date'));
     }
 }

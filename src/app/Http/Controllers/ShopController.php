@@ -14,7 +14,6 @@ class ShopController extends Controller
     {
         $now = Carbon::now();
         $userId = Auth::id();
-
         $shop = Shop::with(['reservations' => function ($query) use ($now, $userId) {
             $query->where('reservation_date', '>=', $now->toDateString())
                 ->where('user_id', $userId)
@@ -28,9 +27,7 @@ class ShopController extends Controller
                 ->orderBy('reservation_date', 'asc')
                 ->orderBy('reservation_time', 'asc');
         }])->findOrFail($id);
-
         $nearest_reservation = $shop->reservations->first();
-
         return view('show', compact('shop', 'nearest_reservation'));
     }
 }
