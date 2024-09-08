@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Http\Requests\ReservationRequest;
+use App\Http\Requests\ReservationEditRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
@@ -29,10 +30,10 @@ class ReservationController extends Controller
         return view('edit', compact('reservation'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ReservationEditRequest $request, $id)
     {
         $reservation = Reservation::findOrFail($id);
         $reservation->update($request->all());
-        return redirect()->route('shops.show', $reservation->shop_id)->with('success', 'Reservation updated successfully.');
+        return redirect()->route('shops.show', $reservation->shop_id)->with('success', '予約が変更されました。');
     }
 }

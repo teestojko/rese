@@ -73,11 +73,11 @@
 
 .star {
     font-size: 20px;
-    color: gray; /* デフォルトの星の色 */
+    color: gray;
 }
 
 .star.filled {
-    color: gold; /* 埋められた星の色 */
+    color: gold;
 }
 
 .review_button_content{

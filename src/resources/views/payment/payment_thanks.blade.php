@@ -17,7 +17,7 @@
                 </a>
             </div>
             <div class="nav_content">
-                <a class="reserve_nav" href="{{ route('redirect.to.payment') }}">
+                <a class="reserve_nav" href="{{ route('payment.show') }}">
                     支払いに進む
                 </a>
             </div>

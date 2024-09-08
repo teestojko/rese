@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Prefecture;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ShopUpdateRequest;
 
 class ShopEditController extends Controller
 {
@@ -19,7 +20,7 @@ class ShopEditController extends Controller
         return view('representative/shop_update', compact('shop', 'prefectures', 'genres'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ShopUpdateRequest $request, $id)
     {
         $shop = Shop::findOrFail($id);
             if ($request->hasFile('image_path')) {
@@ -28,7 +29,7 @@ class ShopEditController extends Controller
                 }
         $path = $request->file('image_path')->store('public');
         $shop->image_path = str_replace('public/', 'storage/', $path);
-    }
+        }
         $shop->update([
             'name' => $request->name,
             'prefecture_id' => $request->prefecture_id,

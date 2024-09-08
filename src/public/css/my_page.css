@@ -51,21 +51,6 @@
     width: 90%;
 }
 
-@media screen and (max-width: 768px) {
-    .user_my_page_item {
-        width: 70%;
-    }
-    .table_main{
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    .user_my_page_item {
-        width: 93%;
-    }
-}
-
 .reservation_main{
     display: flex;
     flex-wrap: wrap;
@@ -84,12 +69,49 @@
     margin-top: 2%;
 }
 
+.user_favorite{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 54%;
+    margin-top: 2%;
+}
+
+@media screen and (max-width: 768px) {
+    .user_my_page_item {
+        width: 70%;
+    }
+    .table_main{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .user_my_page_item {
+        width: 93%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .user_my_page_item {
+        width: 93%;
+        margin: 10px 0;
+    }
+    .user_favorite{
+        width: 40%;
+    }
+    .reservation_main{
+        width: 60%;
+    }
+}
+
 .table_detail{
     width: 100%;
     height: 100%;
 }
 
 .table_detail2{
+    position: relative;
     width: 100%;
     height: 35vh;
     margin-bottom: 10%;
@@ -203,7 +225,9 @@
 }
 
 .p_button{
-    padding-left: 50%;
+    position: absolute;
+    top: 2%;
+    right: 5%;
 }
 
 .delete-btn {
@@ -223,14 +247,6 @@
 
 .reserve_id{
     width: 80%;
-}
-
-.user_favorite{
-    display: flex;
-    flex-wrap: wrap;
-    width: 60%;
-    height: 54%;
-    margin-top: 2%;
 }
 
 .user_my_page_img{

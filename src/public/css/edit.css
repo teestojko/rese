@@ -1,7 +1,6 @@
 .container{
     width: 100vw;
     height: 89vh;
-    position: absolute;
     top: 11vh;
 }
 
@@ -15,10 +14,12 @@
 }
 
 .reserve_form{
-    height: 90%;
+    text-align: center;
+    height: 70%;
+    align-items: center;
     line-height: 5;
     margin-top: 5%;
-    margin-left: 30%;
+    margin: 5% 20%;
 }
 
 .input{
@@ -28,6 +29,10 @@
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
     background-color: aliceblue;
+}
+
+.form_group{
+    height: 30%;
 }
 
 .form_control2{
@@ -49,13 +54,15 @@
 }
 
 .btn-primary{
-    width: 12%;
+    width: 17%;
     padding: 1%;
     border: 1px solid;
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
-    background-color: aliceblue;
+    background-color: rgb(254, 255, 255);
     margin: 5% 23%;
 }
 
-
+.error_message{
+    height: 20%;
+}

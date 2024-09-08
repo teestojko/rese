@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="main">
+    <div class="payment_main">
         <div class="content_main">
             <div class="title">
                 決済ページ

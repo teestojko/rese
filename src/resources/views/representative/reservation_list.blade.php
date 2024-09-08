@@ -40,17 +40,33 @@
             @else
                 <table class="table">
                     <tr class="table_tr_top">
-                        <th class="table_name">お名前</th>
-                        <th class="table_date">日付</th>
-                        <th class="table_time">時間</th>
-                        <th class="table_number">人数</th>
+                        <th class="table_name">
+                            お名前
+                        </th>
+                        <th class="table_date">
+                            日付
+                        </th>
+                        <th class="table_time">
+                            時間
+                        </th>
+                        <th class="table_number">
+                            人数
+                        </th>
                     </tr>
                     @foreach ($reservations as $reservation)
                         <tr class="table_tr_detail">
-                            <td class="table_name">{{ $reservation->user->name }}</td>
-                            <td class="table_date">{{ $reservation->reservation_date }}</td>
-                            <td class="table_time">{{ $reservation->reservation_time }}</td>
-                            <td class="table_number">{{ $reservation->number_of_people }}名</td>
+                            <td class="table_name">
+                                {{ $reservation->user->name }}
+                            </td>
+                            <td class="table_date">
+                                {{ $reservation->reservation_date }}
+                            </td>
+                            <td class="table_time">
+                                {{ $reservation->reservation_time }}
+                            </td>
+                            <td class="table_number">
+                                {{ $reservation->number_of_people }}名
+                            </td>
                         </tr>
                     @endforeach
                 </table>

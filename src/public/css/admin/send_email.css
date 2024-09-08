@@ -71,7 +71,7 @@
 
 .button{
     text-align: center;
-    margin-top: 5%;
+    margin-top: 15%;
 }
 
 .submit{
@@ -93,6 +93,18 @@
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
     color: rgb(74, 120, 255);
+}
+
+.alert_danger_comment{
+    position: absolute;
+    top: 38%;
+    left: 45%;
+}
+
+.alert_danger_comment2{
+    position: absolute;
+    bottom: 32%;
+    left: 43%;
 }
 
 .success_message{

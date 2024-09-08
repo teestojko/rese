@@ -9,7 +9,7 @@ use App\Models\ShopRepresentative;
 use App\Models\Prefecture;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\ShopOwnerCreateRequest;
+use App\Http\Requests\ShopUpdateRequest;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -28,7 +28,7 @@ class ShopRepresentativeController extends Controller
         return view('representative/shop_create', compact('prefectures', 'genres'));
     }
 
-    public function store(ShopOwnerCreateRequest $request)
+    public function store(ShopUpdateRequest $request)
     {
         $shop = new Shop();
         $shop->name = $request->name;

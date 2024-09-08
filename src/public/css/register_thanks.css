@@ -32,15 +32,6 @@
     font-weight: bold;
 }
 
-.meil_content{
-    position: absolute;
-    bottom: 30%;
-    width: 100%;
-    font-size: large;
-    text-align: center;
-    color: chocolate;
-}
-
 .thanks_retry{
     margin-top: 3%;
     height: 20%;

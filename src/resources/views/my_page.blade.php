@@ -34,7 +34,7 @@
                                         予約{{ $loop->iteration }}
                                     </div>
                                     <p class="p_button">
-                                        <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" style="display:inline;">
+                                        <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="delete-btn">

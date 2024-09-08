@@ -231,3 +231,20 @@ img{
     padding: 0.5rem 1rem;
 }
 
+.alert-danger1{
+    position: absolute;
+    bottom: 20%;
+    color: rgb(255, 255, 255);
+}
+
+.alert-danger2{
+    position: absolute;
+    bottom: 15%;
+    color: rgb(255, 255, 255);
+}
+
+.alert-danger3{
+    position: absolute;
+    bottom: 10%;
+    color: rgb(255, 255, 255);
+}

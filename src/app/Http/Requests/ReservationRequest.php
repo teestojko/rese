@@ -31,4 +31,15 @@ class ReservationRequest extends FormRequest
             'number_of_people' => 'required|integer|min:1',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'reservation_date.required' => '日付選択は必須です。',
+            'reservation_time.required' => '予約時間選択は必須です。',
+            'number_of_people.required' => '人数選択は必須です。',
+            'number_of_people.integer' => '人数は数値で入力してください。',
+            'number_of_people.min' => '人数は１名以上で入力してください',
+        ];
+    }
 }

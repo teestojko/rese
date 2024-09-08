@@ -51,16 +51,16 @@
                     <div class="reserve_form-group">
                         <label for="reservation_date">
                         </label>
-                        <input class="input" type="date" id="reservation_date" name="reservation_date" class="form-control" required min="{{ $today }}">
+                        <input class="input" type="date" id="reservation_date" name="reservation_date" class="form-control" min="{{ $today }}">
                         @error('reservation_date')
-                            <div class="alert alert-danger">
+                            <div class="alert alert-danger1">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
                     <div class="reserve_form-group">
                         <label for="reservation_time"></label>
-                        <select id="reservation_time" name="reservation_time" class="form-control" required>
+                        <select id="reservation_time" name="reservation_time" class="form-control">
                             <option value="">時間を選択</option>
                             <option value="17:00">17:00</option>
                             <option value="17:30">17:30</option>
@@ -78,16 +78,16 @@
                             <option value="23:30">23:30</option>
                         </select>
                         @error('reservation_time')
-                            <div class="alert alert-danger">
+                            <div class="alert alert-danger2">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
                     <div class="reserve_form-group">
                         <label for="number_of_people"></label>
-                        <input class="input3" type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" required placeholder="人数を選択">
+                        <input class="input3" type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" placeholder="人数を選択">
                         @error('number_of_people')
-                            <div class="alert alert-danger">
+                            <div class="alert alert-danger3">
                                 {{ $message }}
                             </div>
                         @enderror

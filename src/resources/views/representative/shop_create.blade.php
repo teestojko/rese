@@ -25,24 +25,34 @@
                     <label class="image_path_label" for="image_path" >
                         画像を選択
                     </label>
-                    <input type="file" name="image_path" id="image_path" required>
+                    <input type="file" name="image_path" id="image_path">
                     <div id="file_name">
                         選択ファイル名
                     </div>
                 </div>
+                @error('image_path')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <div class="column">
                     <div class="comment">
                         ショップ名
                     </div>
                     <label class="name_label" for="name"></label>
-                    <input type="text" name="name" id="name" required>
+                    <input type="text" name="name" id="name">
                 </div>
+                @error('name')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <div class="column">
                     <div class="comment">
                         エリア
                     </div>
                     <label class="prefecture_label" for="prefecture"></label>
-                    <select name="prefecture_id" id="prefecture" required>
+                    <select name="prefecture_id" id="prefecture">
                         <option value="">
                             選択してください
                         </option>
@@ -53,12 +63,17 @@
                         @endforeach
                     </select>
                 </div>
+                @error('prefecture_id')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <div class="column">
                     <div class="comment">
                         ジャンル
                     </div>
                     <label class="genre_label" for="genre"></label>
-                    <select name="genre_id" id="genre" required>
+                    <select name="genre_id" id="genre">
                         <option value="">
                             選択してください
                         </option>
@@ -69,20 +84,30 @@
                         @endforeach
                     </select>
                 </div>
+                @error('genre_id')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <div class="column_detail">
                     <div class="comment_detail">
                         詳細
                     </div>
                     <label class="detail_label" for="detail"></label>
-                    <textarea name="detail" id="detail" required>{{ old('detail') }}</textarea>
+                    <textarea name="detail" id="detail">{{ old('detail') }}</textarea>
                 </div>
+                @error('detail')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <div class="submit_content">
                     <button class="submit" type="submit">
                         店舗を作成
                     </button>
                 </div>
             </form>
-            @if ($errors->any())
+            {{-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -90,7 +115,7 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+            @endif --}}
             <div class="dashboard_button_content">
                 <a class="dashboard_button" href="{{ route('shop_representative.dashboard')}}">
                     戻る

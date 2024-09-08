@@ -1,5 +1,6 @@
-.header {
+.header_main {
     background: rgb(248, 248, 248);
+    width: 100%;
 }
 
 .header__inner {

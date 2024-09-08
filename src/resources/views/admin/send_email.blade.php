@@ -19,18 +19,28 @@
                     </div>
                     <div class="column_detail">
                         <label for="subject" ></label>
-                        <input type="text" name="subject" id="subject" placeholder="件名を入力してください" required>
+                        <input type="text" name="subject" id="subject" placeholder="件名を入力してください">
                     </div>
                 </div>
+                @error('subject')
+                    <div class="alert_danger_comment">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <div class="column">
                     <div class="comment">
                         メッセージ
                     </div>
                     <div class="column_detail2">
                         <label class="message" for="message"></label>
-                        <textarea name="message" id="message" rows="5" required></textarea>
+                        <textarea name="message" id="message" rows="5"></textarea>
                     </div>
                 </div>
+                @error('message')
+                    <div class="alert_danger_comment2">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <div class="button">
                     <button class="submit" type="submit">
                         送信する

@@ -11,7 +11,7 @@
         @yield('css')
     </head>
     <body>
-        <header class="header">
+        <header class="header_main">
             <div class="header__inner">
                 <div class="header-utilities">
                     <div class="hamburger">
@@ -42,7 +42,7 @@
                                 </form>
                             </li>
                             <li class="nav_list">
-                                <a class="nav_a" href="/myPage/{shop}">
+                                <a class="nav_a" href="/my_page/{shop}">
                                     MyPage
                                 </a>
                             </li>

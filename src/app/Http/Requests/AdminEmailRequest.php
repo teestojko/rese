@@ -28,4 +28,15 @@ class AdminEmailRequest extends FormRequest
             'message' => 'required|string',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'subject.required' => '件名は必須です。',
+            'subject.string' => '件名は文字列である必要があります。',
+            'subject.max' => '件名は255文字以内である必要があります。',
+            'message.required' => 'メッセージは必須です。',
+            'message.string' => 'メッセージは文字列である必要があります。',
+        ];
+    }
 }

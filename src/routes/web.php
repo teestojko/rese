@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Providers\RouteServiceProvider;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
@@ -18,7 +19,6 @@ use App\Http\Controllers\Auth\ShopRepresentativeLoginController;
 use App\Http\Controllers\ShopRepresentative\ShopRepresentativeController;
 use App\Http\Controllers\ShopRepresentative\ShopEditController;
 use App\Http\Controllers\ShopRepresentative\ReservationListController;
-
 use App\Http\Controllers\Admin\AdminEmailController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ShopOwnerCreateController;
@@ -80,26 +80,31 @@ Route::middleware('auth')->group(function () {
     })->middleware('throttle:6,1')->name('verification.send');
 
     Route::middleware('verified')->group(function () {
-        Route::get('/', [MyPageController::class, 'userMyPage'])->name('user_my_page');
+        Route::get('/', [IndexController::class, 'userMyPage'])->name('user_my_page');
+
+        Route::get('/my_page/{shop}', [MyPageController::class, 'showMyPage'])->name('myPage');
+        Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
+
         Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
+
         Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
         Route::post('/payment/success', [PaymentController::class, 'payment'])->name('payment.process');
-        Route::get('/redirect-to-payment', [PaymentController::class, 'redirectToPayment'])->name('redirect.to.payment');
+
         Route::post('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.add');
         Route::delete('/favorites/{shop}', [FavoriteController::class, 'toggleFavorite'])->name('favorites.toggle.remove');
-        Route::get('/myPage/{shop}', [MyPageController::class, 'showMyPage'])->name('myPage');
+
         Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
-        Route::get('/reservation_thanks', [MyPageController::class, 'reservationThanks'])->name('reservation.thanks');
         Route::get('/done', [ReservationController::class, 'showThanksPage'])->name('payment.thanks');
-        Route::get('/qr_scanner/{reservationId}', [QRScannerController::class, 'generateQRCode'])->name('qr_scanner');
-        Route::get('/qr_scanner/check-in/{reservationId}', [QRScannerController::class, 'showCheckInPage'])->name('show_check_in');
-        Route::post('/qr_scanner/check-in/{reservationId}', [QRScannerController::class, 'confirmCheckIn'])->name('confirm_check_in');
-        Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
         Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
         Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
-        Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
+        Route::get('/qr_scanner/{reservationId}', [QRScannerController::class, 'generateQRCode'])->name('qr_scanner');
+        Route::get('/qr_scanner/check_in/{reservationId}', [QRScannerController::class, 'showCheckInPage'])->name('show_check_in');
+        Route::post('/qr_scanner/check_in/{reservationId}', [QRScannerController::class, 'confirmCheckIn'])->name('confirm_check_in');
+
         Route::get('/review/{shop}', [ReviewController::class, 'review'])->name('reviews.review');
         Route::get('/shops/{shop}/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+        Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
         Route::delete('/reviews/index/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
     });
 });
