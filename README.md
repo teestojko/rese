@@ -72,7 +72,7 @@ git clone git@github.com:teestojko/template.git
 mv template Reserve(お好きな名前に変更)
 
 
-### プロジェクトのルートディレクトリ(Atte)に移動して、
+### プロジェクトのルートディレクトリ(Reserve)に移動して、
 
 git remote set-url origin https://github.com/teestojko/Reserve.git
 
