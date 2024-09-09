@@ -57,7 +57,7 @@ css 3
 
 ## テーブル設計
 
-![alt text](image-4.png)
+![alt text](image-7.png)
 
 ![alt text](image-5.png)
 
