@@ -61,6 +61,9 @@ css 3
 
 ![alt text](image-5.png)
 
+## ER図
+
+![alt text](image-6.png)
 
 # 環境構築
 
@@ -79,9 +82,17 @@ git remote set-url origin https://github.com/teestojko/Reserve.git
 (作成されたgitのURLを、下記のoriginの後ろに記述)
 
 
-### docker作成＆起動
+### dockerイメージ作成　起動　&　phpバージョン変更
 
 docker-compose up -d --build
+
+composer.jsonのphpの記述を
+"php": "^7.3|^8.0|^8.3",
+に変更
+
+composer config --global platform.php 8.3.8
+
+composer update
 
 composer install
 
