@@ -92,7 +92,7 @@
                             </div>
                         @enderror
                     </div>
-                    <div id="nearest_reservation_section" style="display:none;">
+                    <div id="nearest_reservation_section">
                         <div class="reservation_table_main">
                             <table class="reservation_table">
                                 <tr class="reservation_tr">
