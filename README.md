@@ -117,7 +117,6 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 
 
-
 ##### (適宜挿入したいダミーデータを記述)
 
 php artisan migrate

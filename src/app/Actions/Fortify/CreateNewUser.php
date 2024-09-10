@@ -13,7 +13,7 @@ class CreateNewUser implements CreatesNewUsers
     // use PasswordValidationRules;
     protected function passwordRules()
     {
-        return ['required', 'string', 'min:8']; // ここで 'confirmed' を削除
+        return ['required', 'string', 'min:8'];
     }
 
     /**
