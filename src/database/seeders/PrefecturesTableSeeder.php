@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PrefecturesTableSeeder extends Seeder
 {
@@ -13,6 +14,10 @@ class PrefecturesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('prefectures')->insert([
+            ['name' => '東京'],
+            ['name' => '大阪'],
+            ['name' => '福岡']
+        ]);
     }
 }

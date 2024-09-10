@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReviewsTable extends Migration
+class CreateReservationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('shop_id')->constrained()->cascadeOnDelete();
-            $table->tinyInteger('stars')->comment('星');
-            $table->text('comment')->comment('コメント');
-            $table->unique(['shop_id', 'user_id']);//１ユーザーの同じ店舗への投稿を一度にするため
+            $table->date('reservation_date');
+            $table->time('reservation_time');
+            $table->integer('number_of_people');
+            $table->boolean('checked_in')->default(false);
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('reservations');
     }
 }
