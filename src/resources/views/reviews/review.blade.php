@@ -19,20 +19,20 @@
                             レビュー内容
                         </label>
                     </div>
-                    <textarea id="comment" name="comment" required></textarea>
+                    <textarea id="comment" name="comment"></textarea>
+                </div>
                     @error('comment')
                         <div class="alert_danger_comment">
                             {{ $message }}
                         </div>
                     @enderror
-                </div>
                 <div class="form_group2">
                     <div class="comment_detail">
                         <label class="comment2" for="stars">
                             評価
                         </label>
                     </div>
-                    <select id="select" name="stars" required>
+                    <select id="select" name="stars">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
