@@ -11,11 +11,9 @@
             <div class="reserve_thanks_massage">
                 ご予約ありがとうございます。
             </div>
-            <div class="reserve_button_content">
-                <a class="reserve_button" href="/">
-                    戻る
-                </a>
-            </div>
+            <a class="return_my_page" href="/my_page/{shop}">
+                マイページへ戻る
+            </a>
             <div class="nav_content">
                 <a class="reserve_nav" href="{{ route('payment.show') }}">
                     支払いに進む

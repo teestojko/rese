@@ -40,17 +40,22 @@
 
 .nav_content{
     height: 40%;
+    align-content: center;
 }
 
 .reserve_nav{
     text-decoration: none;
     padding: 2% 5%;
     margin-top: 5%;
-    border: solid 1px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+    background-color: white;
 }
 
-.qr_title{
-    color: rgb(255, 69, 69);
+.return_my_page{
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+    background-color: white;
 }

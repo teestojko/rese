@@ -16,4 +16,7 @@
             {!! $qrCode !!}
         </div>
     </div>
+    <a class="return_my_page" href="/my_page/{shop}">
+        マイページへ戻る
+    </a>
 @endsection

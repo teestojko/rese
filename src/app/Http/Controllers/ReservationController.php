@@ -34,6 +34,6 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::findOrFail($id);
         $reservation->update($request->all());
-        return redirect()->route('shops.show', $reservation->shop_id)->with('success', '予約が変更されました。');
+        return redirect()->back()->with('success', '予約が変更されました。');
     }
 }

@@ -68,5 +68,13 @@
                 更新
             </button>
         </form>
+        @if (session('success'))
+            <p class="success_message">
+                {{ session('success') }}
+            </p>
+        @endif
+        <a class="return_my_page" href="/my_page/{shop}">
+            マイページへ戻る
+        </a>
     </div>
 @endsection
