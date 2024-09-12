@@ -50,6 +50,6 @@ class AfterNow implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return '現在以降の日付、時間を選択してください。';
     }
 }
