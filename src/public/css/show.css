@@ -64,6 +64,12 @@ img{
     right: 8%;
 }
 
+.reservation_main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
 .reserve_form-group{
     height: 40%;
     margin-bottom: 2%;
@@ -197,9 +203,8 @@ img{
 }
 
 .alert-danger{
-    position: absolute;
-    bottom: -10px;
-    margin-left: 10%;
+    margin-top: 5%;
+    color: white;
 }
 
 #comment{

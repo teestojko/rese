@@ -11,13 +11,35 @@ use Illuminate\Support\Facades\Auth;
 class ReservationController extends Controller
 {
     public function store(ReservationRequest $request)
-    {
-        $user_id = Auth::id();
-        $data = $request->all();
-        $data['user_id'] = $user_id;
-            Reservation::create($data);
-        return redirect()->route('payment.thanks');
+{
+    $user_id = Auth::id();
+    $shop_id = $request->shop_id;
+    $date = $request->reservation_date;
+
+    $existingReservation = Reservation::where('user_id', $user_id)
+        ->where('shop_id', $shop_id)
+        ->whereDate('reservation_date', $date)
+        ->first();
+
+    if ($existingReservation) {
+        return redirect()->back()->withErrors(['error' => '同じ日付にこのショップに既に予約があります。']);
     }
+
+    $data = $request->all();
+    $data['user_id'] = $user_id;
+    Reservation::create($data);
+
+    return redirect()->route('payment.thanks');
+}
+
+    // public function store(ReservationRequest $request)
+    // {
+    //     $user_id = Auth::id();
+    //     $data = $request->all();
+    //     $data['user_id'] = $user_id;
+    //         Reservation::create($data);
+    //     return redirect()->route('payment.thanks');
+    // }
 
     public function showThanksPage()
     {

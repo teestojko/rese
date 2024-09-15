@@ -41,6 +41,7 @@
             </div>
         </div>
         <div class="reservation_form">
+            <div class="reservation_main">
             <div class="reservation_content">
                 予約
             </div>
@@ -123,7 +124,13 @@
                                 </tr>
                             </table>
                         </div>
+                        @if ($errors->has('error'))
+                            <div class="alert alert-danger">
+                                {{ $errors->first('error') }}
+                            </div>
+                        @endif
                     </div>
+
                     <script>
                         document.getElementById('reservation_date').addEventListener('change', function() {
                             var selectedDate = this.value;
@@ -146,6 +153,7 @@
                     予約する
                 </button>
             </form>
+            </div>
         </div>
         <div class="button">
             <a href="{{ route('reviews.review', ['shop' => $shop->id]) }}" class="btn-primary2">
