@@ -18,11 +18,12 @@
             @csrf
             @method('PUT')
             <div class="form_group">
+                <input type="hidden" name="shop_id" value="{{ $reservation->shop_id }}">
                 <label for="reservation_date"></label>
                 <input class="input" type="date" id="reservation_date" name="reservation_date" class="form_control" min="{{ $today }}">
                 <div class="error_message">
                     @error('reservation_date')
-                        <div class="alert alert-danger1">{{ $message }}</div>
+                        <div class="alert-danger1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -47,7 +48,7 @@
                 </select>
                 <div class="error_message">
                     @error('reservation_time')
-                        <div class="alert alert-danger2">
+                        <div class="alert-danger2">
                             {{ $message }}
                         </div>
                     @enderror
@@ -56,13 +57,13 @@
             <div class="form_group">
                 <label for="number_of_people"></label>
                 <input class="input3" type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" placeholder="人数">
-                <div class="error_message">
-                    @error('number_of_people')
-                        <div class="alert alert-danger3">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+                    <div class="error_message">
+                        @error('number_of_people')
+                            <div class="alert-danger3">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
             </div>
             <button type="submit" class="btn-primary">
                 更新
