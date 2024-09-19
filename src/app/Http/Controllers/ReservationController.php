@@ -57,4 +57,15 @@ class ReservationController extends Controller
         $reservation->update($request->all());
         return redirect()->back()->with('success', '予約が変更されました。');
     }
+
+    // public function verifyReservation(Request $request)
+    // {
+    //     $reservationId = $request->input('reservationId');
+    //     $reservation = Reservation::find($reservationId);
+    //         if ($reservation) {
+    //             return response()->json(['status' => 'success', 'message' => 'Reservation verified']);
+    //         } else {
+    //             return response()->json(['status' => 'error', 'message' => 'Reservation not found']);
+    //         }
+    // }
 }

@@ -42,15 +42,4 @@ class ShopRepresentativeController extends Controller
         $shop->save();
         return redirect()->route('shop_representative.dashboard')->with('success', '店舗が正常に作成されました。');
     }
-
-    public function verifyReservation(Request $request)
-    {
-        $reservationId = $request->input('reservationId');
-        $reservation = Reservation::find($reservationId);
-            if ($reservation) {
-                return response()->json(['status' => 'success', 'message' => 'Reservation verified']);
-            } else {
-                return response()->json(['status' => 'error', 'message' => 'Reservation not found']);
-            }
-    }
 }
