@@ -44,12 +44,3 @@
         - mysql
       ports:
         - 8080:80
-
-  # cron:
-  #   build:
-  #     context: ./docker/cron
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - ./src:/var/www
-  #   depends_on:
-  #     - php

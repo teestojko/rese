@@ -17,10 +17,6 @@ use App\Models\Admin;
 use App\Models\ShopRepresentative;
 use App\Models\User;
 
-
-// use Illuminate\Support\Facades\Redirect;
-// use Illuminate\Auth\Events\Registered;
-
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -39,31 +35,28 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::createUsersUsing(CreateNewUser::class);
 
         Fortify::registerView(function () {
-            return view('auth.register');
+            return view('Auth.register');
         });
 
         Fortify::verifyEmailView(function(){
-            return view('auth.verify_email');
+            return view('Auth.verify_email');
         });
 
         Fortify::loginView(function () {
-            return view('auth.login');
+            return view('Auth.login');
         });
 
         Fortify::authenticateUsing(function (Request $request) {
-            // ユーザーの認証
             $user = User::where('email', $request->email)->first();
             if ($user && Hash::check($request->password, $user->password)) {
                 return $user;
             }
 
-            // 管理者の認証
             $admin = Admin::where('email', $request->email)->first();
             if ($admin && Hash::check($request->password, $admin->password)) {
                 return $admin;
             }
 
-            // 店舗代表者の認証
             $shopRepresentative = ShopRepresentative::where('email', $request->email)->first();
             if ($shopRepresentative && Hash::check($request->password, $shopRepresentative->password)) {
                 return $shopRepresentative;

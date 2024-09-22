@@ -61,12 +61,11 @@ Route::prefix('shop_representative')->name('shop_representative.')->group(functi
         Route::get('/reservation/list/{date}', [ReservationListController::class, 'changeReservationDate'])->name('attendance.date');
         Route::get('/create', [ShopRepresentativeController::class, 'create'])->name('shop_create');
         Route::post('/store', [ShopRepresentativeController::class, 'store'])->name('shop_store');
-        // Route::get('/reservation/verify/{id}', [ReservationController::class, 'verifyReservation'])->name('reservation.verify');
     });
 });
 Route::middleware('auth')->group(function () {
     Route::get('/thanks', function (Request $request) {
-        return view('auth.verify_email');
+        return view('Auth.verify_email');
     })->name('verification.notice');
 
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {

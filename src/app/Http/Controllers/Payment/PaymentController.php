@@ -20,7 +20,7 @@ class PaymentController extends Controller
 
     public function showPaymentPage()
     {
-        return view('payment.payment');
+        return view('Payment.payment');
     }
 
     public function payment(Request $request)
@@ -36,7 +36,7 @@ class PaymentController extends Controller
                 'amount' => 100,
                 'currency' => 'jpy'
             ));
-            return view('payment.success');
+            return view('Payment.success');
             } catch (\Exception $e) {
                 return back()->with('error', $e->getMessage());
             }

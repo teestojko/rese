@@ -2,7 +2,7 @@
     $today = now()->format('Y-m-d');
     $currentTime = now()->format('H:i');
 @endphp
-@extends('layouts.app')
+@extends('Layouts.app')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
@@ -68,12 +68,13 @@
             <button type="submit" class="btn-primary">
                 更新
             </button>
+            @if (session('success'))
+                <p class="success_message">
+                    {{ session('success') }}
+                </p>
+            @endif
         </form>
-        @if (session('success'))
-            <p class="success_message">
-                {{ session('success') }}
-            </p>
-        @endif
+
         <a class="return_my_page" href="/my_page/{shop}">
             マイページへ戻る
         </a>
