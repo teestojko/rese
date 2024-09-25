@@ -77,8 +77,8 @@
                 var hamburgerMenu = document.querySelector('.hamburger-menu');
                 nav.classList.toggle('active');
                 document.querySelector('main').classList.toggle('dimmed');
-                logo.classList.toggle('hidden'); // Reseの表示を切り替える
-                hamburgerMenu.classList.toggle('open'); // ハンバーガーメニューの表示を切り替える
+                logo.classList.toggle('hidden');
+                hamburgerMenu.classList.toggle('open');
             });
         </script>
         @yield('scripts')
