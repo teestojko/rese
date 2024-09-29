@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\AfterNow;
 
 class ReservationEditRequest extends FormRequest
 {
@@ -24,8 +25,8 @@ class ReservationEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'reservation_date' => 'required|date|after_or_equal:today',
-            'reservation_time' => 'required|date_format:H:i',
+            'reservation_date' => ['required', 'date', new AfterNow],
+            'reservation_time' => ['required', 'date_format:H:i', new AfterNow],
             'number_of_people' => 'required|integer|min:1',
         ];
     }
