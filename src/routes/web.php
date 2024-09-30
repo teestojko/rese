@@ -55,12 +55,12 @@ Route::prefix('shop_representative')->name('shop_representative.')->group(functi
 
     Route::middleware('auth:shop_representative')->group(function () {
         Route::get('/dashboard', [ShopRepresentativeController::class, 'dashboard'])->name('dashboard');
+        Route::get('/create', [ShopRepresentativeController::class, 'create'])->name('shop_create');
+        Route::post('/store', [ShopRepresentativeController::class, 'store'])->name('shop_store');
         Route::get('/{id}/edit', [ShopEditController::class, 'edit'])->name('edit');
         Route::post('/{id}/update', [ShopEditController::class, 'update'])->name('update');
         Route::get('/reservation/list', [ReservationListController::class, 'reservationList'])->name('reservations_list');
         Route::get('/reservation/list/{date}', [ReservationListController::class, 'changeReservationDate'])->name('attendance.date');
-        Route::get('/create', [ShopRepresentativeController::class, 'create'])->name('shop_create');
-        Route::post('/store', [ShopRepresentativeController::class, 'store'])->name('shop_store');
     });
 });
 Route::middleware('auth')->group(function () {
