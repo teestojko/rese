@@ -6,15 +6,15 @@
 @endsection
 
 @section('content')
-    <div class="main">
-        <div class="main_content">
-            <div class="title">
+    <div class="shop_edit">
+        <div class="shop_edit_inner">
+            <div class="inner_title">
                 店舗代表者作成画面
             </div>
-            <form class="shop_edit_form" method="POST" action="{{ route('admin.store') }}">
+            <form class="inner_form" method="POST" action="{{ route('admin.store') }}">
             @csrf
-                <div class="name_culumn">
-                    <div class="comment">
+                <div class="shop_edit_name_content">
+                    <div class="content_title">
                         名前
                     </div>
                     <div class="input">
@@ -27,8 +27,8 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="email_culumn">
-                    <div class="comment">
+                <div class="shop_edit_email_content">
+                    <div class="content_title">
                         Email
                     </div>
                     <div class="input">
@@ -41,8 +41,8 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="password_culumn">
-                    <div class="comment">
+                <div class="shop_edit_password_content">
+                    <div class="content_title">
                         パスワード
                     </div>
                     <div class="input">
@@ -55,8 +55,8 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="confirm_culumn">
-                    <div class="comment">
+                <div class="shop_edit_confirm_content">
+                    <div class="content_title">
                         確認パスワード
                     </div>
                     <div class="input">
@@ -69,8 +69,8 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="shop_culumn">
-                    <div class="comment">
+                <div class="shop_edit_shop_content">
+                    <div class="content_title">
                         Shop
                     </div>
                     <div class="input">
@@ -89,14 +89,14 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="button">
-                    <button class="submit" type="submit">
+                <div class="shop_edit_button">
+                    <button class="shop_edit_button_button" type="submit">
                         作成する
                     </button>
                 </div>
             </form>
-            <div class="dashboard_button_content">
-                <a class="dashboard_button" href="{{ route('admin.dashboard')}}">
+            <div class="shop_edit_back_button">
+                <a class="shop_edit_back_button_link" href="{{ route('admin.dashboard')}}">
                     戻る
                 </a>
             </div>

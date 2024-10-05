@@ -8,9 +8,9 @@
 @section('content')
     <form class="search_form" id="filterForm" action="{{ route('shops_filter') }}" method="GET">
         <div class="search_container">
-            <div class="search1">
+            <div class="search_area">
                 <label class="search_label" for="prefecture_id"></label>
-                <select class="search_select" name="prefecture_id" id="prefecture_id">
+                <select class="search_select_area" name="prefecture_id" id="prefecture_id">
                     <option value="" class="placeholder">
                         All area
                     </option>
@@ -22,9 +22,9 @@
                 </select>
                 <i class="fas fa-caret-down"></i>
             </div>
-            <div class="search2">
+            <div class="search_genre">
                 <label class="search_label" for="genre_id"></label>
-                <select class="search_select2" name="genre_id" id="genre_id">
+                <select class="search_select_genre" name="genre_id" id="genre_id">
                     <option value="" class="placeholder">
                         All genre
                     </option>
@@ -36,9 +36,9 @@
                 </select>
                 <i class="fas fa-caret-down"></i>
             </div>
-            <div class="search3">
+            <div class="search_shop_name">
                 <label class="search_label" for="shop_name"></label>
-                    <button type="submit" class="submit3">
+                    <button type="submit" class="submit_shop_name">
                         <i class="fas fa-search search_icon"></i>
                     </button>
                 <input type="text" name="shop_name" id="shop_name" class="search_input" placeholder="Search ...">
@@ -69,17 +69,17 @@
                     </div>
                     <div class="shop_primary_favorite">
                         <p class="shop_primary">
-                            <a href="{{ route('shops.show', ['shop' => $shop->id]) }}" class="btn-primary">詳しく見る</a>
+                            <a href="{{ route('shops.show', ['shop' => $shop->id]) }}" class="detail_button">詳しく見る</a>
                         </p>
                         <form class="shop_form" action="{{ $shop->isFavorited() ? route('favorites.toggle.remove', ['shop' => $shop->id]) : route('favorites.toggle.add', ['shop' => $shop->id]) }}" method="POST">
                         @csrf
                             @if ($shop->isFavorited())
                             @method('DELETE')
-                                <button type="submit" class="submit">
+                                <button type="submit" class="submit_favorite">
                                     <i class="fas fa-heart"></i>
                                 </button>
                             @else
-                                <button type="submit" class="submit2">
+                                <button type="submit" class="submit_not_favorite">
                                     <i class="far fa-heart"></i>
                                 </button>
                             @endif

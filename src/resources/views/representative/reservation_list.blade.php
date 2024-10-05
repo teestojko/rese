@@ -8,9 +8,9 @@
 @endsection
 
 @section('content')
-    <div class="main">
-        <div class="sub">
-            <div class="title">
+    <div class="reservation_list">
+        <div class="reservation_list_inner">
+            <div class="inner_title">
                 Reservation List
             </div>
             @php
@@ -18,16 +18,16 @@
                 $previousDate = $currentDate->copy()->subDay()->toDateString();
                 $nextDate = $currentDate->copy()->addDay()->toDateString();
             @endphp
-            <div class="date-navigation">
-                <form class="date-form" action="{{ route('shop_representative.attendance.date', ['date' => $previousDate]) }}" method="get">
+            <div class="inner_date_navigation">
+                <form class="inner_date_navigation_form" action="{{ route('shop_representative.attendance_date', ['date' => $previousDate]) }}" method="get">
                     <button class="submit" type="submit">
                         &lt;
                     </button>
                 </form>
-                <p class="attendance_date">
+                <p class="inner_date">
                     {{ $currentDate->toDateString() }}
                 </p>
-                <form class="date-form" action="{{ route('shop_representative.attendance.date', ['date' => $nextDate]) }}" method="get">
+                <form class="inner_date_navigation_form" action="{{ route('shop_representative.attendance_date', ['date' => $nextDate]) }}" method="get">
                     <button class="submit" type="submit">
                         &gt;
                     </button>
@@ -38,33 +38,33 @@
                     予約情報がありません
                 </p>
             @else
-                <table class="table">
-                    <tr class="table_tr_top">
-                        <th class="table_name">
+                <table class="inner_table">
+                    <tr class="inner_table_title">
+                        <th class="inner_table_name">
                             お名前
                         </th>
-                        <th class="table_date">
+                        <th class="inner_table_date">
                             日付
                         </th>
-                        <th class="table_time">
+                        <th class="inner_table_time">
                             時間
                         </th>
-                        <th class="table_number">
+                        <th class="inner_table_number">
                             人数
                         </th>
                     </tr>
                     @foreach ($reservations as $reservation)
-                        <tr class="table_tr_detail">
-                            <td class="table_name">
+                        <tr class="inner_table_detail">
+                            <td class="inner_table_name">
                                 {{ $reservation->user->name }}
                             </td>
-                            <td class="table_date">
+                            <td class="inner_table_date">
                                 {{ $reservation->reservation_date }}
                             </td>
-                            <td class="table_time">
+                            <td class="inner_table_time">
                                 {{ $reservation->reservation_time }}
                             </td>
-                            <td class="table_number">
+                            <td class="inner_table_number">
                                 {{ $reservation->number_of_people }}名
                             </td>
                         </tr>
@@ -72,8 +72,8 @@
                 </table>
                 {{ $reservations->links('vendor.pagination.bootstrap-4') }}
             @endif
-            <div class="dashboard_button_content">
-                <a class="dashboard_button" href="{{ route('shop_representative.dashboard')}}">
+            <div class="reservation_list_back_button">
+                <a class="reservation_list_back_button_button" href="{{ route('shop_representative.dashboard')}}">
                     戻る
                 </a>
             </div>

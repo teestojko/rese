@@ -17,30 +17,6 @@
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
-@media screen and (max-width: 1024px) {
-    .login_detail {
-        width: 40%;
-        height: 43%;
-        margin: 8% 30%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .login_detail {
-        width: 50%;
-        height: 26%;
-        margin: 8% 25%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .login_detail {
-        width: 60%;
-        height: 43%;
-        margin: 8% 20%;
-    }
-}
-
 .login_form{
     position: relative;
     width: 100%;
@@ -96,4 +72,46 @@
 .form_error{
     text-align: center;
     color: red;
+}
+
+@media screen and (max-width: 1024px) {
+    .login_detail {
+        width: 40%;
+        margin: 8% 30%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .login_detail {
+        width: 50%;
+        margin: 8% 25%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login_detail {
+        width: 60%;
+        margin: 8% 20%;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .login_detail {
+        height: 40%;
+        margin: 8% 25%;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .login_detail {
+        height: 50%;
+        margin: 8% 25%;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .login_detail {
+        height: 60%;
+        margin: 8% 25%;
+    }
 }

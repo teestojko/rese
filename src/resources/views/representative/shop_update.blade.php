@@ -6,9 +6,9 @@
 @endsection
 
 @section('content')
-    <div class="content">
-        <div class="detail">
-            <div class="top">
+    <div class="shop_update">
+        <div class="shop_update_inner">
+            <div class="inner_title">
                 店舗情報変更
             </div>
             @if (session('success'))
@@ -18,9 +18,9 @@
             @endif
             <form class="shop_update_form" method="POST" action="{{ route('shop_representative.update', $shop->id) }}" enctype="multipart/form-data">
                 @csrf
-                <div class="column">
-                    <div class="image_path_top">
-                        Image_Path
+                <div class="shop_update_content">
+                    <div class="image_path_title">
+                        画像
                     </div>
                     <label class="image_path_label" for="image_path">
                         画像を選択
@@ -35,10 +35,10 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="column">
-                    <div class="label_content">
+                <div class="shop_update_content">
+                    <div class="content_label">
                         <label for="label">
-                            Name
+                            ショップ名
                         </label>
                     </div>
                     <input type="text" name="name" id="name" value="{{ $shop->name }}">
@@ -48,10 +48,10 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="column">
-                    <div class="label_content">
+                <div class="shop_update_content">
+                    <div class="content_label">
                         <label for="label">
-                            Prefecture
+                            エリア
                         </label>
                     </div>
                     <select name="prefecture_id" id="prefecture">
@@ -67,10 +67,10 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="column">
-                    <div class="label_content">
+                <div class="shop_update_content">
+                    <div class="content_label">
                         <label for="label">
-                            Genre
+                            ジャンル
                         </label>
                     </div>
                     <select name="genre_id" id="genre">
@@ -86,10 +86,10 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="column2">
-                    <div class="label_content">
+                <div class="shop_update_content2">
+                    <div class="content_label">
                         <label class="label" for="detail">
-                            Detail
+                            詳細
                         </label>
                     </div>
                     <textarea name="detail" id="detail">{{ $shop->detail }}</textarea>
@@ -99,14 +99,14 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="submit_content">
-                    <button class="submit" type="submit">
+                <div class="shop_update_button">
+                    <button class="shop_update_button_button" type="submit">
                         更新する
                     </button>
                 </div>
             </form>
-            <div class="dashboard_button_content">
-                <a class="dashboard_button" href="{{ route('shop_representative.dashboard')}}">
+            <div class="shop_update_back_button">
+                <a class="shop_update_back_button_link" href="{{ route('shop_representative.dashboard')}}">
                     戻る
                 </a>
             </div>

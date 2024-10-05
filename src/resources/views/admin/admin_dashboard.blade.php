@@ -6,17 +6,17 @@
 @endsection
 
 @section('content')
-    <div class="main">
-        <div class="admin_dashboard-title">
+    <div class="admin_dashboard">
+        <div class="admin_dashboard_title">
             Admin Dashboard
         </div>
-        <div class="create_owner">
-            <a class="create_owner_a" href="{{ route('admin.edit_create') }}">
+        <div class="admin_dashboard_create_owner">
+            <a class="create_owner_link" href="{{ route('admin.edit_create') }}">
                 店舗代表者作成
             </a>
         </div>
-        <div class="email_user">
-            <a class="email_user_a" href="{{ route('admin.send_email') }}">
+        <div class="admin_dashboard_email">
+            <a class="email_link" href="{{ route('admin.send_email') }}">
                 メール送信画面
             </a>
         </div>

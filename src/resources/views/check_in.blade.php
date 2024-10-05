@@ -1,20 +1,22 @@
 @extends('Layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="">予約確認</div>
-        <p>
+    <div class="check_in">
+        <div class="check_in_inner">
+            予約確認
+        </div>
+        <p class="check_in_content">
             予約ID: {{ $reservation->id }}
         </p>
-        <p>
+        <p class="check_in_content">
             お名前: {{ $reservation->customer_name }}
         </p>
-        <p>
+        <p class="check_in_content">
             予約日時: {{ $reservation->reservation_date }}
         </p>
-        <form action="{{ route('confirm_check_in', $reservation->id) }}" method="POST">
+        <form class="check_in_form" action="{{ route('confirm_check_in', $reservation->id) }}" method="POST">
         @csrf
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="check_in_button">
                 予約確認済み
             </button>
         </form>

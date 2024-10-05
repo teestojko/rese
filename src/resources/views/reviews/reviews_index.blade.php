@@ -6,48 +6,48 @@
 @endsection
 
 @section('content')
-    <div class="review_top">
-        <div class="review_main">
+    <div class="reviews_index">
+        <div class="reviews_index_title">
             {{ $shop->name }}のレビュー
         </div>
         @if ($reviews->isEmpty())
-            <div class="review_content">
+            <div class="reviews_index_not_reviews">
                 この店舗にはまだレビューを投稿していません。
             </div>
         @else
-            <ul class="review_table_ul">
+            <ul class="reviews_index_table">
                 @foreach ($reviews as $review)
-                    <table class="review_table">
-                        <tr class="review_table_tr_star">
-                            <td class="review_table_td">
+                    <table class="table_inner">
+                        <tr class="table_content">
+                            <td class="table_item">
                                 @for ($i = 1; $i <= 5; $i++)
                                     <span class="star {{ $i <= $review->stars ? 'filled' : '' }}">&#9733;</span>
                                 @endfor
                             </td>
                         </tr>
-                        <tr class="review_table_tr">
-                            <td class="review_comment">
+                        <tr class="table_content_comment_title">
+                            <td class="table_item_comment_title">
                                 コメント
                             </td>
                         </tr>
-                        <tr class="review_table_tr_comment">
-                            <td class="review_table_td_comment">
+                        <tr class="table_content_comment">
+                            <td class="table_item_comment">
                                 {{ $review->comment }}
                             </td>
                         </tr>
                     </table>
-                    <form class="review_form" action="{{ route('reviews.destroy', $review->id) }}" method="POST">
+                    <form class="reviews_index_form" action="{{ route('reviews.destroy', $review->id) }}" method="POST">
                     @csrf
                         @method('DELETE')
-                            <button class="submit" type="submit">
+                            <button class="reviews_index_button" type="submit">
                                 レビューを削除
                             </button>
                         </form>
                 @endforeach
             </ul>
         @endif
-        <div class="review_button_content">
-            <a class="review_button" href="{{ route('reviews.review', ['shop' => $shop->id]) }}">
+        <div class="reviews_index_back_button">
+            <a class="reviews_index_back_button_link" href="{{ route('reviews.review', ['shop' => $shop->id]) }}">
                 戻る
             </a>
         </div>

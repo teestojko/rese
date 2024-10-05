@@ -1,10 +1,10 @@
-.container{
+.edit{
     width: 100vw;
     height: 89vh;
     top: 11vh;
 }
 
-.reserve_main{
+.edit_title{
     text-align: center;
     height: 10%;
     align-content: center;
@@ -13,7 +13,7 @@
     font-weight: bold;
 }
 
-.reserve_form{
+.edit_form{
     text-align: center;
     height: 70%;
     align-items: center;
@@ -32,7 +32,7 @@
     background-color: white;
 }
 
-.input{
+.reservation_date_input{
     width: 60%;
     height: 30%;
     padding: 1%;
@@ -42,12 +42,12 @@
     background-color: aliceblue;
 }
 
-.form_group{
+.form_content{
     height: 25%;
     align-content: center;
 }
 
-.form_control2{
+.reservation_time_select{
     padding: 1%;
     width: 60%;
     height: 30%;
@@ -57,7 +57,7 @@
     background-color: aliceblue;
 }
 
-.input3{
+.number_of_people_input{
     width: 60%;
     height: 30%;
     padding: 1%;
@@ -67,7 +67,7 @@
     background-color: aliceblue;
 }
 
-.btn-primary{
+.edit_button{
     width: 17%;
     padding: 1%;
     border: 1px solid;

@@ -1,36 +1,37 @@
-.review_main{
+.review{
     width: 100vw;
     height: 89vh;
 }
 
-.review_form{
+.review_inner{
     width: 80%;
     height: 60%;
     margin: 5% 10%;
     text-align: center;
 }
 
-.review_title{
+.inner_title{
     font-size: 2rem;
     font-family: system-ui;
     font-weight: bold;
     height: 15%;
     align-content: center;
+    color: rgb(175, 175, 175);
 }
 
-.review_form_detail{
+.review_form{
     width: 100%;
     height: 85%;
     position: relative;
 }
 
-.form_group{
+.form_inner{
     display: flex;
     width: 100%;
     height: 40%;
 }
 
-.form_group2{
+.form_inner2{
     display: flex;
     width: 100%;
     height: 8%;
@@ -38,7 +39,7 @@
 
 }
 
-.comment_detail{
+.form_inner_title{
     width: 30%;
 }
 
@@ -59,17 +60,12 @@
     border-radius: 5px;
 }
 
-.submit_content{
+.review_button_inner{
     width: 100%;
     margin-top: 3%;
 }
 
-.review_confirm{
-    width: 100%;
-    margin-top: 3%;
-}
-
-.submit{
+.review_button_inner_submit{
     padding: 0.5rem 1rem;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
     background-color: #f1f1f1;
@@ -85,7 +81,7 @@
     text-align: center;
 }
 
-.review_button_content{
+.review_back_button{
     position: absolute;
     top: 5%;
     right: 13%;
@@ -96,7 +92,22 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.review_button{
+.review_back_button_link{
     text-decoration: none;
     padding: 1% 3%;
+}
+
+.review_confirm{
+    width: 100%;
+    margin-top: 5%;
+}
+
+.review_confirm_link{
+    padding: 0.5rem 1rem;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+    background-color: #ffffff;
+    border: 1px solid;
+    border-radius: 5px;
+    text-decoration: none;
+
 }

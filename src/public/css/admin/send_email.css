@@ -1,25 +1,25 @@
-.main{
+.send_email{
     width: 100%;
     height: 89vh;
 }
 
-.main_content{
+.send_email_inner{
     width: 60%;
     height: 80%;
     margin: 3% 20%;
 }
 
-.sub_content{
+.send_email_content{
     width: 100%;
     height: 90%;
 }
 
-.email_form{
+.content_form{
     width: 100%;
     height: 100%;
 }
 
-.title{
+.send_email_title{
     font-size: 2rem;
     font-family: system-ui;
     font-weight: bold;
@@ -30,24 +30,24 @@
     color: rgb(175, 175, 175);
 }
 
-.column{
+.send_email_section{
     display: flex;
     width: 100%;
     height: 30%;
     align-items: center;
 }
 
-.comment{
+.section_title{
     width: 30%;
     align-content: center;
     text-align: center;
 }
 
-.column_detail{
+.send_email_message{
     width: 50%;
 }
 
-.column_detail2{
+.send_email_message2{
     width: 50%;
     height: 100%;
 }
@@ -69,25 +69,25 @@
     padding: 3%;
 }
 
-.button{
+.send_email_button{
     text-align: center;
     margin-top: 15%;
 }
 
-.submit{
+.send_email_button_button{
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
     border: none;
     padding: 1% 3%;
 }
 
-.dashboard_button_content{
+.send_email_back_button{
     text-align: center;
     width: 100%;
 
 }
 
-.dashboard_button{
+.send_email_back_button_link{
     text-decoration: none;
     padding: 1.3% 4%;
     border-radius: 5px;

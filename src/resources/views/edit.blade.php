@@ -10,26 +10,26 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <div class="reserve_main">
+    <div class="edit">
+        <div class="edit_title">
             予約編集
         </div>
-        <form class="reserve_form" action="{{ route('reservations.update', $reservation->id) }}" method="POST">
+        <form class="edit_form" action="{{ route('reservations.update', $reservation->id) }}" method="POST">
             @csrf
             @method('PUT')
-            <div class="form_group">
+            <div class="form_content">
                 <input type="hidden" name="shop_id" value="{{ $reservation->shop_id }}">
                 <label for="reservation_date"></label>
-                <input class="input" type="date" id="reservation_date" name="reservation_date" class="form_control" min="{{ $today }}">
+                <input class="reservation_date_input" type="date" name="reservation_date" min="{{ $today }}">
                 <div class="error_message">
                     @error('reservation_date')
                         <div class="alert-danger1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
-            <div class="form_group">
+            <div class="form_content">
                 <label for="reservation_time"></label>
-                <select id="reservation_time" name="reservation_time" class="form_control2">
+                <select name="reservation_time" class="reservation_time_select">
                     <option value="">--時間を選択--</option>
                     <option value="17:00">17:00</option>
                     <option value="17:30">17:30</option>
@@ -54,9 +54,9 @@
                     @enderror
                 </div>
             </div>
-            <div class="form_group">
+            <div class="form_content">
                 <label for="number_of_people"></label>
-                <input class="input3" type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" placeholder="人数">
+                <input class="number_of_people_input" type="number" name="number_of_people" min="1" placeholder="人数">
                     <div class="error_message">
                         @error('number_of_people')
                             <div class="alert-danger3">
@@ -65,7 +65,7 @@
                         @enderror
                     </div>
             </div>
-            <button type="submit" class="btn-primary">
+            <button type="submit" class="edit_button">
                 更新
             </button>
             @if (session('success'))

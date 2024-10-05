@@ -6,16 +6,16 @@
 @endsection
 
 @section('content')
-    <div class="review_main">
-        <div class="review_form">
-            <div class="review_title">
+    <div class="review">
+        <div class="review_inner">
+            <div class="inner_title">
                 レビューを投稿する
             </div>
-            <form class="review_form_detail" action="{{ route('reviews.store', $shop->id) }}" method="POST">
+            <form class="review_form" action="{{ route('reviews.store', $shop->id) }}" method="POST">
             @csrf
-                <div class="form_group">
-                    <div class="comment_detail">
-                        <label class="comment" for="comment">
+                <div class="form_inner">
+                    <div class="form_inner_title">
+                        <label class="form_inner_label" for="comment">
                             レビュー内容
                         </label>
                     </div>
@@ -26,9 +26,9 @@
                             {{ $message }}
                         </div>
                     @enderror
-                <div class="form_group2">
-                    <div class="comment_detail">
-                        <label class="comment2" for="stars">
+                <div class="form_inner2">
+                    <div class="form_inner_title">
+                        <label class="form_inner_label" for="stars">
                             評価
                         </label>
                     </div>
@@ -46,13 +46,13 @@
                     @enderror
                 </div>
                 <div class="review_button">
-                    <div class="submit_content">
-                        <button type="submit" class="submit">
+                    <div class="review_button_inner">
+                        <button type="submit" class="review_button_inner_submit">
                             投稿する
                         </button>
                     </div>
                     <div class="review_confirm">
-                        <a href="{{ route('reviews.index', ['shop' => $shop->id]) }}" class="btn-primary2">
+                        <a href="{{ route('reviews.index', ['shop' => $shop->id]) }}" class="review_confirm_link">
                             レビューを確認する
                         </a>
                     </div>
@@ -69,8 +69,8 @@
                 {{ $errors->first('custom_error') }}
             </div>
         @endif
-        <div class="review_button_content">
-            <a class="review_button" href="{{ route('shops.show', ['shop' => $shop->id]) }}">
+        <div class="review_back_button">
+            <a class="review_back_button_link" href="{{ route('shops.show', ['shop' => $shop->id]) }}">
                 戻る
             </a>
         </div>

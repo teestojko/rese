@@ -1,14 +1,14 @@
-.content{
+.shop_update{
     width: 100vw;
     height: 89vh;
 }
 
-.detail{
+.shop_update_inner{
     height: 100%;
     padding: 1% 5%;
 }
 
-.top{
+.inner_title{
     font-size: 2rem;
     font-family: system-ui;
     font-weight: bold;
@@ -24,22 +24,23 @@
     height: 75%;
 }
 
-.column{
+.shop_update_content{
     display: flex;
     width: 100%;
     height: 10%;
     margin-top: 4%;
 }
 
-.column2{
+.shop_update_content2{
     display: flex;
     width: 100%;
     height: 30%;
     margin-top: 4%;
 }
 
-.label_content{
+.content_label{
     width: 30%;
+    text-align: left;
 }
 
 .label{
@@ -60,9 +61,9 @@
     color: rgb(138, 138, 138);
 }
 
-.image_path_top{
+.image_path_title{
     width: 40%;
-    text-align: center;
+    text-align: left;
     margin-right: 1%;
     align-content: center;
 }
@@ -138,14 +139,14 @@
     color: rgb(138, 138, 138);
 }
 
-.submit_content{
+.shop_update_button{
     width: 100%;
     height: 10%;
     text-align: center;
     align-content: center;
 }
 
-.submit{
+.shop_update_button_button{
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
     color: rgb(74, 120, 255);
@@ -156,7 +157,7 @@
     margin-top: 3%;
 }
 
-.dashboard_button_content{
+.shop_update_back_button{
     text-align: center;
     height: 10%;
     align-content: center;
@@ -164,7 +165,7 @@
 
 }
 
-.dashboard_button{
+.shop_update_back_button_link{
     position: absolute;
     right: 10%;
     top: 3%;

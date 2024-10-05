@@ -6,9 +6,9 @@
 @endsection
 
 @section('content')
-    <div class="content">
-        <div class="detail">
-            <div class="top">
+    <div class="shop_create">
+        <div class="shop_create_inner">
+            <div class="inner_title">
                 店舗作成画面
             </div>
             @if (session('success'))
@@ -18,8 +18,8 @@
             @endif
             <form class="shop_create_form" action="{{ route('shop_representative.shop_store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="column">
-                    <div class="comment">
+                <div class="shop_create_content">
+                    <div class="content_title">
                         画像
                     </div>
                     <label class="image_path_label" for="image_path" >
@@ -35,8 +35,8 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="column">
-                    <div class="comment">
+                <div class="shop_create_content">
+                    <div class="content_title">
                         ショップ名
                     </div>
                     <label class="name_label" for="name"></label>
@@ -47,8 +47,8 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="column">
-                    <div class="comment">
+                <div class="shop_create_content">
+                    <div class="content_title">
                         エリア
                     </div>
                     <label class="prefecture_label" for="prefecture"></label>
@@ -68,8 +68,8 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="column">
-                    <div class="comment">
+                <div class="shop_create_content">
+                    <div class="content_title">
                         ジャンル
                     </div>
                     <label class="genre_label" for="genre"></label>
@@ -89,8 +89,8 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="column_detail">
-                    <div class="comment_detail">
+                <div class="shop_create_content2">
+                    <div class="content_title2">
                         詳細
                     </div>
                     <label class="detail_label" for="detail"></label>
@@ -101,14 +101,14 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="submit_content">
-                    <button class="submit" type="submit">
+                <div class="shop_create_button">
+                    <button class="shop_create_button_button" type="submit">
                         店舗を作成
                     </button>
                 </div>
             </form>
-            <div class="dashboard_button_content">
-                <a class="dashboard_button" href="{{ route('shop_representative.dashboard')}}">
+            <div class="shop_create_back_button">
+                <a class="shop_create_back_button_link" href="{{ route('shop_representative.dashboard')}}">
                     戻る
                 </a>
             </div>

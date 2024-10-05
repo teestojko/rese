@@ -1,14 +1,14 @@
-.content{
+.shop_representative_dashboard{
     width: 100vw;
     height: 89vh;
 }
 
-.detail{
+.shop_representative_dashboard_inner{
     height: 100%;
     padding: 5%;
 }
 
-.top{
+.inner_title{
     font-size: 2rem;
     font-family: system-ui;
     font-weight: bold;
@@ -17,7 +17,7 @@
     color: rgb(175, 175, 175);
 }
 
-.title{
+.shop_title{
     font-size: 1.7rem;
     font-family: system-ui;
     font-weight: bold;
@@ -26,7 +26,7 @@
     text-align: center;
 }
 
-.shop_edit_a{
+.shop_edit_link{
     text-decoration: none;
     padding: 1% 2rem;
     border-radius: 5px;
@@ -34,7 +34,7 @@
     color: rgb(33, 89, 255);
 }
 
-.reservation_list_a{
+.reservation_list_link{
     text-decoration: none;
     padding: 1% 3rem;
     border-radius: 5px;
@@ -42,7 +42,7 @@
     color: rgb(33, 89, 255);
 }
 
-.shop_create_a{
+.shop_create_link{
     text-decoration: none;
     padding: 1% 3rem;
     border-radius: 5px;
@@ -50,18 +50,10 @@
     color: rgb(33, 89, 255);
 }
 
-.button_main{
+.shop_representative_dashboard_button{
     text-align: center;
     align-content: center;
     height: 15%;
-}
-
-.qr_scan{
-    text-decoration: none;
-    padding: 1% 1rem;
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
-    color: rgb(33, 89, 255);
 }
 
 .success_message{

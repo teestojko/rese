@@ -1,14 +1,3 @@
-
-
-.my_page_top{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 2% 5%;
-    width: 100vw;
-    min-height: 100vh;
-    background: rgb(248, 248, 248);
-}
-
 .user_name{
     width: 100%;
     height: 5%;
@@ -19,39 +8,20 @@
     background: rgb(248, 248, 248);
 }
 
-.message{
+.my_page_user_name{
     margin: 0;
-
 }
 
-.user_my_page_ul{
+.my_page{
     display: flex;
     flex-wrap: wrap;
-    margin-top: 0;
-    padding-left: 0;
-    width: 100%;
+    padding: 2% 5%;
+    width: 100vw;
+    min-height: 100vh;
+    background: rgb(248, 248, 248);
 }
 
-.user_my_page_item{
-    width: 37%;
-    height: auto;
-    margin: 10px 50px 10px 0;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
-}
-
-.table_main{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 5%;
-    color: #ffffff;
-    height: 91%;
-    width: 90%;
-}
-
-.reservation_main{
+.my_page_reservation{
     display: flex;
     flex-wrap: wrap;
     width: 40%;
@@ -60,90 +30,7 @@
     margin-top: 2%;
 }
 
-.reservation_main2{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 60%;
-    text-align: center;
-    margin-top: 2%;
-}
-
-.user_favorite{
-    display: flex;
-    flex-wrap: wrap;
-    width: 60%;
-    height: 54%;
-    margin-top: 2%;
-}
-
-@media screen and (max-width: 768px) {
-    .user_my_page_item {
-        width: 70%;
-    }
-    .table_main{
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    .user_my_page_item {
-        width: 93%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .user_my_page_item {
-        width: 93%;
-        margin: 10px 0;
-    }
-    .user_favorite{
-        width: 40%;
-    }
-    .reservation_main{
-        width: 60%;
-    }
-}
-
-.table_detail{
-    width: 100%;
-    height: 100%;
-}
-
-.table_detail2{
-    position: relative;
-    width: 100%;
-    height: 35vh;
-    margin-bottom: 10%;
-    padding: 3%;
-    background-color: rgb(33, 89, 255);
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
-}
-
-.form_content{
-    display: flex;
-    width: 100%;
-    align-items: center;
-}
-
-.reservation_item{
-    width: 50%;
-    height: 5vh;
-    align-content: center;
-}
-
-.fas.fa-edit{
-    color: blanchedalmond;
-}
-
-.qr_scan{
-    text-decoration: none;
-    color: blanchedalmond;
-    width: 50%;
-}
-
-.user_my_page_title{
+.reservation_title{
     width: 100%;
     align-content: center;
     font-family: system-ui;
@@ -155,7 +42,110 @@
     margin-top: 2%;
 }
 
-.user_my_page_main2{
+.reservation_inner{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 60%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.reservation_content{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 5%;
+    color: #ffffff;
+    height: 91%;
+    width: 90%;
+}
+
+.null_reservation{
+    color: black;
+}
+
+.reservation_section{
+    position: relative;
+    width: 100%;
+    height: 35vh;
+    margin-bottom: 10%;
+    padding: 1% 7%;
+    background-color: rgb(33, 89, 255);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.reservation_table {
+    display: table;
+    width: 100%;
+    height: 60%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table_inner{
+    display: flex;
+    align-items: center;
+    padding-left: 3%;
+    width: 100%;
+    height: 25%;
+}
+
+.reservation_id{
+    padding-left: 20px;
+}
+
+.reservation_delete{
+    position: absolute;
+    top: 2%;
+    right: 5%;
+}
+
+.delete-button {
+    background-color: rgb(33, 89, 255);
+    border-color: #ffffff;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0  3px;
+}
+
+.table_content{
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.content_title{
+    text-align: start;
+    width: 30%;
+}
+
+.table_item{
+    text-align: start;
+}
+
+.reservation_change{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.qr_scan{
+    text-decoration: none;
+    color: blanchedalmond;
+    width: 50%;
+}
+
+.my_page_favorite{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 54%;
+    margin-top: 2%;
+}
+
+.favorite_title{
     width: 100%;
     font-family: system-ui;
     font-weight: bold;
@@ -165,6 +155,67 @@
     height: 8vh;
     align-content: center;
     margin-top: 2%;
+}
+
+.favorite_inner{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+    padding-left: 0;
+    width: 100%;
+}
+
+.favorite_content{
+    width: 37%;
+    height: auto;
+    margin: 10px 50px 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+    .favorite_content{
+        width: 70%;
+    }
+    .reservation_content{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .favorite_content{
+        width: 93%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .favorite_content{
+        width: 93%;
+        margin: 10px 0;
+    }
+    .my_page_favorite{
+        width: 40%;
+    }
+    .my_page_reservation{
+        width: 60%;
+    }
+}
+
+.table_detail{
+    width: 100%;
+    height: 100%;
+}
+
+.reservation_item{
+    width: 50%;
+    height: 5vh;
+    align-content: center;
+}
+
+.fas.fa-edit{
+    color: blanchedalmond;
 }
 
 .user_reservation{
@@ -183,37 +234,12 @@
     width: 85%;
 }
 
-.reservation_id_table {
-    display: flex;
-    align-items: center;
-    padding-left: 3%;
-    width: 100%;
-    height: 25%;
-}
-
 .reserve_name{
     width: 100%;
 }
 
-.reserve_table {
-    display: table;
-    width: 100%;
-    height: 60%;
-    border-collapse: separate;
-    border-spacing: 0;
-}
-
-.reserve_tr {
-    padding: 10px 0;
-    margin: 10px 0;
-}
-
 .reserve_label, .reserve_value {
     padding: 1%;
-}
-
-.reservation_id{
-    padding-left: 20px;
 }
 
 .reserve_label {
@@ -224,69 +250,48 @@
     text-align: left;
 }
 
-.p_button{
-    position: absolute;
-    top: 2%;
-    right: 5%;
-}
-
-.delete-btn {
-    background-color: rgb(33, 89, 255);
-    border-color: #ffffff;
-    color: #ffffff;
-    border-radius: 50%;
-    font-size: 13px;
-    cursor: pointer;
-    padding: 0  3px;
-}
-
-.delete-btn i {
-    pointer-events: none;
-}
-
-
 .reserve_id{
     width: 80%;
 }
 
-.user_my_page_img{
+.favorite_img{
     height: 20vh;
     width: 100%;
     border-radius: 5px 5px 0 0;
 }
 
-.user_my_page_detail{
+.favorite_section{
     padding-left: 5%;
 }
 
-.user_my_page_name{
+.favorite_name{
     font-weight: bold;
     font-size: 1.1rem;
     padding-top: 4%;
     text-align: left;
 }
 
-.user_my_page_prefecture_genre{
+.favorite_prefecture_genre{
     display: flex;
     line-height: 0%;
 }
 
-.user_my_page_prefecture{
+.favorite_prefecture{
     display: flex;
 }
 
-.user_my_page_genre{
+.favorite_genre{
     display: flex;
     padding-left: 2%;
 }
 
-.user_my_page_primary_favorite{
+.favorite_primary_favorite{
     display: flex;
     align-items: stretch;
     width: 95%;
 }
 
-.user_my_page_primary,.user_my_page_favorite{
+.favorite_primary,.favorite_favorite{
     flex: 1;
     text-align: left;
 }
@@ -299,7 +304,7 @@
     border-radius: 8px;
 
 }
-.user_my_page_form{
+.favorite_form{
     display: flex;
 }
 

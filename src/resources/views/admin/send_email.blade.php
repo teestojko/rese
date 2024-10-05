@@ -5,19 +5,19 @@
 @endsection
 
 @section('content')
-<div class="main">
-    <div class="main_content">
-        <div class="title">
+<div class="send_email">
+    <div class="send_email_inner">
+        <div class="send_email_title">
             全てのユーザーにメール送信
         </div>
-        <div class="sub_content">
-            <form class="email_form" action="{{ route('admin.send_email') }}" method="POST">
+        <div class="send_email_content">
+            <form class="content_form" action="{{ route('admin.send_email') }}" method="POST">
             @csrf
-                <div class="column">
-                    <div class="comment">
+                <div class="send_email_section">
+                    <div class="section_title">
                         件名
                     </div>
-                    <div class="column_detail">
+                    <div class="send_email_message">
                         <label for="subject" ></label>
                         <input type="text" name="subject" id="subject" placeholder="件名を入力してください">
                     </div>
@@ -27,11 +27,11 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="column">
-                    <div class="comment">
+                <div class="send_email_section">
+                    <div class="section_title">
                         メッセージ
                     </div>
-                    <div class="column_detail2">
+                    <div class="send_email_message2">
                         <label class="message" for="message"></label>
                         <textarea name="message" id="message" rows="5"></textarea>
                     </div>
@@ -41,14 +41,14 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <div class="button">
-                    <button class="submit" type="submit">
+                <div class="send_email_button">
+                    <button class="send_email_button_button" type="submit">
                         送信する
                     </button>
                 </div>
             </form>
-            <div class="dashboard_button_content">
-                <a class="dashboard_button" href="{{ route('admin.dashboard')}}">
+            <div class="send_email_back_button">
+                <a class="send_email_back_button_link" href="{{ route('admin.dashboard')}}">
                     戻る
                 </a>
             </div>

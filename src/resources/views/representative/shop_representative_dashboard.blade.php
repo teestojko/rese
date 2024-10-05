@@ -6,17 +6,17 @@
 @endsection
 
 @section('content')
-    <div class="content">
-        <div class="detail">
-            <div class="top">
+    <div class="shop_representative_dashboard">
+        <div class="shop_representative_dashboard_inner">
+            <div class="inner_title">
                 shop_owner Dashboard
             </div>
             @if ($shop)
-                <div class="title">
+                <div class="shop_title">
                     {{ $shop->name }}
                 </div>
-                <div class="button_main">
-                    <a class="shop_edit_a" href="{{ route('shop_representative.edit', $shop->id) }}">
+                <div class="shop_representative_dashboard_button">
+                    <a class="shop_edit_link" href="{{ route('shop_representative.edit', $shop->id) }}">
                         店舗情報変更
                     </a>
                 </div>
@@ -25,13 +25,13 @@
                     No shop information available.
                 </p>
             @endif
-            <div class="button_main">
-                <a class="reservation_list_a" href="{{ route('shop_representative.reservations_list') }}">
+            <div class="shop_representative_dashboard_button">
+                <a class="reservation_list_link" href="{{ route('shop_representative.reservations_list') }}">
                     予約一覧
                 </a>
             </div>
-            <div class="button_main">
-                <a class="shop_create_a" href="{{ route('shop_representative.shop_create', $shop->id) }}">
+            <div class="shop_representative_dashboard_button">
+                <a class="shop_create_link" href="{{ route('shop_representative.shop_create', $shop->id) }}">
                     店舗作成
                 </a>
             </div>

@@ -26,7 +26,7 @@
     appearance: none;
 }
 
-.search_select{
+.search_select_area{
     border: none;
     background: none;
     font-size: 14px;
@@ -41,7 +41,7 @@
     top: 16px;
 }
 
-.search_select2{
+.search_select_genre{
     border: none;
     background: none;
     font-size: 14px;
@@ -50,20 +50,20 @@
     appearance: none;
 }
 
-.search1{
+.search_area{
     text-align: center;
     width: 20%;
     margin-right: 15px;
 }
 
-.search2{
+.search_genre{
     text-align: center;
     width: 25%;
     margin-right: 15px;
     border-left: 1px solid #ccc;
 }
 
-.search3{
+.search_shop_name{
     width: 50%;
     border-left: 1px solid #ccc;
     padding-left: 10px;
@@ -186,7 +186,7 @@
     flex: 1;
 }
 
-.btn-primary{
+.detail_button{
     padding: 4% 7%;
     color: #ffffff;
     background-color: rgb(33, 89, 255);
@@ -212,18 +212,18 @@
     font-size: 24px;
 }
 
-.submit{
+.submit_favorite{
     color: red;
     background: none;
     border: none;
 }
 
-.submit2{
+.submit_not_favorite{
     background: none;
     border: none;
 }
 
-.submit3{
+.submit_shop_name{
     background: none;
     border: none;
     color: #a9a9a9;

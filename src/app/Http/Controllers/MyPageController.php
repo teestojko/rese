@@ -22,6 +22,7 @@ class MyPageController extends Controller
         ->orderBy('reservation_date', 'asc')
         ->orderBy('reservation_time', 'asc')
         ->get();
+    // dd($all_reservations);
     return view('my_page', compact('user', 'favorites', 'all_reservations'));
     }
 

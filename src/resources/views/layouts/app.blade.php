@@ -21,7 +21,7 @@
                             <div class="line3"></div>
                         </div>
                     </div>
-                    <div class="header__logo" href="/">
+                    <div class="header__logo">
                         Rese
                     </div>
                 </div>
