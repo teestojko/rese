@@ -42,7 +42,7 @@
         </div>
         <div class="reservation_form">
             <div class="reservation_main">
-            <div class="reservation_content">
+            <div class="reservation_title">
                 予約
             </div>
             <form action="{{ route('reservations.store') }}" method="POST">

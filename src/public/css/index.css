@@ -99,7 +99,7 @@
     width: 100vw;
 }
 
-.shop_item{
+.shop_content{
     box-sizing: border-box;
     border: 1px solid #ddd;
     height: 25%;
@@ -111,13 +111,13 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .shop_item {
+    .shop_content {
         width: 30%;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .shop_item {
+    .shop_content {
         width: 44%;
     }
     .shop_list{
@@ -132,7 +132,7 @@
 }
 
 @media screen and (max-width: 480px) {
-    .shop_item {
+    .shop_content {
         width: 93%;
     }
     .shop_list{
@@ -176,7 +176,7 @@
     padding-left: 2%;
 }
 
-.shop_primary_favorite{
+.shop_form{
     display: flex;
     align-items: stretch;
     width: 95%;
@@ -194,7 +194,7 @@
     border-radius: 8px;
 
 }
-.shop_form{
+.shop_favorite_button{
     display: flex;
 }
 
