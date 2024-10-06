@@ -73,6 +73,18 @@
                     {{ session('success') }}
                 </p>
             @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <p class="error_message">
+                                {{ $error }}
+                            </p>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
         </form>
 
         <a class="return_my_page" href="/my_page/{shop}">
