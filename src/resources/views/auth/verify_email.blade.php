@@ -15,11 +15,14 @@
             </div>
             <div class="thanks_content">
                 <div class="thanks_message">
-                    会員登録
+                    会員登録ありがとうございます
                 </div>
-                <div class="thanks_message">
-                    ありがとうございます
-                </div>
+                <button class="login_submit" type="submit">
+                    ログインする
+                </button>
+                <small class="login_message">
+                    送られてきたメールからログインして下さい
+                </small>
             </div>
             <div class="thanks_retry">
                 <div class="comment">

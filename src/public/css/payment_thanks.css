@@ -5,7 +5,7 @@
 }
 
 .reserve_main{
-    height: 30%;
+    height: 40%;
     width: 40%;
     text-align: center;
     align-content: center;
@@ -13,6 +13,7 @@
     margin: 0 30%;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: white;
 }
 
 .reserve_thanks_massage{
@@ -39,13 +40,14 @@
 }
 
 .nav_content{
-    height: 40%;
+    height: 30%;
     align-content: center;
+    text-align: center;
 }
 
 .reserve_nav{
     text-decoration: none;
-    padding: 2% 5%;
+    padding: 0.5rem 1rem;
     margin-top: 5%;
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
@@ -56,6 +58,6 @@
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
-    background-color: white;
+    background-color: rgb(33, 89, 255);
+    color: white;
 }

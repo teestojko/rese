@@ -9,16 +9,16 @@
     <div class="reserve_content">
         <div class="reserve_main">
             <div class="reserve_thanks_massage">
-                ご予約ありがとうございます。
+                ご予約ありがとうございます
             </div>
             <a class="return_my_page" href="/my_page/{shop}">
-                マイページへ戻る
+                戻る
             </a>
-            <div class="nav_content">
-                <a class="reserve_nav" href="{{ route('payment.show') }}">
-                    支払いに進む
-                </a>
-            </div>
+        </div>
+        <div class="nav_content">
+            <a class="reserve_nav" href="{{ route('payment.show') }}">
+                支払いに進む
+            </a>
         </div>
     </div>
 @endsection

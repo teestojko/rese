@@ -28,8 +28,8 @@
 }
 
 .thanks_message{
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: lighter;
 }
 
 .thanks_retry{
@@ -53,6 +53,19 @@
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
     padding: 0.5rem 1rem;
+}
+
+.login_submit{
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 0.7rem;
+    background-color: rgb(33, 89, 255);
+    color: white;
+}
+
+.login_message{
+    display: block;
+    color: crimson;
 }
 
 .thanks_message2{
