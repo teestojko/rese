@@ -21,11 +21,6 @@
                 <input type="hidden" name="shop_id" value="{{ $reservation->shop_id }}">
                 <label for="reservation_date"></label>
                 <input class="reservation_date_input" type="date" name="reservation_date" min="{{ $today }}">
-                <div class="error_message">
-                    @error('reservation_date')
-                        <div class="alert-danger1">{{ $message }}</div>
-                    @enderror
-                </div>
             </div>
             <div class="form_content">
                 <label for="reservation_time"></label>
@@ -46,24 +41,10 @@
                     <option value="23:00">23:00</option>
                     <option value="23:30">23:30</option>
                 </select>
-                <div class="error_message">
-                    @error('reservation_time')
-                        <div class="alert-danger2">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
             </div>
             <div class="form_content">
                 <label for="number_of_people"></label>
                 <input class="number_of_people_input" type="number" name="number_of_people" min="1" placeholder="人数">
-                    <div class="error_message">
-                        @error('number_of_people')
-                            <div class="alert-danger3">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
             </div>
             <button type="submit" class="edit_button">
                 更新
@@ -84,9 +65,7 @@
                     </ul>
                 </div>
             @endif
-
         </form>
-
         <a class="return_my_page" href="/my_page/{shop}">
             マイページへ戻る
         </a>
