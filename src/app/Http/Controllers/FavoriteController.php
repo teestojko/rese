@@ -15,6 +15,7 @@ class FavoriteController extends Controller
     {
         $user = Auth::user();
             if ($user->favoriteShops->contains($shop)) {
+                // contains($shop)で選択したショップがお気に入りリストに含まれているかを確認
                 $user->favoriteShops()->detach($shop);
                 return redirect()->back();
             } else {

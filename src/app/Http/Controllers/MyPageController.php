@@ -21,6 +21,7 @@ class MyPageController extends Controller
     $all_reservations = Reservation::where('user_id', $user->id)
         ->orderBy('reservation_date', 'asc')
         ->orderBy('reservation_time', 'asc')
+        //'asc'は昇順に、'desc'だと降順に、並び替える
         ->get();
     return view('my_page', compact('user', 'favorites', 'all_reservations'));
     }
