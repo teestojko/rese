@@ -43,6 +43,11 @@ class Shop extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function evaluations()
+    {
+        return $this->hasMany(Evaluation::class);
+    }
+
         public function shopRepresentative()
     {
         return $this->hasOne(ShopRepresentative::class);

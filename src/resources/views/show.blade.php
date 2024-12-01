@@ -39,6 +39,11 @@
                         {{ $shop->detail }}
                     </p>
             </div>
+            <div class="evaluation_button">
+                <a href="{{ route('shop-evaluation', ['shop' => $shop->id]) }}" class="btn-primary3">
+                    口コミを投稿する
+                </a>
+            </div>
         </div>
         <div class="reservation_form">
             <div class="reservation_main">

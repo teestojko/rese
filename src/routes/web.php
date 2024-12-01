@@ -12,6 +12,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\QRScannerController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -105,5 +106,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/shops/{shop}/reviews', [ReviewController::class, 'index'])->name('reviews.index');
         Route::post('/shops/{shop}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
         Route::delete('/reviews/index/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+        Route::get('/evaluation/{shop}', [EvaluationController::class, 'evaluation'])->name('shop-evaluation');
+        Route::post('/shops/{shop}/evaluations', [EvaluationController::class, 'store'])->name('evaluations-store');
     });
 });

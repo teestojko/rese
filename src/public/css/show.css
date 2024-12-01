@@ -236,6 +236,10 @@ img{
     padding: 0.5rem 1rem;
 }
 
+.btn-primary3{
+    color: black;
+}
+
 .alert-danger1{
     position: absolute;
     bottom: 20%;
