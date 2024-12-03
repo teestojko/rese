@@ -20,5 +20,11 @@
                 メール送信画面
             </a>
         </div>
+        <div class="">
+            <a href="{{ route('admin.show-import') }}" class="btn btn-primary">
+                CSVインポート
+            </a>
+        </div>
+
     </div>
 @endsection

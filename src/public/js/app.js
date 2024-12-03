@@ -81,7 +81,7 @@ var ReviewForm = function ReviewForm(_ref) {
       // エラーハンドリング
     });
   };
-  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
+  return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
     className: "review_form",
     onSubmit: handleSubmit,
     children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_StarRating__WEBPACK_IMPORTED_MODULE_2__["default"], {

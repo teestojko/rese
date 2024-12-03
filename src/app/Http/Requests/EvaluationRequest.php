@@ -25,7 +25,7 @@ class EvaluationRequest extends FormRequest
     {
         return [
             'comment' => 'required|string|max:400',
-            'image_path' => 'image|max:2048',
+            'image_path' => 'nullable|image|mimes:jpeg,png|max:2048',
         ];
     }
 
@@ -36,6 +36,7 @@ class EvaluationRequest extends FormRequest
             'comment.string' => 'コメントは文字列である必要があります。',
             'comment.max' => 'コメントは400文字以内である必要があります。',
             'image_path.image' => 'アップロードされたファイルは画像である必要があります。',
+            'image_path.mimes' => '画像はjpegまたはpng形式でアップロードしてください。',
             'image_path.max' => '画像ファイルは2MB以下にしてください。',
         ];
     }

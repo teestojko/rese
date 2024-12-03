@@ -1,0 +1,151 @@
+.evaluation{
+    min-width: 100vh;
+    min-height: 100vh;
+    margin-top: -2%;
+    background: rgb(248, 248, 248);
+}
+
+.evaluation_inner{
+    display: flex;
+    width: 100%;
+}
+
+.evaluation_shop{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 40%;
+    height: 80vh;
+    align-items: center;
+}
+
+.evaluation_shop_inner{
+    border-right: 1px solid #a9a9a9;
+}
+
+.evaluation_shop_title{
+    width: 60%;
+    margin: 0 43px 0;
+}
+
+.shop_list{
+    background: rgb(248, 248, 248);
+    padding: 2% 5%;
+    width: 80%;
+}
+
+.shop_content{
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    margin: 10px 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+    padding-bottom: 1%;
+}
+
+/* @media screen and (max-width: 1024px) {
+    .shop_content {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .shop_content {
+        width: 44%;
+    }
+    .shop_list{
+        padding: 9% 5% 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .shop_content {
+        width: 93%;
+    }
+    .shop_list{
+        padding: 15% 5% 0;
+    }
+} */
+
+.shop_img{
+    height: 20vh;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.shop_detail{
+    padding-left: 5%;
+}
+
+.shop_name{
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding-top: 4%;
+}
+
+.shop_prefecture_genre{
+    display: flex;
+    line-height: 0%;
+}
+
+.shop_prefecture{
+    display: flex;
+}
+
+.shop_genre{
+    display: flex;
+    padding-left: 2%;
+}
+
+.shop_form{
+    display: flex;
+    align-items: stretch;
+    width: 95%;
+}
+
+.shop_primary,.shop_favorite{
+    flex: 1;
+}
+
+.detail_button{
+    padding: 4% 7%;
+    color: #ffffff;
+    background-color: rgb(33, 89, 255);
+    text-decoration: none;
+    border-radius: 8px;
+
+}
+.shop_favorite_button{
+    display: flex;
+}
+
+.fas.fa-heart{
+    color: red;
+    background: none;
+    border: none;
+    font-size: 24px;
+}
+
+.far.fa-heart{
+    color: #c7c7c7;
+    background: none;
+    border: none;
+    font-size: 24px;
+}
+
+.submit_favorite{
+    color: red;
+    background: none;
+    border: none;
+}
+
+.submit_not_favorite{
+    background: none;
+    border: none;
+}
+
+.submit_shop_name{
+    background: none;
+    border: none;
+    color: #a9a9a9;
+}

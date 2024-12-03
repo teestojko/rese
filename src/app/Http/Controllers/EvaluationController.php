@@ -28,8 +28,14 @@ class EvaluationController extends Controller
         $evaluation->shop_id = $shop->id;
         $evaluation->comment = $request->comment;
         $evaluation->stars = $request->stars;
+        // 画像の保存処理
+        if ($request->hasFile('image_path')) {
+            // 画像を storage/app/public/evaluations に保存
+            $imagePath = $request->file('image_path')->store('public');
+            $evaluation->image_path = $imagePath; // 画像パスをデータベースに保存
+        }
         $evaluation->save();
         return back()
-        ->with('success', 'レビューを投稿しました');
+        ->with('success', '口コミを投稿しました');
     }
 }

@@ -23,6 +23,7 @@ use App\Http\Controllers\ShopRepresentative\ReservationListController;
 use App\Http\Controllers\Admin\AdminEmailController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ShopOwnerCreateController;
+use App\Http\Controllers\Admin\ImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/store', [ShopOwnerCreateController::class, 'store'])->name('store');
         Route::get('/send_email', [AdminEmailController::class, 'showForm'])->name('send_email_form');
         Route::post('/send_email', [AdminEmailController::class, 'sendEmail'])->name('send_email');
+        Route::get('/admin/import', [ImportController::class, 'showImport'])->name('show-import');
+        Route::post('/admin/import', [ImportController::class, 'store'])->name('import-store');
+
     });
 });
 

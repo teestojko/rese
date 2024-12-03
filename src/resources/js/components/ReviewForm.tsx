@@ -34,13 +34,13 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ shopId, submitUrl }) => {
     };
 
     return (
-        <form className="review_form" onSubmit={handleSubmit}>
+        <div className="review_form" onSubmit={handleSubmit}>
             <StarRating
                 maxStars={5}
                 onRatingChange={(value) => setRating(value)}  // 評価を更新
             />
             <input type="hidden" name="stars" value={rating} />
-        </form>
+        </div>
     );
 };
 

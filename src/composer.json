@@ -12,6 +12,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "league/csv": "^9.18",
         "nesbot/carbon": "^2.31",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "stripe/stripe-php": "^16.1"

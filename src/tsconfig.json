@@ -1,5 +1,5 @@
 {
-  "compilerOptions": {
+    "compilerOptions": {
     // コンパイル出力のターゲット JavaScript バージョンを指定します。最新の ECMAScript 機能を使用する場合は "ESNext" を選択します。
     "target": "ESNext",
 
@@ -29,14 +29,12 @@
 
     // パスエイリアスを設定します。`@/` で `resources/js` 内のファイルを簡単にインポートできるようになります。
     "paths": {
-      "@/*": ["*"]
+        "@/*": ["*"]
     }
-  },
+    },
 
   // コンパイル対象のファイルを指定します。`resources/js` ディレクトリ内のすべてのファイルが対象です。
-  "include": [
-    "resources/js/**/*",
-    "resources/js/components/ReviewForm.tsx",
-    "src/**/*"
-  ]
+    "include": [
+        "resources/js/**/*",
+    ]
 }
