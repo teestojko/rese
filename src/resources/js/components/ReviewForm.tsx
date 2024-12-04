@@ -3,8 +3,8 @@ import StarRating from './StarRating';
 
 
 interface ReviewFormProps {
-    shopId: number;  // 投稿先のショップID
-    submitUrl: string; // フォームの送信先URL
+    shopId: number;
+    submitUrl: string;
 }
 
 const ReviewForm: React.FC<ReviewFormProps> = ({ shopId, submitUrl }) => {
@@ -17,19 +17,16 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ shopId, submitUrl }) => {
         formData.append('comment', comment);
         formData.append('stars', rating.toString());
 
-        // フォーム送信処理を追加（AJAXなども可能）
         fetch(submitUrl, {
             method: 'POST',
             body: formData,
         })
         .then(response => response.json())
         .then(data => {
-            // 成功処理（例えば、フォームをリセットするなど）
-            setComment('');  // コメントをリセット
-            setRating(1);  // 評価をリセット（初期値に戻す）
+            setComment('');
+            setRating(1);
         })
         .catch(error => {
-            // エラーハンドリング
         });
     };
 
@@ -37,7 +34,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ shopId, submitUrl }) => {
         <div className="review_form" onSubmit={handleSubmit}>
             <StarRating
                 maxStars={5}
-                onRatingChange={(value) => setRating(value)}  // 評価を更新
+                onRatingChange={(value) => setRating(value)}
             />
             <input type="hidden" name="stars" value={rating} />
         </div>

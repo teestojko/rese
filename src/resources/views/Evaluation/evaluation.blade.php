@@ -63,55 +63,53 @@
                 <div class="section_title">
                     体験を評価してください
                 </div>
-                <form class="evaluation_form" action="{{ route('evaluations-store', $shop->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                    <div class="form_inner2">
-                        <div class="form_inner_title">
-                            <label class="form_inner_label" for="stars">
-                            </label>
-                        </div>
-                        <div id="app"></div>
-                        @error('stars')
-                            <div class="alert-danger_star">
-                                {{ $message }}
+                <div class="evaluation_section_inner">
+                    <form class="evaluation_form" action="{{ route('evaluations-store', $shop->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                        <div class="form_star">
+                            <div class="form_inner_title">
+                                <label class="form_inner_label" for="stars">
+                                </label>
                             </div>
-                        @enderror
-                    </div>
-                    <div class="form_inner">
-                        <div class="form_inner_title">
-                            <label class="form_inner_label" for="comment">
-                                口コミを投稿
-                            </label>
+                            <div id="app"></div>
+                            @error('stars')
+                                <div class="alert-danger_star">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
-                        <textarea id="comment" name="comment"></textarea>
-                    </div>
-                        @error('comment')
-                            <div class="alert_danger_comment">
-                                {{ $message }}
+                        <div class="form_comment">
+                            <div class="form_comment_title">
+                                <label class="form_inner_label" for="comment">
+                                    口コミを投稿
+                                </label>
                             </div>
-                        @enderror
-                    <!-- 画像アップロードフィールドを追加 -->
-                    <div class="form_inner">
-                        <div class="form_inner_title">
-                            <label class="form_inner_label" for="image_path">
+                            <textarea id="comment" name="comment" placeholder="カジュアルな夜のお出かけにおすすめのスポット"></textarea>
+                            <div class="character-count" id="characterCount">
+                                0/400 最大文字数
+                            </div>
+                        </div>
+                            @error('comment')
+                                <div class="alert_danger_comment">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        <div class="form_img">
+                            <div class="form_img_title">
                                 画像を追加
-                            </label>
+                            </div>
+                                <label class="form_img_label" for="image_path">
+                                    クリックして画像を追加<br>またはドロップアンドドロップ
+                                </label>
+                            <input type="file" id="image_path" name="image_path" accept="image_path/*">
                         </div>
-                        <input type="file" id="image_path" name="image_path" accept="image_path/*">
-                    </div>
-                    @error('image_path')
-                        <div class="alert_danger_image">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <div class="evaluation_button">
-                        <div class="evaluation_button_inner">
-                            <button type="submit" class="evaluation_button_inner_submit">
-                                口コミを投稿
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                        @error('image_path')
+                            <div class="alert_danger_image">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </form>
+                </div>
                 @if(session('success'))
                     <div class="alert_success">
                         {{ session('success') }}
@@ -124,12 +122,40 @@
                 @endif
             </div>
         </div>
+        <div class="evaluation_button">
+            <div class="evaluation_button_inner">
+                <button type="submit" class="evaluation_button_inner_submit">
+                    口コミを投稿
+                </button>
+            </div>
+        </div>
     </div>
 @endsection
 
 @section('scripts')
     <script>
         window.SHOP_ID = {{ $shop->id }};
+
+        function updateCharacterCount() {
+            const comment = document.getElementById('comment');
+            const characterCount = document.getElementById('characterCount');
+            const currentLength = comment.value.length;
+            characterCount.textContent = `${currentLength}/400 最大文字数`;
+
+            if (currentLength > 400) {
+                characterCount.style.color = 'red';
+            } else {
+                characterCount.style.color = '';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const commentField = document.getElementById('comment');
+            if (commentField) {
+                commentField.addEventListener('input', updateCharacterCount);
+            }
+        });
     </script>
     <script src="{{ asset('js/app.js') }}"></script>
+
 @endsection

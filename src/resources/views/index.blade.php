@@ -6,6 +6,23 @@
 @endsection
 
 @section('content')
+    <form class="sort_form" id="sortForm" action="{{ route('shops_filter') }}" method="GET">
+        <!-- 現在の検索条件を保持 -->
+        <input type="hidden" name="prefecture_id" value="{{ request('prefecture_id') }}">
+        <input type="hidden" name="genre_id" value="{{ request('genre_id') }}">
+        <input type="hidden" name="shop_name" value="{{ request('shop_name') }}">
+        <!-- 並び替えセレクトボックス -->
+        <div class="sort_area">
+            <label class="sort_label" for="sort"></label>
+            <select name="sort" id="sort" onchange="document.getElementById('sortForm').submit();">
+                <option value="" disabled {{ request('sort') ? '' : 'selected' }}>並び替え：評価高/低</option>
+                <option value="random" {{ request('sort') == 'random' ? 'selected' : '' }}>ランダム</option>
+                <option value="rating_desc" {{ request('sort') == 'rating_desc' ? 'selected' : '' }}>評価の高い順</option>
+                <option value="rating_asc" {{ request('sort') == 'rating_asc' ? 'selected' : '' }}>評価の低い順</option>
+            </select>
+        </div>
+    </form>
+
     <form class="search_form" id="filterForm" action="{{ route('shops_filter') }}" method="GET">
         <div class="search_container">
             <div class="search_area">
@@ -22,6 +39,7 @@
                 </select>
                 <i class="fas fa-caret-down"></i>
             </div>
+
             <div class="search_genre">
                 <label class="search_label" for="genre_id"></label>
                 <select class="search_select_genre" name="genre_id" id="genre_id">
@@ -36,6 +54,7 @@
                 </select>
                 <i class="fas fa-caret-down"></i>
             </div>
+
             <div class="search_shop_name">
                 <label class="search_label" for="shop_name"></label>
                     <button type="submit" class="submit_shop_name">
@@ -45,6 +64,7 @@
             </div>
         </div>
     </form>
+
     <div class="shop_list">
         @foreach($shops as $shop)
             <div class="shop_content">
@@ -98,6 +118,11 @@
                 select.addEventListener('change', function () {
                     filterForm.submit();
                 });
+            });
+            const sortForm = document.getElementById('sortForm');
+            const sortSelect = document.getElementById('sort');
+            sortSelect.addEventListener('change', function () {
+                sortForm.submit();
             });
         });
         </script>

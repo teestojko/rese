@@ -90,6 +90,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('/reservations/{reservation}', [MyPageController::class, 'destroyReservation'])->name('reservations.destroy');
 
         Route::get('/detail/{shop}', [ShopController::class, 'show'])->name('shops.show');
+        Route::get('/shops/{shop}/evaluations', [ShopController::class, 'showAllEvaluations'])
+        ->name('shop-all-evaluations');
 
         Route::get('/payment', [PaymentController::class, 'showPaymentPage'])->name('payment.show');
         Route::post('/payment/success', [PaymentController::class, 'payment'])->name('payment.process');
@@ -113,5 +115,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/evaluation/{shop}', [EvaluationController::class, 'evaluation'])->name('shop-evaluation');
         Route::post('/shops/{shop}/evaluations', [EvaluationController::class, 'store'])->name('evaluations-store');
+        Route::get('/evaluations/{id}/edit', [EvaluationController::class, 'edit'])->name('evaluations.edit');
+        Route::put('/evaluations/{id}', [EvaluationController::class, 'update'])->name('evaluations-update');
+        Route::delete('/evaluations/{id}', [EvaluationController::class, 'destroy'])->name('evaluations-destroy');
     });
 });

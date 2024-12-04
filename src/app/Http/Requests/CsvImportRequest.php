@@ -47,22 +47,17 @@ class CsvImportRequest extends FormRequest
      */
     public function withValidator($validator)
 {
-    // ファイルが存在しない場合にエラーメッセージを追加
     $validator->after(function ($validator) {
 
         if (!$this->hasFile('csv_file') || !$this->file('csv_file')->isValid()) {
             $validator->errors()->add('csv_file', 'CSVファイルのアップロードに失敗しました。再度ファイルを選択してください。');
         }
 
-        // CSVレコードを取得
         $records = $this->getCsvRecords();
 
-        // レコードが配列か確認し、適切なバリデーションを行う
         if (is_array($records) && !empty($records)) {
             foreach ($records as $record) {
-                // 各レコードが配列であるか確認
                 if (is_array($record)) {
-                    // 画像URLのバリデーション（URLの拡張子がjpegまたはpngか）
                     if (isset($record['画像URL'])) {
                         $imageUrl = $record['画像URL'];
                         $extension = pathinfo($imageUrl, PATHINFO_EXTENSION);
@@ -92,20 +87,15 @@ class CsvImportRequest extends FormRequest
     });
 }
 
-
-
     /**
-     * CSVファイルのレコードを取得
      *
      * @return array
      */
     protected function getCsvRecords()
     {
-        // ファイルが選択されているか確認
         if ($this->hasFile('csv_file') && $this->file('csv_file')->isValid()) {
-            // CSVの読み込み
             $csv = \League\Csv\Reader::createFromPath($this->file('csv_file')->getPathname(), 'r');
-            $csv->setHeaderOffset(0);  // ヘッダー行を指定
+            $csv->setHeaderOffset(0);
             return iterator_to_array($csv->getRecords());
         }
         return back()->withErrors(['csv_file' => 'CSVファイルが選択されていないか、無効です。']);

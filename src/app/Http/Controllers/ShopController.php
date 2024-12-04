@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Shop;
 use App\Models\Reservation;
+use App\Models\Evaluation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -28,6 +29,18 @@ class ShopController extends Controller
                 ->orderBy('reservation_time', 'asc');
         }])->findOrFail($id);
         $nearest_reservation = $shop->reservations->first();
-        return view('show', compact('shop', 'nearest_reservation'));
+
+        $userEvaluation = Evaluation::where('shop_id', $shop->id)
+        ->where('user_id', Auth::id())
+        ->first();
+        return view('show', compact('shop', 'nearest_reservation','userEvaluation'));
+    }
+
+    public function showAllEvaluations($shopId)
+    {
+        $shop = Shop::findOrFail($shopId);
+        $evaluations = Evaluation::where('shop_id', $shopId)->with('user')->get();
+
+        return view('shop.all_evaluations', compact('shop', 'evaluations'));
     }
 }

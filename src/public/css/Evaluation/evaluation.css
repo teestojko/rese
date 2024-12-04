@@ -2,20 +2,22 @@
     min-width: 100vh;
     min-height: 100vh;
     margin-top: -2%;
-    background: rgb(248, 248, 248);
+    background: rgb(241, 241, 241);
 }
 
 .evaluation_inner{
     display: flex;
     width: 100%;
+    height: 80vh;
 }
 
 .evaluation_shop{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 5%;
     width: 40%;
-    height: 80vh;
+    height: 70vh;
     align-items: center;
 }
 
@@ -29,7 +31,6 @@
 }
 
 .shop_list{
-    background: rgb(248, 248, 248);
     padding: 2% 5%;
     width: 80%;
 }
@@ -42,6 +43,101 @@
     box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
     padding-bottom: 1%;
 }
+
+.evaluation_section{
+    width: 60%;
+    height: 70vh;
+    margin: 5% 5% 0;
+}
+
+.section_title{
+    width: 100%;
+    height: 8%;
+    align-content: center;
+    font-size: 1.2rem;
+}
+
+.evaluation_section_inner{
+    width: 100%;
+    height: 95%;
+}
+
+.evaluation_form{
+    width: 100%;
+    height: 100%;
+}
+
+.form_star{
+    height: 13%;
+}
+
+.star {
+    font-size: 2rem; /* 星の大きさ */
+    cursor: pointer; /* カーソルをポインターに変更 */
+    color: #dbdbdb; /* 空の星の色 */
+    transition: color 0.2s;
+}
+
+.star.filled {
+    color: rgb(0, 51, 255); /* 塗りつぶされた星の色 */
+}
+
+.star:hover {
+    color: rgb(0, 60, 255); /* ホバー時の色 */
+}
+
+.form_comment{
+    width: 100%;
+    height: 40%;
+}
+
+.form_comment_title{
+    width: 100%;
+    height: 20%;
+    font-size: 1.2rem;
+}
+
+#comment{
+    width: 100%;
+    height: 80%;
+    border-color: #c8c8c8;
+    background: rgb(241, 241, 241);
+    padding: 1%;
+}
+
+.character-count {
+    font-size: 0.9em;
+    text-align: end;
+}
+
+
+.form_img{
+    width: 100%;
+    height: 44%;
+    margin-top: 5%;
+}
+
+.form_img input[type="file"] {
+        display: none; /* ファイルインプットを非表示に */
+    }
+
+.form_img_title{
+    width: 100%;
+    height: 13%;
+    align-content: center;
+}
+
+.form_img_label {
+        display: inline-block;
+        width: 100%;
+        height: 20vh;
+        background: white;
+        text-align: center;
+        line-height: 25px;
+        cursor: pointer; /* カーソルをポインターに */
+        border-radius: 5px; /* 角丸 */
+        align-content: center;
+    }
 
 /* @media screen and (max-width: 1024px) {
     .shop_content {
@@ -75,6 +171,7 @@
 
 .shop_detail{
     padding-left: 5%;
+    background: #ffffff;
 }
 
 .shop_name{
@@ -148,4 +245,20 @@
     background: none;
     border: none;
     color: #a9a9a9;
+}
+
+.evaluation_button{
+    width: 100%;
+    height: 8vh;
+    align-content: center;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.evaluation_button_inner_submit{
+    width: 30%;
+    height: 6vh;
+    border-radius: 50px;
+    border: none;
+    background: #ffffff;
 }

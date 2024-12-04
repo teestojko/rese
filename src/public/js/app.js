@@ -13,8 +13,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _components_ReviewForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ReviewForm */ "./resources/js/components/ReviewForm.tsx");
 
- // 'react-dom/client' からインポート
- // 正しいインポートパス
+
+
 var shopId = window.SHOP_ID;
 var App = function App() {
   return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_ReviewForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -22,8 +22,7 @@ var App = function App() {
     submitUrl: "/evaluations-store/".concat(shopId)
   });
 };
-// React 18 の方法でマウント
-var root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById('app')); // 'createRoot' を使用
+var root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById('app'));
 root.render((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(App, {}));
 
 /***/ }),
@@ -155,11 +154,6 @@ var StarRating = function StarRating(_ref) {
         },
         onMouseLeave: function onMouseLeave() {
           return setHover(0);
-        },
-        style: {
-          cursor: 'pointer',
-          fontSize: '2em',
-          color: starValue <= (hover || rating) ? '#FFD700' : '#CCCCCC'
         },
         children: "\u2605"
       }, index);

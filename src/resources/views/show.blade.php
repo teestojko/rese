@@ -11,6 +11,8 @@
 @section('content')
     <div class="shop_all">
         <div class="shop_detail_page">
+
+        @if(!$userEvaluation)
             <div class="shop_name_top">
                 <a href="{{ route('user_my_page') }}" class="btn-secondary">
                     &lt;
@@ -35,15 +37,70 @@
                         {{ $shop->genre->name }}
                     </p>
                 </div>
-                    <p>
-                        {{ $shop->detail }}
-                    </p>
+                <p>
+                    {{ $shop->detail }}
+                </p>
+                <div class="evaluation_store_button">
+                    <a href="{{ route('shop-evaluation', ['shop' => $shop->id]) }}" class="btn-primary3">
+                        口コミを投稿する
+                    </a>
+                </div>
             </div>
-            <div class="evaluation_button">
-                <a href="{{ route('shop-evaluation', ['shop' => $shop->id]) }}" class="btn-primary3">
-                    口コミを投稿する
-                </a>
+
+        @else
+        <div class="evaluation_content">
+            <div class="evaluation_section">
+                <img class="evaluation_img" src="{{ asset($shop->image_path) }}" alt="{{ $shop->name }}">
+                <div class="evaluation_shop_detail">
+                    <div class="evaluation_show_prefecture_genre">
+                        <p class="evaluation_show_prefecture">
+                            <span>
+                                #
+                            </span>
+                            {{ $shop->prefecture->name }}
+                        </p>
+                        <p class="evaluation_show_genre">
+                            <span>
+                                #
+                            </span>
+                            {{ $shop->genre->name }}
+                        </p>
+                    </div>
+                        <p class="evaluation_detail">
+                            {{ $shop->detail }}
+                        </p>
+                </div>
+
+                <div class="evaluation_button">
+                    <a href="{{ route('shop-all-evaluations', ['shop' => $shop->id]) }}" class="btn-primary4">
+                        全ての口コミ情報
+                    </a>
+                </div>
+
             </div>
+            <div class="edit_delete_btn">
+                @if($userEvaluation)
+                    <a href="{{ route('evaluations.edit', $userEvaluation->id) }}" class="edit_btn_link">
+                        口コミを編集
+                    </a>
+                @endif
+
+                <form action="{{ route('evaluations-destroy', $userEvaluation->id) }}" method="POST" onsubmit="return confirm('本当に削除しますか？');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="delete_btn">口コミを削除</button>
+                </form>
+            </div>
+            <div class="user_evaluation">
+                <div class="table_item">
+                    @for ($i = 1; $i <= 5; $i++)
+                        <span class="star {{ $i <= $userEvaluation->stars ? 'filled' : '' }}">&#9733;</span>
+                    @endfor
+                </div>
+                <p class="evaluation_comment"> {{ $userEvaluation->comment }}</p>
+            </div>
+        </div>
+        @endif
         </div>
         <div class="reservation_form">
             <div class="reservation_main">

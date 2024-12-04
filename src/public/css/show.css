@@ -8,7 +8,7 @@
 
 .shop_detail_page{
     width: 42%;
-    height: 80vh;
+    height: 81vh;
     margin: 2% 0 2% 5%;
 }
 
@@ -52,6 +52,73 @@ img{
 .show_genre{
     display: flex;
     padding-left: 2%;
+}
+
+.evaluation_content{
+    border-bottom: 1px solid rgb(163, 163, 163);
+    height: 100%;
+}
+
+.evaluation_section{
+    padding: 0 0 5%;
+    border-bottom: 1px solid rgb(163, 163, 163);
+}
+
+.evaluation_img{
+    width: 100%;
+    height: 220px;
+}
+
+.evaluation_show_prefecture_genre{
+    display: flex;
+}
+
+.evaluation_show_prefecture{
+    display: flex;
+}
+
+.evaluation_show_genre{
+    display: flex;
+    padding-left: 2%;
+}
+
+.evaluation_detail{
+    margin: 0 0 3%;
+}
+
+.edit_delete_btn{
+    display: flex;
+    justify-content: end;
+}
+
+.edit_btn_link{
+    color: black;
+    font-weight: lighter;
+}
+
+.delete_btn{
+    border: none;
+    font-size: 16px;
+    font-weight: 10px;
+    border-bottom: 1px solid;
+    height: 20px;
+    background: rgb(248, 248, 248);
+    margin-left: 10px;
+}
+
+.evaluation_button{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    background: #4d83ff;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary4{
+    color: white;
+    text-decoration: none;
 }
 
 .reservation_form{
@@ -191,9 +258,13 @@ img{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.stars{
-    width: 20%;
-    text-align: center;
+.star {
+    font-size: 35px;
+    color: rgb(206, 206, 206);
+}
+
+.star.filled {
+    color: rgb(60, 80, 255);
 }
 
 .alert-success{

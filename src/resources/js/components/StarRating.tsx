@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 interface StarRatingProps {
     maxStars?: number;
-    onRatingChange: (rating: number) => void; // 親コンポーネントへ評価を渡す
+    onRatingChange: (rating: number) => void;
 }
 
 const StarRating: React.FC<StarRatingProps> = ({ maxStars = 5, onRatingChange }) => {
@@ -11,7 +11,7 @@ const StarRating: React.FC<StarRatingProps> = ({ maxStars = 5, onRatingChange })
 
     const handleClick = (starValue: number) => {
         setRating(starValue);
-        onRatingChange(starValue);  // 親コンポーネントに通知
+        onRatingChange(starValue);
     };
 
     return (
@@ -25,7 +25,6 @@ const StarRating: React.FC<StarRatingProps> = ({ maxStars = 5, onRatingChange })
                         onClick={() => handleClick(starValue)}
                         onMouseEnter={() => setHover(starValue)}
                         onMouseLeave={() => setHover(0)}
-                        style={{ cursor: 'pointer', fontSize: '2em', color: starValue <= (hover || rating) ? '#FFD700' : '#CCCCCC' }}
                     >
                         ★
                     </span>
