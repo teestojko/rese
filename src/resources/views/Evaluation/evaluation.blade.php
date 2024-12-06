@@ -108,6 +108,13 @@
                                 {{ $message }}
                             </div>
                         @enderror
+                        <div class="evaluation_button">
+                            <div class="evaluation_button_inner">
+                                <button type="submit" class="evaluation_button_inner_submit">
+                                    口コミを投稿
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 @if(session('success'))
@@ -120,13 +127,6 @@
                         {{ $errors->first('custom_error') }}
                     </div>
                 @endif
-            </div>
-        </div>
-        <div class="evaluation_button">
-            <div class="evaluation_button_inner">
-                <button type="submit" class="evaluation_button_inner_submit">
-                    口コミを投稿
-                </button>
             </div>
         </div>
     </div>

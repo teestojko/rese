@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\AdminEmailController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ShopOwnerCreateController;
 use App\Http\Controllers\Admin\ImportController;
+use App\Http\Controllers\Admin\EvaluationEditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +51,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/send_email', [AdminEmailController::class, 'sendEmail'])->name('send_email');
         Route::get('/admin/import', [ImportController::class, 'showImport'])->name('show-import');
         Route::post('/admin/import', [ImportController::class, 'store'])->name('import-store');
-
+        Route::get('/admin/evaluations', [EvaluationEditController::class, 'index'])->name('evaluations-index');
+        Route::delete('/admin/evaluations/{evaluation}', [EvaluationEditController::class, 'destroy'])
+        ->name('evaluations-destroy');
     });
 });
 
@@ -118,5 +121,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/evaluations/{id}/edit', [EvaluationController::class, 'edit'])->name('evaluations.edit');
         Route::put('/evaluations/{id}', [EvaluationController::class, 'update'])->name('evaluations-update');
         Route::delete('/evaluations/{id}', [EvaluationController::class, 'destroy'])->name('evaluations-destroy');
+        Route::get('/shops/{shop}/evaluations', [EvaluationController::class, 'index'])->name('shop-all-evaluations');
     });
 });

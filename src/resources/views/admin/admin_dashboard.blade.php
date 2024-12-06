@@ -20,9 +20,14 @@
                 メール送信画面
             </a>
         </div>
-        <div class="">
-            <a href="{{ route('admin.show-import') }}" class="btn btn-primary">
+        <div class="admin_dashboard_csv">
+            <a class="csv_link" href="{{ route('admin.show-import') }}">
                 CSVインポート
+            </a>
+        </div>
+        <div class="admin_dashboard_evaluation">
+            <a class="evaluation_link" href="{{ route('admin.evaluations-index') }}">
+                口コミ管理
             </a>
         </div>
 

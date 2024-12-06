@@ -14,14 +14,20 @@
     color: rgb(175, 175, 175);
 }
 
-.admin_dashboard_create_owner{
+.admin_dashboard_create_owner,
+.admin_dashboard_email,
+.admin_dashboard_csv,
+.admin_dashboard_evaluation{
     width: 100%;
     height: 20%;
     text-align: center;
     align-content: center;
 }
 
-.create_owner_link{
+.create_owner_link,
+.email_link,
+.csv_link,
+.evaluation_link{
     text-decoration: none;
     padding: 1.3% 4%;
     border-radius: 5px;
@@ -29,17 +35,3 @@
     color: rgb(74, 120, 255);
 }
 
-.admin_dashboard_email{
-    width: 100%;
-    height: 20%;
-    text-align: center;
-    align-content: center;
-}
-
-.email_link{
-    text-decoration: none;
-    padding: 1.3% 4%;
-    border-radius: 5px;
-    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
-    color: rgb(74, 120, 255);
-}

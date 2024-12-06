@@ -3,6 +3,7 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
 <link rel="stylesheet" href="{{ asset('css/Evaluation/edit.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 @endsection
 
 @section('content')
@@ -11,6 +12,16 @@
     <form action="{{ route('evaluations-update', $evaluation->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul class="error-list">
+                    @foreach ($errors->all() as $error)
+                        <li class="error-message"><i class="fas fa-exclamation-circle"></i> {{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <div class="form-group">
             <label for="stars">星の数：</label>
@@ -23,7 +34,7 @@
 
         <div class="form-group">
             <label for="comment">コメント：</label>
-            <textarea name="comment" class="form-control" required>{{ old('comment', $evaluation->comment) }}</textarea>
+            <textarea name="comment" class="form-control">{{ old('comment', $evaluation->comment) }}</textarea>
         </div>
 
         <div class="form-group">

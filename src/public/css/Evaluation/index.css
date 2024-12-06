@@ -1,0 +1,28 @@
+.evaluation_page {
+    margin: 20px;
+}
+.shop_header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.evaluations_list {
+    margin-top: 20px;
+}
+.evaluation_item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+.star {
+    color: gray;
+}
+.star.filled {
+    color: gold;
+}
+.evaluation_comment {
+    margin-top: 5px;
+}
+.evaluation_image {
+    max-width: 100px;
+    margin-top: 10px;
+}
