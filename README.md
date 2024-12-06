@@ -79,6 +79,8 @@ php 8.3.8
 
 JavaScript
 
+React
+
 html 5
 
 css 3
@@ -91,11 +93,11 @@ css 3
 
 ![alt text](image-5.png)
 
-![alt text](image-7.png)
+![alt text](image-12.png)
 
 ## ER図
 
-![alt text](image-6.png)
+![alt text](image-13.png)
 
 # 環境構築
 
@@ -114,7 +116,7 @@ git remote set-url origin https://github.com/teestojko/Reserve.git
 (作成されたgitのURLを、下記のoriginの後ろに記述)
 
 
-### dockerイメージ作成　起動　&　phpバージョン変更
+### dockerイメージ作成 起動 & phpバージョン変更
 
 docker-compose up -d --build
 
