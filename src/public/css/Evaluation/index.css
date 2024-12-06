@@ -26,3 +26,17 @@
     max-width: 100px;
     margin-top: 10px;
 }
+.shop_back_btn{
+    position: absolute;
+    top: 5%;
+    right: 13%;
+    width: 8%;
+    text-align: center;
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.shop_back_btn_link{
+    text-decoration: none;
+    padding: 1% 3%;
+}

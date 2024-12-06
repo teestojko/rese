@@ -153,7 +153,7 @@
 @media screen and (max-width: 768px) {
     #sort{
         position: absolute;
-        top: 16%;
+        top: 17%;
     }
     .shop_content {
         width: 44%;
@@ -169,6 +169,10 @@
 }
 
 @media screen and (max-width: 480px) {
+    #sort{
+        position: absolute;
+        top: 20%;
+    }
     .shop_content {
         width: 93%;
     }

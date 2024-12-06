@@ -6,8 +6,12 @@
 
 @section('content')
     <div class="evaluation_page">
+        <div class="shop_back_btn">
+            <a href="{{ route('shops.show', ['shop' => $shop->id]) }}" class="shop_back_btn_link">
+                戻る
+            </a>
+        </div>
         <div class="shop_header">
-            <a href="{{ route('shops.show', ['shop' => $shop->id]) }}" class="btn-secondary">&lt; 戻る</a>
             <h1>{{ $shop->name }}の口コミ一覧</h1>
         </div>
 
