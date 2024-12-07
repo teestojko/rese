@@ -14,7 +14,6 @@
         <div class="shop_header">
             <h1>{{ $shop->name }}の口コミ一覧</h1>
         </div>
-
         @if($evaluations->isEmpty())
             <p class="no_evaluation">まだ口コミはありません。</p>
         @else

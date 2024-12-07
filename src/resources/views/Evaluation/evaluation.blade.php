@@ -98,9 +98,9 @@
                             <div class="form_img_title">
                                 画像を追加
                             </div>
-                                <label class="form_img_label" for="image_path">
-                                    クリックして画像を追加<br>またはドロップアンドドロップ
-                                </label>
+                            <label class="form_img_label" for="image_path">
+                                クリックして画像を追加<br>またはドロップアンドドロップ
+                            </label>
                             <input type="file" id="image_path" name="image_path" accept="image_path/*">
                         </div>
                         @error('image_path')
@@ -151,11 +151,37 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const commentField = document.getElementById('comment');
+            const dropArea = document.querySelector('.form_img_label');
+            const fileInput = document.getElementById('image_path');
+
             if (commentField) {
                 commentField.addEventListener('input', updateCharacterCount);
+            }
+
+            if (dropArea) {
+                dropArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropArea.classList.add('dragover');
+                });
+
+                dropArea.addEventListener('dragleave', () => {
+                    dropArea.classList.remove('dragover');
+                });
+
+                dropArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropArea.classList.remove('dragover');
+
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        fileInput.files = files;
+
+                        dropArea.textContent = files[0].name;
+                    }
+                });
             }
         });
     </script>
     <script src="{{ asset('js/app.js') }}"></script>
-
 @endsection
+

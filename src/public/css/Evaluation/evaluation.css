@@ -71,18 +71,18 @@
 }
 
 .star {
-    font-size: 2rem; /* 星の大きさ */
-    cursor: pointer; /* カーソルをポインターに変更 */
-    color: #dbdbdb; /* 空の星の色 */
+    font-size: 2rem;
+    cursor: pointer;
+    color: #dbdbdb;
     transition: color 0.2s;
 }
 
 .star.filled {
-    color: rgb(0, 51, 255); /* 塗りつぶされた星の色 */
+    color: rgb(0, 51, 255);
 }
 
 .star:hover {
-    color: rgb(0, 60, 255); /* ホバー時の色 */
+    color: rgb(0, 60, 255);
 }
 
 .form_comment{
@@ -117,7 +117,7 @@
 }
 
 .form_img input[type="file"] {
-        display: none; /* ファイルインプットを非表示に */
+        display: none;
     }
 
 .form_img_title{
@@ -133,34 +133,10 @@
         background: white;
         text-align: center;
         line-height: 25px;
-        cursor: pointer; /* カーソルをポインターに */
-        border-radius: 5px; /* 角丸 */
+        cursor: pointer;
+        border-radius: 5px;
         align-content: center;
     }
-
-/* @media screen and (max-width: 1024px) {
-    .shop_content {
-        width: 30%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .shop_content {
-        width: 44%;
-    }
-    .shop_list{
-        padding: 9% 5% 0;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .shop_content {
-        width: 93%;
-    }
-    .shop_list{
-        padding: 15% 5% 0;
-    }
-} */
 
 .shop_img{
     height: 20vh;
@@ -261,3 +237,10 @@
     border: none;
     background: #ffffff;
 }
+
+.dragover {
+    border: 2px dashed #4CAF50;
+    background-color: #f9f9f9;
+    color: #4CAF50;
+}
+

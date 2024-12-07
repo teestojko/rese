@@ -12,7 +12,6 @@
     <div class="shop">
         <div class="shop_all">
             <div class="shop_detail_page">
-
             @if(!$userEvaluation)
                 <div class="shop_name_top">
                     <a href="{{ route('user_my_page') }}" class="btn-secondary">
@@ -47,7 +46,6 @@
                         </a>
                     </div>
                 </div>
-
             @else
             <div class="evaluation_content">
                 <div class="evaluation_section">
@@ -71,13 +69,11 @@
                                 {{ $shop->detail }}
                             </p>
                     </div>
-
                     <div class="evaluation_button">
                         <a href="{{ route('shop-all-evaluations', ['shop' => $shop->id]) }}" class="btn-primary4">
                             全ての口コミ情報
                         </a>
                     </div>
-
                 </div>
                 <div class="edit_delete_btn">
                     @if($userEvaluation)
@@ -85,7 +81,6 @@
                             口コミを編集
                         </a>
                     @endif
-
                     <form action="{{ route('evaluations-destroy', $userEvaluation->id) }}" method="POST" onsubmit="return confirm('本当に削除しますか？');">
                         @csrf
                         @method('DELETE')
@@ -193,7 +188,6 @@
                                 </div>
                             @endif
                         </div>
-
                         <script>
                             document.getElementById('reservation_date').addEventListener('change', function() {
                                 var selectedDate = this.value;

@@ -39,4 +39,9 @@
         @endif
     </div>
 </div>
+<div class="dashboard_back_button">
+    <a class="dashboard_back_button_link" href="{{ route('admin.dashboard')}}">
+        戻る
+    </a>
+</div>
 @endsection

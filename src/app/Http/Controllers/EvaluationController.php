@@ -33,7 +33,6 @@ class EvaluationController extends Controller
             $imagePath = $request->file('image_path')->store('public');
             $evaluation->image_path = $imagePath;
         }
-
         $evaluation->save();
         return back()
         ->with('success', '口コミを投稿しました');
@@ -48,41 +47,16 @@ class EvaluationController extends Controller
         return view('Evaluation.edit', compact('evaluation'));
     }
 
-    // public function update(UpdateEvaluationRequest $request, $id)
-    // {
-    //     $evaluation = Evaluation::findOrFail($id);
-    //     if ($evaluation->user_id !== Auth::id()) {
-    //         abort(403);
-    //     }
-    //     $validated = $request->validate([
-    //         'stars' => 'required|integer|min:1|max:5',
-    //         'comment' => 'required|string|max:1000',
-    //         'image' => 'nullable|image|max:2048',
-    //     ]);
-    //     $evaluation->stars = $validated['stars'];
-    //     $evaluation->comment = $validated['comment'];
-    //     if ($request->hasFile('image')) {
-    //         $path = $request->file('image')->store('evaluations', 'public');
-    //         $evaluation->image_path = $path;
-    //     }
-    //     $evaluation->save();
-    //     return redirect()->route('shops.show', $evaluation->shop_id)->with('success', '評価を更新しました。');
-    // }
-
     public function update(UpdateEvaluationRequest $request, $id)
         {
             $evaluation = Evaluation::findOrFail($id);
-
             $evaluation->stars = $request->stars;
             $evaluation->comment = $request->comment;
-
             if ($request->hasFile('image')) {
                 $path = $request->file('image')->store('evaluations', 'public');
                 $evaluation->image_path = $path;
             }
-
             $evaluation->save();
-
             return redirect()->route('shops.show', $evaluation->shop_id)
                             ->with('success', '評価を更新しました。');
         }

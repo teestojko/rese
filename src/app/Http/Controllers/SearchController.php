@@ -17,7 +17,6 @@ class SearchController extends Controller
         $user = Auth::user();
         $prefectures = Prefecture::all();
         $genres = Genre::all();
-
         $query = Shop::with('prefecture', 'genre')
                     ->leftJoin('evaluations', 'shops.id', '=', 'evaluations.shop_id')
                     ->select('shops.*', DB::raw('COALESCE(AVG(evaluations.stars), 0) as average_rating'))
