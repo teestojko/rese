@@ -104,15 +104,20 @@ css 3
 
 # 環境構築
 
+
 git clone git@github.com:teestojko/Reserve.git
 
-### dockerイメージ作成 起動 & phpバージョン変更
+### dockerイメージ作成 起動
 
 docker-compose up -d --build
+
+
 
 ### homebrewをインストール
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
 
 ### php gdをインストール
 
@@ -120,15 +125,21 @@ brew install php
 
 brew install gd
 
+
+
 ### gdが有効になっているか確認
 
 php -m | grep gd
 
 ### 有効になっていれば gd と表示される
 
+
+
 composer update
 
 composer install
+
+
 
 ### .envの作成
 
@@ -136,13 +147,19 @@ cp .env.example .env
 
 ### (環境に合わせてパスワード等を設定してください)
 
+
+
 ### アプリケーションキーを作成
 
 php artisan key:generate
 
+
+
 ### シンボリックリンクを作成
 
 php artisan storage:link
+
+
 
 ### マイグレーション＆シーディング
 
