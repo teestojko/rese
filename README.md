@@ -104,57 +104,47 @@ css 3
 
 # 環境構築
 
-git clone git@github.com:teestojko/template.git
-
-
-### 名前変更
-
-mv template Reserve(お好きな名前に変更)
-
-
-### プロジェクトのルートディレクトリ(Reserve)に移動して、
-
-git remote set-url origin https://github.com/teestojko/Reserve.git
-
-(作成されたgitのURLを、下記のoriginの後ろに記述)
-
+git clone git@github.com:teestojko/Reserve.git
 
 ### dockerイメージ作成 起動 & phpバージョン変更
 
 docker-compose up -d --build
 
-composer.jsonのphpの記述を
-"php": "^7.3|^8.0|^8.3",
-に変更
+### homebrewをインストール
 
-composer config --global platform.php 8.3.8
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+### php gdをインストール
+
+brew install php
+
+brew install gd
+
+### gdが有効になっているか確認
+
+php -m | grep gd
+
+### 有効になっていれば gd と表示される
 
 composer update
 
 composer install
 
-php artisan key:generate
+### .envの作成
 
-
-### .envの作成、記述変更
+### (環境に合わせてパスワード等を設定してください)
 
 cp .env.example .env
 
+### アプリケーションキーを作成
 
-### .env
+php artisan key:generate
 
-DB_HOST=mysql
+### シンボリックリンクを作成
 
-DB_PORT=3306
+php artisan storage:link
 
-DB_DATABASE=laravel_db
-
-DB_USERNAME=laravel_user
-
-DB_PASSWORD=laravel_pass
-
-
-##### (適宜挿入したいダミーデータを記述)
+### マイグレーション＆シーディング
 
 php artisan migrate
 
